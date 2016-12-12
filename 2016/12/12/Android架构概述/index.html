@@ -84,52 +84,31 @@
 
 
 
-<meta name="description" content="场景：在某陌生人社交平台上，每次上线之后，都会有很多陌生女性主动发起对话，以一些诱导的方式进行索取微信或者QQ账号，使得平台的聊天环境变得比较恶劣，如果我是该平台产品经理，针对这个案例会如何做用户分析，并且制定相应的解决方案？
+<meta name="description" content="系统架构图及各层介绍
 
-个体分析从后台调取数据进行用户行为分析
-抽离用户信息：
-用户行为分析：
-
-在短时间内加很多人
-在线时间极长
-ID用一段时间就作废了
-回复非常快
-主动发起对话
-前20个聊">
+Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。
+Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。
+Libraries系">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从一个小事例来谈用户特征分析方法论">
-<meta property="og:url" content="http://yoursite.com/2016/12/10/user-character-analysis/index.html">
+<meta property="og:title" content="Android架构概述">
+<meta property="og:url" content="http://yoursite.com/2016/12/12/Android架构概述/index.html">
 <meta property="og:site_name" content="Gunther's Notes">
-<meta property="og:description" content="场景：在某陌生人社交平台上，每次上线之后，都会有很多陌生女性主动发起对话，以一些诱导的方式进行索取微信或者QQ账号，使得平台的聊天环境变得比较恶劣，如果我是该平台产品经理，针对这个案例会如何做用户分析，并且制定相应的解决方案？
+<meta property="og:description" content="系统架构图及各层介绍
 
-个体分析从后台调取数据进行用户行为分析
-抽离用户信息：
-用户行为分析：
-
-在短时间内加很多人
-在线时间极长
-ID用一段时间就作废了
-回复非常快
-主动发起对话
-前20个聊">
-<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/feature_analysis.png">
-<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/critical_path.png">
-<meta property="og:updated_time" content="2016-12-10T02:49:10.783Z">
+Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。
+Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。
+Libraries系">
+<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/%E6%9E%B6%E6%9E%84.jpg">
+<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/dvm.png">
+<meta property="og:updated_time" content="2016-12-12T14:36:29.090Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从一个小事例来谈用户特征分析方法论">
-<meta name="twitter:description" content="场景：在某陌生人社交平台上，每次上线之后，都会有很多陌生女性主动发起对话，以一些诱导的方式进行索取微信或者QQ账号，使得平台的聊天环境变得比较恶劣，如果我是该平台产品经理，针对这个案例会如何做用户分析，并且制定相应的解决方案？
+<meta name="twitter:title" content="Android架构概述">
+<meta name="twitter:description" content="系统架构图及各层介绍
 
-个体分析从后台调取数据进行用户行为分析
-抽离用户信息：
-用户行为分析：
-
-在短时间内加很多人
-在线时间极长
-ID用一段时间就作废了
-回复非常快
-主动发起对话
-前20个聊">
-<meta name="twitter:image" content="http://ohiad05ib.bkt.clouddn.com/feature_analysis.png">
+Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。
+Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。
+Libraries系">
+<meta name="twitter:image" content="http://ohiad05ib.bkt.clouddn.com/%E6%9E%B6%E6%9E%84.jpg">
 
 
 
@@ -147,7 +126,7 @@ ID用一段时间就作废了
   };
 </script>
 
-  <title> 从一个小事例来谈用户特征分析方法论 | Gunther's Notes </title>
+  <title> Android架构概述 | Gunther's Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -267,7 +246,7 @@ ID用一段时间就作废了
             
             
               
-                从一个小事例来谈用户特征分析方法论
+                Android架构概述
               
             
           </h1>
@@ -279,8 +258,8 @@ ID用一段时间就作废了
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-10T10:43:46+08:00" content="2016-12-10">
-              2016-12-10
+            <time itemprop="dateCreated" datetime="2016-12-12T22:27:51+08:00" content="2016-12-12">
+              2016-12-12
             </time>
           </span>
 
@@ -307,44 +286,18 @@ ID用一段时间就作废了
       
 
       
-        <blockquote>
-<p>场景：在某陌生人社交平台上，每次上线之后，都会有很多陌生女性主动发起对话，以一些诱导的方式进行索取微信或者QQ账号，使得平台的聊天环境变得比较恶劣，如果我是该平台产品经理，针对这个案例会如何做用户分析，并且制定相应的解决方案？</p>
-</blockquote>
-<h2 id="个体分析"><a href="#个体分析" class="headerlink" title="个体分析"></a>个体分析</h2><p>从后台调取数据进行用户行为分析</p>
-<p>抽离用户信息：<br><img src="http://ohiad05ib.bkt.clouddn.com/feature_analysis.png" alt="用户画像分析"></p>
-<p>用户行为分析：</p>
-<ul>
-<li>在短时间内加很多人</li>
-<li>在线时间极长</li>
-<li>ID用一段时间就作废了</li>
-<li>回复非常快</li>
-<li>主动发起对话</li>
-<li>前20个聊天记录中，包含QQ号码</li>
-<li>注册完就马上加一堆好友</li>
-</ul>
-<a id="more"></a>
-<h2 id="关键路径"><a href="#关键路径" class="headerlink" title="关键路径"></a>关键路径</h2><ul>
-<li>猜测关键关键的行为有哪些？</li>
-<li>明确特征的算法</li>
-<li>命中行为的路径是什么？</li>
-</ul>
-<p><img src="http://ohiad05ib.bkt.clouddn.com/critical_path.png" alt="命中行为量化指标"></p>
-<p>抽象出的关键路径：</p>
-<p>注册——&gt;疯狂加人——&gt;诱导式聊天——&gt;跳出平台</p>
-<h2 id="验证分析"><a href="#验证分析" class="headerlink" title="验证分析"></a>验证分析</h2><ul>
-<li>把关键行为特征交叉后调出数据，然后验证</li>
-<li>命中率：有多少命中策略的数据被调取出来了</li>
-<li>准确率：调出的数据中，准确率是多少</li>
-<li>优化数据，调整粒度</li>
-</ul>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><ul>
-<li>用户特征分析越详实，解决方案越准确 </li>
-<li>假设上述算法筛选的数据是准确无误的，则可以指定相关方案给这种用户警告或者封号，能够减少这种损害平台的行为</li>
-</ul>
-<h2 id="用户特征分析的逻辑顺序"><a href="#用户特征分析的逻辑顺序" class="headerlink" title="用户特征分析的逻辑顺序"></a>用户特征分析的逻辑顺序</h2><ul>
-<li>个体分析——&gt;关键路径——&gt;验证分析——&gt;解决方案</li>
-<li>行为分析是重中之重</li>
-</ul>
+        <h3 id="系统架构图及各层介绍"><a href="#系统架构图及各层介绍" class="headerlink" title="系统架构图及各层介绍"></a>系统架构图及各层介绍</h3><p><img src="http://ohiad05ib.bkt.clouddn.com/%E6%9E%B6%E6%9E%84.jpg" alt="Alt text"></p>
+<ol>
+<li>Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。</li>
+<li>Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。</li>
+<li>Libraries系统运行库（C/C++库以及Android运行库）层：当使用Android应用框架时，Android系统会通过一些C/C++库来支持我们使用的各个组件，使其更好的为我们服务，比如其中的SQLite（关系数据库），Webkit（Web浏览器引擎）。</li>
+<li>Linux Kernel内核层：Android的核心系统服务给予Linux2.6内核，如安全性、内存管理、进程管理、网络协议栈和驱动模型等都依赖于该内核，比如Binder IPC(Internet Process Connection进程间通信)驱动，android的一个特殊驱动程序，具有单独的设备节点，提供进程间通信的功能。<a id="more"></a>
+<h3 id="Dalvik-VM和JVM的区别"><a href="#Dalvik-VM和JVM的区别" class="headerlink" title="Dalvik VM和JVM的区别"></a>Dalvik VM和JVM的区别</h3></li>
+<li>传统JVM<br>编写.java文件—-编译为.class文件—-打包成.jar文件，将java源码编译为class文件，然后将一组class打包成jar。基于栈结构，栈存储于内存中，所以需要用到内存空间</li>
+<li>Dalvik VM<br>编写.java文件—-编译为.class文件—-打包成.dex文件—-打包成.apk文件。将一组class编译为一个dex文件，然后有的平台为了更高的效率会将一个dex转换成odex文件。将N多个class文件编译为一个dex，这样执行效率会比较快，更适合在移动平台运行。基于寄存器的结构，寄存器在cpu中，所以用到cpu的空间</li>
+<li>DVM与JVM的区别：<br><img src="http://ohiad05ib.bkt.clouddn.com/dvm.png" alt=""></li>
+<li>ART模式概述<br>ART模式是Android Runtime的简称，从Android 4.2开始出现。在Android 4.2以前，安卓手机系统的应用程序均在Dalvik Java的虚拟机上运行，这种运行模式是还要依靠一个编译器来实现与应用程序的沟通。应程序每次运行时，都需要将程序内的代码及时转变为机器码才能运行，这无形中多附加了一道手续，这就造成了耗电相对较快、占用内存大、即使是旗舰机用久了也会卡顿严重的现象。<br>ART模式通过在安装应用程序时，自动对程序进行代码预读取编译，让程序直接编译成机器语言，免去了Dalvik模式要时时转换代码，实现高效率、省电、占用更低的系统内存、手机运行流畅。但凡事总有正反两面，ART在解决了该问题的同时，同时也有如：会占用略高一些的存储空间、安装程序时要相比普通Dalvik模式要长一些时间来实现预编译。</li>
+</ol>
 
       
     </div>
@@ -369,17 +322,13 @@ ID用一段时间就作废了
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/05/product-map/" rel="next" title="利用产品画布分析一款互联网产品">
-                <i class="fa fa-chevron-left"></i> 利用产品画布分析一款互联网产品
+              <a href="/2016/12/12/Android数据存储(二)/" rel="next" title="Android数据存储(二)">
+                <i class="fa fa-chevron-left"></i> Android数据存储(二)
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/10/axure-movie/" rel="prev" title="Axure7.0绘制电影App交互原型图例">
-                Axure7.0绘制电影App交互原型图例 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -508,7 +457,7 @@ ID用一段时间就作废了
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#个体分析"><span class="nav-number">1.</span> <span class="nav-text">个体分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关键路径"><span class="nav-number">2.</span> <span class="nav-text">关键路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#验证分析"><span class="nav-number">3.</span> <span class="nav-text">验证分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方案"><span class="nav-number">4.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户特征分析的逻辑顺序"><span class="nav-number">5.</span> <span class="nav-text">用户特征分析的逻辑顺序</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#系统架构图及各层介绍"><span class="nav-number">1.</span> <span class="nav-text">系统架构图及各层介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dalvik-VM和JVM的区别"><span class="nav-number">2.</span> <span class="nav-text">Dalvik VM和JVM的区别</span></a></li></ol></div>
             
           </div>
         </section>
