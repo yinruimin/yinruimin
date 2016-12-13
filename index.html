@@ -233,6 +233,444 @@
             
               
                 
+                <a class="post-title-link" href="/2016/12/13/Android开发基础之ContentProvider/" itemprop="url">
+                  Android开发基础之ContentProvider
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-13T14:53:54+08:00" content="2016-12-13">
+              2016-12-13
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <ol>
+<li>简介</li>
+<li>使用说明</li>
+<li>ContentObserver</li>
+</ol>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>ContentProvider即内容提供者，是Android的四大组件之一。内容提供者是应用程序之间共享数据的接口，Android系统将这种机制应用到方方面面。</p>
+<p>比如：联系人Provider专为不同应用程序提供联系人数据；设置Provider专为不同应用程序提供系统配置信息，包括内置的设置应用程序等。当应用继承ContentProvider类，并重写该类用于提供数据和存储数据的方法，就可以向其他应用共享其数据。</p>
+<p>虽然使用其他方法也可以对外共享数据，但数据访问方式会因数据存储的方式而不同，如：采用文件方式对外共享数据，需要进行文件操作读写数据；采用SharedPreferences共享数据，需要使用SharedPreferences API读写数据。</p>
+<p>而使用ContentProvider共享数据的好处是统一了数据访问方式。内容提供者将数据封装，只暴露出我们希望提供给其他程序的数据。内容提供者中数据更改可被监听。</p>
+<h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><ol>
+<li>定义类继承ContentProvider，根据需要重写内部方法(增删改查)</li>
+<li>在清单文件的<application>节点下进行配置，<provider>标签中需要指定name和authorities属性<br>name：类名，包名从程序Package开始，以“.”开始<br>authorities：是访问Provider时的路径，要唯一 </li>
+<li>URI代表要操作的数据，由scheme、authorites、path三部分组成<br>content：//cn.gunther.sqlite.provider/person<br>scheme：固定为content，代表访问内容提供者<br>authorites：<provider>节点中的authorites属性<br>path：程序定义的路径，可根据业务逻辑定义
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/12/13/Android开发基础之ContentProvider/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/13/Android开发基础之Service/" itemprop="url">
+                  Android开发基础之Service
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-13T14:32:04+08:00" content="2016-12-13">
+              2016-12-13
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <ol>
+<li>简介</li>
+<li>使用说明</li>
+<li>启动与绑定</li>
+</ol>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>很多情况下，一些与用户很少需要产生交互的应用程序，我们一般让它们在后台运行就行了，而且在它们运行期间我们仍然能运行其他的应用。为了处理这种后台进程，Android引入了Service的概念。</p>
+<ol>
+<li>Service在Android中是一种长生命周期的组件，它不实现任何用户界面,是一个没有界面的组件，由其他组件开启。</li>
+<li>Service长期在后台运行, 执行不关乎界面的一些操作比如: 网易新闻服务,每隔1分钟去服务查看是否有最新新闻。</li>
+<li>Service和Thread有点相似,但是使用Thread不安全, 不严谨。</li>
+<li>Service和其他组件一样，都是运行在主线程中，因此不能用它来做耗时的操作。</li>
+</ol>
+<h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><ol>
+<li>创建Service，定义类继承Service，AndroidManifest.xml中定义<service></li>
+<li>开启Service，在其他组件中调用startService方法<br>startService(intent);（在activity中可以直接调用），会执行onstartCommand(生命周期方法)(onStart()以过期的方法)，如果发现service还没有，就会先创建执行oncreate。<br>onCreate只会执行一次，服务一旦被创建出来，就不会再执行onCreate方法，以后再去开启服务只会执行onStartCommand。<br>停止Service，调用stopService方法，会执行onDestory()（生命周期方法）。</li>
+<li>服务也是运行在主线程中，耗时操作需要放到子线程中，不然会出现anr</li>
+<li>setForegound(true)(直接在service里调用)，为了避免服务被杀死，我们可以指定这个服务为前台进程。
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/12/13/Android开发基础之Service/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/13/Android开发基础之BroadcastReceiver/" itemprop="url">
+                  Android开发基础之BroadcastReceiver
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-13T14:08:20+08:00" content="2016-12-13">
+              2016-12-13
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <ol>
+<li>简介</li>
+<li>生命周期</li>
+<li>自定义广播</li>
+</ol>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>在Android中，Broadcast是一种广泛运用的在应用程序之间传输信息的机制。而BroadcastReceiver是对发送出来的Broadcast进行过滤接受并响应的一类组件。</p>
+<p>广播接收者（BroadcastReceiver）用于接收广播Intent的, 广播Intent的发送是通过调用sendBroadcast/sendOrderedBroadcast来实现的。通常一个广播Intent可以被订阅了此Intent的多个广播接收者所接收。</p>
+<h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p>广播接收者也是运行在主线程中，所以在广播接收者的onReceive方法内不能有耗时的操作，需要放在子线程中做，但是onReceive的生命周期很短，有可能广播接收者结束，子线程还没有结束，这时广播接收者所在进程很有可能被杀掉，这样子线程就会出问题，所以耗时操作最好放到service服务中。</p>
+<p>广播接收者的生命周期是非常短暂的，在接收到广播的时候创建，onReceive()方法结束之后销毁。</p>
+<p>广播接收者中不要做一些耗时的工作，否则会弹出ANR错误对话框。</p>
+<p>最好也不要在广播接收者中创建子线程做耗时的工作，因为广播接收者被销毁后进程就成为了空进程，很容易被系统杀掉<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/12/13/Android开发基础之BroadcastReceiver/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/13/Android开发基础之Activity/" itemprop="url">
+                  Android开发基础之Activity
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-13T13:46:12+08:00" content="2016-12-13">
+              2016-12-13
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <ol>
+<li>简介</li>
+<li>使用流程</li>
+<li>跳转方式</li>
+<li>生命周期</li>
+</ol>
+<h3 id="Activity的简介"><a href="#Activity的简介" class="headerlink" title="Activity的简介"></a>Activity的简介</h3><p>Activity是Android四大组件之一，它用于展示界面。Activity是一个应用程序组件，提供一个屏幕，用户可以用来交互为了完成某项任务。Activity中所有操作都与用户密切相关，是一个负责与用户交互的组件，可以通过setContentView(View)来显示指定控件。</p>
+<p>在一个android应用中，一个Activity通常就是一个单独的屏幕，它上面可以显示一些控件也可以监听并处理用户的事件做出响应。Activity之间通过Intent进行通信。</p>
+<h3 id="使用流程"><a href="#使用流程" class="headerlink" title="使用流程"></a>使用流程</h3><ol>
+<li>定义类继承Activity</li>
+<li>在AndroidManifest.xml的<application>节点中声明<activity></li>
+</ol>
+<pre><code> &lt;intent-filter&gt;
+&lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;
+&lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;
+&lt;/intent-filter&gt;
+</code></pre>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/12/13/Android开发基础之Activity/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/12/12/Android架构概述/" itemprop="url">
                   Android架构概述
                 </a>
@@ -848,305 +1286,13 @@ SELECT * FROM person LIMIT 10,20
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/03/logic_thinking/" itemprop="url">
-                  如何进行零秒思考？
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-03T22:00:33+08:00" content="2016-12-03">
-              2016-12-03
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="零秒思考"><a href="#零秒思考" class="headerlink" title="零秒思考"></a>零秒思考</h3><p>阅读，写作是培养逻辑思维能力的正道，但是要想短时间有一定的收获，需要一些相当有技巧的办法，最近看了一本叫《零秒思考》的书，介绍了一种锻炼思维的方法，每天花费10分钟到20分钟，坚持一段时间， 思维能力会提升不少，能够很有效的帮助你快住抓住问题的核心，清晰的表达</p>
-<h3 id="一个想法的产生到终结的过程："><a href="#一个想法的产生到终结的过程：" class="headerlink" title="一个想法的产生到终结的过程："></a>一个想法的产生到终结的过程：</h3><p>1.情感涌现<br>2.想法浮现<br>3.整理思考<br>4.某种程度浮现的语言<br>5.做笔记<br>6.着手解决问题</p>
-<h3 id="怎样进行零秒思考？"><a href="#怎样进行零秒思考？" class="headerlink" title="怎样进行零秒思考？"></a>怎样进行零秒思考？</h3><p>工具：A4纸，中性笔<br>写作方式：每一页左上角标题，标题下方正文，日期<br>时间控制：每天10页，每页1分到2分</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/03/logic_thinking/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/01/mdgrammer/" itemprop="url">
-                  Markdown 语法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-01T21:44:51+08:00" content="2016-12-01">
-              2016-12-01
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Markdown简介"><a href="#Markdown简介" class="headerlink" title="Markdown简介"></a>Markdown简介</h2><blockquote>
-<p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面。    —— <a href="https://zh.wikipedia.org/wiki/Markdown">维基百科</a></p>
-</blockquote>
-<p>正如您在阅读的这份文档，它使用简单的符号标识不同的标题，将某些文字标记为<strong>粗体</strong>或者<em>斜体</em>，创建一个<a href="http://www.baidu.com">链接</a>或一个脚注[^demo]。下面列举了几个高级功能。 </p>
-<h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@requires_authorization</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">somefunc</span><span class="params">(param1=<span class="string">''</span>, param2=<span class="number">0</span>)</span>:</span></div><div class="line">    <span class="string">'''A docstring'''</span></div><div class="line">    <span class="keyword">if</span> param1 &gt; param2: <span class="comment"># interesting</span></div><div class="line">        <span class="keyword">print</span> <span class="string">'Greater'</span></div><div class="line">    <span class="keyword">return</span> (param2 - param1 + <span class="number">1</span>) <span class="keyword">or</span> <span class="keyword">None</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>:</span></div><div class="line">    <span class="keyword">pass</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>message = <span class="string">'''interpreter</div><div class="line"><span class="meta">... </span>prompt'''</span></div></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/01/mdgrammer/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/14/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-14T13:41:18+08:00" content="2016-11-14">
-              2016-11-14
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/14/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1185,7 +1331,7 @@ SELECT * FROM person LIMIT 10,20
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

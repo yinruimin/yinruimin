@@ -84,22 +84,39 @@
 
 
 
-<meta name="description" content="零秒思考阅读，写作是培养逻辑思维能力的正道，但是要想短时间有一定的收获，需要一些相当有技巧的办法，最近看了一本叫《零秒思考》的书，介绍了一种锻炼思维的方法，每天花费10分钟到20分钟，坚持一段时间， 思维能力会提升不少，能够很有效的帮助你快住抓住问题的核心，清晰的表达
-一个想法的产生到终结的过程：1.情感涌现2.想法浮现3.整理思考4.某种程度浮现的语言5.做笔记6.着手解决问题
-怎样进行零秒思考">
+<meta name="description" content="简介
+使用说明
+启动与绑定
+
+简介很多情况下，一些与用户很少需要产生交互的应用程序，我们一般让它们在后台运行就行了，而且在它们运行期间我们仍然能运行其他的应用。为了处理这种后台进程，Android引入了Service的概念。
+
+Service在Android中是一种长生命周期的组件，它不实现任何用户界面,是一个没有界面的组件，由其他组件开启。
+Service长期在后台运行, 执行不关乎界面的一些">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何进行零秒思考？">
-<meta property="og:url" content="http://yoursite.com/2016/12/03/logic_thinking/index.html">
+<meta property="og:title" content="Android开发基础之Service">
+<meta property="og:url" content="http://yoursite.com/2016/12/13/Android开发基础之Service/index.html">
 <meta property="og:site_name" content="Gunther's Notes">
-<meta property="og:description" content="零秒思考阅读，写作是培养逻辑思维能力的正道，但是要想短时间有一定的收获，需要一些相当有技巧的办法，最近看了一本叫《零秒思考》的书，介绍了一种锻炼思维的方法，每天花费10分钟到20分钟，坚持一段时间， 思维能力会提升不少，能够很有效的帮助你快住抓住问题的核心，清晰的表达
-一个想法的产生到终结的过程：1.情感涌现2.想法浮现3.整理思考4.某种程度浮现的语言5.做笔记6.着手解决问题
-怎样进行零秒思考">
-<meta property="og:updated_time" content="2016-12-03T14:06:09.181Z">
+<meta property="og:description" content="简介
+使用说明
+启动与绑定
+
+简介很多情况下，一些与用户很少需要产生交互的应用程序，我们一般让它们在后台运行就行了，而且在它们运行期间我们仍然能运行其他的应用。为了处理这种后台进程，Android引入了Service的概念。
+
+Service在Android中是一种长生命周期的组件，它不实现任何用户界面,是一个没有界面的组件，由其他组件开启。
+Service长期在后台运行, 执行不关乎界面的一些">
+<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/service_lifecycle.png">
+<meta property="og:updated_time" content="2016-12-13T07:27:51.578Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何进行零秒思考？">
-<meta name="twitter:description" content="零秒思考阅读，写作是培养逻辑思维能力的正道，但是要想短时间有一定的收获，需要一些相当有技巧的办法，最近看了一本叫《零秒思考》的书，介绍了一种锻炼思维的方法，每天花费10分钟到20分钟，坚持一段时间， 思维能力会提升不少，能够很有效的帮助你快住抓住问题的核心，清晰的表达
-一个想法的产生到终结的过程：1.情感涌现2.想法浮现3.整理思考4.某种程度浮现的语言5.做笔记6.着手解决问题
-怎样进行零秒思考">
+<meta name="twitter:title" content="Android开发基础之Service">
+<meta name="twitter:description" content="简介
+使用说明
+启动与绑定
+
+简介很多情况下，一些与用户很少需要产生交互的应用程序，我们一般让它们在后台运行就行了，而且在它们运行期间我们仍然能运行其他的应用。为了处理这种后台进程，Android引入了Service的概念。
+
+Service在Android中是一种长生命周期的组件，它不实现任何用户界面,是一个没有界面的组件，由其他组件开启。
+Service长期在后台运行, 执行不关乎界面的一些">
+<meta name="twitter:image" content="http://ohiad05ib.bkt.clouddn.com/service_lifecycle.png">
 
 
 
@@ -117,7 +134,7 @@
   };
 </script>
 
-  <title> 如何进行零秒思考？ | Gunther's Notes </title>
+  <title> Android开发基础之Service | Gunther's Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -237,7 +254,7 @@
             
             
               
-                如何进行零秒思考？
+                Android开发基础之Service
               
             
           </h1>
@@ -249,8 +266,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-03T22:00:33+08:00" content="2016-12-03">
-              2016-12-03
+            <time itemprop="dateCreated" datetime="2016-12-13T14:32:04+08:00" content="2016-12-13">
+              2016-12-13
             </time>
           </span>
 
@@ -277,14 +294,74 @@
       
 
       
-        <h3 id="零秒思考"><a href="#零秒思考" class="headerlink" title="零秒思考"></a>零秒思考</h3><p>阅读，写作是培养逻辑思维能力的正道，但是要想短时间有一定的收获，需要一些相当有技巧的办法，最近看了一本叫《零秒思考》的书，介绍了一种锻炼思维的方法，每天花费10分钟到20分钟，坚持一段时间， 思维能力会提升不少，能够很有效的帮助你快住抓住问题的核心，清晰的表达</p>
-<h3 id="一个想法的产生到终结的过程："><a href="#一个想法的产生到终结的过程：" class="headerlink" title="一个想法的产生到终结的过程："></a>一个想法的产生到终结的过程：</h3><p>1.情感涌现<br>2.想法浮现<br>3.整理思考<br>4.某种程度浮现的语言<br>5.做笔记<br>6.着手解决问题</p>
-<h3 id="怎样进行零秒思考？"><a href="#怎样进行零秒思考？" class="headerlink" title="怎样进行零秒思考？"></a>怎样进行零秒思考？</h3><p>工具：A4纸，中性笔<br>写作方式：每一页左上角标题，标题下方正文，日期<br>时间控制：每天10页，每页1分到2分</p>
-<a id="more"></a>
-<h3 id="这种思考方式的本质是什么？"><a href="#这种思考方式的本质是什么？" class="headerlink" title="这种思考方式的本质是什么？"></a>这种思考方式的本质是什么？</h3><p>本质是逻辑树的深入挖掘，大多数人在出现想法的时候，总是犹豫不决，原地转圈，而照这样的情况发展下去，同样的问题还是会在相同的情境之下跳出来困扰你，将思考的这些事情，记录下来，这些事情就大致得到了解决，烦恼，问题也会锐减，对自我的认知也会更加深刻，不要想10个是不是有一点少，每天想10个完全不一样的问题也不是一件你容易的事情</p>
-<h3 id="为什么不建议使用软件或者笔记本？"><a href="#为什么不建议使用软件或者笔记本？" class="headerlink" title="为什么不建议使用软件或者笔记本？"></a>为什么不建议使用软件或者笔记本？</h3><p>从行为路径上来说，使用软件的操作流程和笔记本的流程是这样的，打开手机或者电脑–打开软件–建立空白文档–打字–保存，属于同步行为，拿出纸和笔–记录，属于异步路径，行为路径太长会是让自己的想法流失，从思路整理的角度来说，笔记本有着刻意的顺序，而想法是无序的，对于思路的整理有一定的约束性，使用A4纸是为了 后期进行一些主题整理，而且使用成本低，像意识流写作一样，随想随写</p>
-<h3 id="笔记如何整理？"><a href="#笔记如何整理？" class="headerlink" title="笔记如何整理？"></a>笔记如何整理？</h3><p>建议使用一个文件夹来存放A4纸单页，一个月一整</p>
-<h3 id="有什么注意的？"><a href="#有什么注意的？" class="headerlink" title="有什么注意的？"></a>有什么注意的？</h3><p>标题可以是问句，陈述句，切记是在整理思路，不要刻意的去强调格式，如果在这基础上发展出了自己的一种整理方式，那再好不过了，坚持100天，你会发现大不同</p>
+        <ol>
+<li>简介</li>
+<li>使用说明</li>
+<li>启动与绑定</li>
+</ol>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>很多情况下，一些与用户很少需要产生交互的应用程序，我们一般让它们在后台运行就行了，而且在它们运行期间我们仍然能运行其他的应用。为了处理这种后台进程，Android引入了Service的概念。</p>
+<ol>
+<li>Service在Android中是一种长生命周期的组件，它不实现任何用户界面,是一个没有界面的组件，由其他组件开启。</li>
+<li>Service长期在后台运行, 执行不关乎界面的一些操作比如: 网易新闻服务,每隔1分钟去服务查看是否有最新新闻。</li>
+<li>Service和Thread有点相似,但是使用Thread不安全, 不严谨。</li>
+<li>Service和其他组件一样，都是运行在主线程中，因此不能用它来做耗时的操作。</li>
+</ol>
+<h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><ol>
+<li>创建Service，定义类继承Service，AndroidManifest.xml中定义<service></service></li>
+<li>开启Service，在其他组件中调用startService方法<br>startService(intent);（在activity中可以直接调用），会执行onstartCommand(生命周期方法)(onStart()以过期的方法)，如果发现service还没有，就会先创建执行oncreate。<br>onCreate只会执行一次，服务一旦被创建出来，就不会再执行onCreate方法，以后再去开启服务只会执行onStartCommand。<br>停止Service，调用stopService方法，会执行onDestory()（生命周期方法）。</li>
+<li>服务也是运行在主线程中，耗时操作需要放到子线程中，不然会出现anr</li>
+<li>setForegound(true)(直接在service里调用)，为了避免服务被杀死，我们可以指定这个服务为前台进程。<a id="more"></a>
+服务在执行生命周期方法时，也是一个前台进程。广播接收者也一样，在执行生命周期方法onReceive时，也是一个前台进程。</li>
+</ol>
+<h3 id="启动与绑定"><a href="#启动与绑定" class="headerlink" title="启动与绑定"></a>启动与绑定</h3><ol>
+<li>startService()，标准开启模式。</li>
+<li>bindService()，绑定模式。</li>
+</ol>
+<p><strong>标准开启模式：</strong><br>被开启的service通过其他组件调用 startService()被创建。这种service可以无限地运行下去，必须调用stopSelf()方法或者其他组件调用stopService()方法来停止它。当service被停止时，系统会销毁它。</p>
+<p><strong>绑定模式：</strong><br>被绑定的service是当其他组件（一个客户）调用bindService()来创建的。客户可以通过一个IBinder接口和service进行通信。客户可以通过 unbindService()方法来关闭这种连接。一个service可以同时和多个客户绑定，当多个客户都解除绑定之后，系统会销毁service。</p>
+<p>Service的这两种生命周期并不是完全分开的。也就是说，你可以和一个已经调用了 startService()而被开启的service进行绑定。</p>
+<p>比如，一个后台音乐service可能因调用 startService()方法而被开启了，稍后，可能用户想要控制播放器或者得到一些当前歌曲的信息，可以通过bindService()将一个activity和service绑定。这种情况下，stopService()或 stopSelf()实际上并不能停止这个service，除非所有的客户都解除绑定。</p>
+<p>绑定服务方法：bindService(intent,serviceConnection,int flag);在其他组件中调用此方法，调用后服务内部的生命周期方法onBind方法执行，一旦绑定成功，onBind只执行一次，再次绑定，onBind不会执行。</p>
+<p>serviceConnection：连接对象，连接上服务之后可以调用服务的方法传入一个自定义的ServiceConnection用来接收IBinder。实例化ServiceConnection对象，重写内部方法onServiceConnected(ComponentName name,IBinder Binder)：绑定成功获取连接时，执行的方法。</p>
+<p>unBindService()解除绑定服务，内部调用服务的生命周期方法onUnbind()，然后调用onDestory()销毁服务。服务只能被解除绑定一次，如果unBindService方法被调用多次，就会出错。</p>
+<pre><code>public class TestService extends Service {
+int mStartMode;
+IBinder mBinder; 
+boolean mAllowRebind; 
+
+@Override
+public void onCreate() {
+
+}
+
+@Override
+public int onStartCommand(Intent intent, int flags, int startId) {
+        return mStartMode;
+    }
+
+@Override
+public IBinder onBind(Intent intent) {
+    bindService()
+    return mBinder;
+}
+
+@Override
+public boolean onUnbind(Intent intent) {
+    return mAllowRebind;
+}
+
+@Override
+public void onRebind(Intent intent) {
+    bindService(),
+
+}
+
+@Override
+public void onDestroy() {
+    destroyed
+}
+}
+</code></pre><p><strong>Service生命周期</strong><br><img src="http://ohiad05ib.bkt.clouddn.com/service_lifecycle.png" alt="service lifecycle"></p>
 
       
     </div>
@@ -309,16 +386,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/01/mdgrammer/" rel="next" title="Markdown 语法">
-                <i class="fa fa-chevron-left"></i> Markdown 语法
+              <a href="/2016/12/13/Android开发基础之BroadcastReceiver/" rel="next" title="Android开发基础之BroadcastReceiver">
+                <i class="fa fa-chevron-left"></i> Android开发基础之BroadcastReceiver
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/12/05/product-map/" rel="prev" title="利用产品画布分析一款互联网产品">
-                利用产品画布分析一款互联网产品 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/13/Android开发基础之ContentProvider/" rel="prev" title="Android开发基础之ContentProvider">
+                Android开发基础之ContentProvider <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -448,7 +525,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#零秒思考"><span class="nav-number">1.</span> <span class="nav-text">零秒思考</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一个想法的产生到终结的过程："><span class="nav-number">2.</span> <span class="nav-text">一个想法的产生到终结的过程：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎样进行零秒思考？"><span class="nav-number">3.</span> <span class="nav-text">怎样进行零秒思考？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#这种思考方式的本质是什么？"><span class="nav-number">4.</span> <span class="nav-text">这种思考方式的本质是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么不建议使用软件或者笔记本？"><span class="nav-number">5.</span> <span class="nav-text">为什么不建议使用软件或者笔记本？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#笔记如何整理？"><span class="nav-number">6.</span> <span class="nav-text">笔记如何整理？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有什么注意的？"><span class="nav-number">7.</span> <span class="nav-text">有什么注意的？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用说明"><span class="nav-number">2.</span> <span class="nav-text">使用说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动与绑定"><span class="nav-number">3.</span> <span class="nav-text">启动与绑定</span></a></li></ol></div>
             
           </div>
         </section>
