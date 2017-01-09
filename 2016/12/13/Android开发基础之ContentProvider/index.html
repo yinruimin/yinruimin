@@ -88,8 +88,7 @@
 使用说明
 ContentObserver
 
-简介ContentProvider即内容提供者，是Android的四大组件之一。内容提供者是应用程序之间共享数据的接口，Android系统将这种机制应用到方方面面。
-比如：联系人Provider专为不同应用程序提供联系人数据；设置Provider专为不同应用程序提供系统配置信息，包括内置的设置应用程序等。当应用继承ContentProvider类">
+简介ContentProvider即内容提供者，是Android的四大组件之一。内容提供者是应用程序之间共享数据的接口，Android系统将这种机制应用到方方面面。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android开发基础之ContentProvider">
 <meta property="og:url" content="http://yoursite.com/2016/12/13/Android开发基础之ContentProvider/index.html">
@@ -98,17 +97,15 @@ ContentObserver
 使用说明
 ContentObserver
 
-简介ContentProvider即内容提供者，是Android的四大组件之一。内容提供者是应用程序之间共享数据的接口，Android系统将这种机制应用到方方面面。
-比如：联系人Provider专为不同应用程序提供联系人数据；设置Provider专为不同应用程序提供系统配置信息，包括内置的设置应用程序等。当应用继承ContentProvider类">
-<meta property="og:updated_time" content="2016-12-13T07:25:56.329Z">
+简介ContentProvider即内容提供者，是Android的四大组件之一。内容提供者是应用程序之间共享数据的接口，Android系统将这种机制应用到方方面面。">
+<meta property="og:updated_time" content="2017-01-09T07:27:57.001Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android开发基础之ContentProvider">
 <meta name="twitter:description" content="简介
 使用说明
 ContentObserver
 
-简介ContentProvider即内容提供者，是Android的四大组件之一。内容提供者是应用程序之间共享数据的接口，Android系统将这种机制应用到方方面面。
-比如：联系人Provider专为不同应用程序提供联系人数据；设置Provider专为不同应用程序提供系统配置信息，包括内置的设置应用程序等。当应用继承ContentProvider类">
+简介ContentProvider即内容提供者，是Android的四大组件之一。内容提供者是应用程序之间共享数据的接口，Android系统将这种机制应用到方方面面。">
 
 
 
@@ -291,15 +288,15 @@ ContentObserver
 <li>使用说明</li>
 <li>ContentObserver</li>
 </ol>
-<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>ContentProvider即内容提供者，是Android的四大组件之一。内容提供者是应用程序之间共享数据的接口，Android系统将这种机制应用到方方面面。</p>
-<p>比如：联系人Provider专为不同应用程序提供联系人数据；设置Provider专为不同应用程序提供系统配置信息，包括内置的设置应用程序等。当应用继承ContentProvider类，并重写该类用于提供数据和存储数据的方法，就可以向其他应用共享其数据。</p>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>ContentProvider即内容提供者，是Android的四大组件之一。内容提供者是应用程序之间共享数据的接口，Android系统将这种机制应用到方方面面。<br><a id="more"></a><br>比如：联系人Provider专为不同应用程序提供联系人数据；设置Provider专为不同应用程序提供系统配置信息，包括内置的设置应用程序等。当应用继承ContentProvider类，并重写该类用于提供数据和存储数据的方法，就可以向其他应用共享其数据。</p>
 <p>虽然使用其他方法也可以对外共享数据，但数据访问方式会因数据存储的方式而不同，如：采用文件方式对外共享数据，需要进行文件操作读写数据；采用SharedPreferences共享数据，需要使用SharedPreferences API读写数据。</p>
 <p>而使用ContentProvider共享数据的好处是统一了数据访问方式。内容提供者将数据封装，只暴露出我们希望提供给其他程序的数据。内容提供者中数据更改可被监听。</p>
 <h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><ol>
 <li>定义类继承ContentProvider，根据需要重写内部方法(增删改查)</li>
 <li>在清单文件的<application>节点下进行配置，<provider>标签中需要指定name和authorities属性<br>name：类名，包名从程序Package开始，以“.”开始<br>authorities：是访问Provider时的路径，要唯一 </provider></application></li>
-<li>URI代表要操作的数据，由scheme、authorites、path三部分组成<br>content：//cn.gunther.sqlite.provider/person<br>scheme：固定为content，代表访问内容提供者<br>authorites：<provider>节点中的authorites属性<br>path：程序定义的路径，可根据业务逻辑定义<a id="more"></a>
-示例代码：</provider></li>
+<li><p>URI代表要操作的数据，由scheme、authorites、path三部分组成<br>content：//cn.gunther.sqlite.provider/person<br>scheme：固定为content，代表访问内容提供者<br>authorites：<provider>节点中的authorites属性<br>path：程序定义的路径，可根据业务逻辑定义</provider></p>
+<p>示例代码：</p>
+</li>
 <li>新创建一个Android工程，工程名《MyContentProvider》，包名：com.gunther.provider。</li>
 <li>在com.gunther.provider.dao包下新建一个PersonOpenHelper类继承SQLiteOpenHelper类，该类用于创建数据库。</li>
 </ol>
@@ -535,7 +532,7 @@ public String getType(Uri uri) {
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

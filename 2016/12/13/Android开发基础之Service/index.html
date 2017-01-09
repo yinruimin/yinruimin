@@ -88,10 +88,7 @@
 使用说明
 启动与绑定
 
-简介很多情况下，一些与用户很少需要产生交互的应用程序，我们一般让它们在后台运行就行了，而且在它们运行期间我们仍然能运行其他的应用。为了处理这种后台进程，Android引入了Service的概念。
-
-Service在Android中是一种长生命周期的组件，它不实现任何用户界面,是一个没有界面的组件，由其他组件开启。
-Service长期在后台运行, 执行不关乎界面的一些">
+简介很多情况下，一些与用户很少需要产生交互的应用程序，我们一般让它们在后台运行就行了，而且在它们运行期间我们仍然能运行其他的应用。为了处理这种后台进程，Android引入了Service的概念。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android开发基础之Service">
 <meta property="og:url" content="http://yoursite.com/2016/12/13/Android开发基础之Service/index.html">
@@ -100,22 +97,16 @@ Service长期在后台运行, 执行不关乎界面的一些">
 使用说明
 启动与绑定
 
-简介很多情况下，一些与用户很少需要产生交互的应用程序，我们一般让它们在后台运行就行了，而且在它们运行期间我们仍然能运行其他的应用。为了处理这种后台进程，Android引入了Service的概念。
-
-Service在Android中是一种长生命周期的组件，它不实现任何用户界面,是一个没有界面的组件，由其他组件开启。
-Service长期在后台运行, 执行不关乎界面的一些">
+简介很多情况下，一些与用户很少需要产生交互的应用程序，我们一般让它们在后台运行就行了，而且在它们运行期间我们仍然能运行其他的应用。为了处理这种后台进程，Android引入了Service的概念。">
 <meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/service_lifecycle.png">
-<meta property="og:updated_time" content="2016-12-13T07:27:51.578Z">
+<meta property="og:updated_time" content="2017-01-09T07:27:28.277Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android开发基础之Service">
 <meta name="twitter:description" content="简介
 使用说明
 启动与绑定
 
-简介很多情况下，一些与用户很少需要产生交互的应用程序，我们一般让它们在后台运行就行了，而且在它们运行期间我们仍然能运行其他的应用。为了处理这种后台进程，Android引入了Service的概念。
-
-Service在Android中是一种长生命周期的组件，它不实现任何用户界面,是一个没有界面的组件，由其他组件开启。
-Service长期在后台运行, 执行不关乎界面的一些">
+简介很多情况下，一些与用户很少需要产生交互的应用程序，我们一般让它们在后台运行就行了，而且在它们运行期间我们仍然能运行其他的应用。为了处理这种后台进程，Android引入了Service的概念。">
 <meta name="twitter:image" content="http://ohiad05ib.bkt.clouddn.com/service_lifecycle.png">
 
 
@@ -299,7 +290,7 @@ Service长期在后台运行, 执行不关乎界面的一些">
 <li>使用说明</li>
 <li>启动与绑定</li>
 </ol>
-<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>很多情况下，一些与用户很少需要产生交互的应用程序，我们一般让它们在后台运行就行了，而且在它们运行期间我们仍然能运行其他的应用。为了处理这种后台进程，Android引入了Service的概念。</p>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>很多情况下，一些与用户很少需要产生交互的应用程序，我们一般让它们在后台运行就行了，而且在它们运行期间我们仍然能运行其他的应用。为了处理这种后台进程，Android引入了Service的概念。<br><a id="more"></a></p>
 <ol>
 <li>Service在Android中是一种长生命周期的组件，它不实现任何用户界面,是一个没有界面的组件，由其他组件开启。</li>
 <li>Service长期在后台运行, 执行不关乎界面的一些操作比如: 网易新闻服务,每隔1分钟去服务查看是否有最新新闻。</li>
@@ -310,8 +301,9 @@ Service长期在后台运行, 执行不关乎界面的一些">
 <li>创建Service，定义类继承Service，AndroidManifest.xml中定义<service></service></li>
 <li>开启Service，在其他组件中调用startService方法<br>startService(intent);（在activity中可以直接调用），会执行onstartCommand(生命周期方法)(onStart()以过期的方法)，如果发现service还没有，就会先创建执行oncreate。<br>onCreate只会执行一次，服务一旦被创建出来，就不会再执行onCreate方法，以后再去开启服务只会执行onStartCommand。<br>停止Service，调用stopService方法，会执行onDestory()（生命周期方法）。</li>
 <li>服务也是运行在主线程中，耗时操作需要放到子线程中，不然会出现anr</li>
-<li>setForegound(true)(直接在service里调用)，为了避免服务被杀死，我们可以指定这个服务为前台进程。<a id="more"></a>
-服务在执行生命周期方法时，也是一个前台进程。广播接收者也一样，在执行生命周期方法onReceive时，也是一个前台进程。</li>
+<li><p>setForegound(true)(直接在service里调用)，为了避免服务被杀死，我们可以指定这个服务为前台进程。</p>
+<p>服务在执行生命周期方法时，也是一个前台进程。广播接收者也一样，在执行生命周期方法onReceive时，也是一个前台进程。</p>
+</li>
 </ol>
 <h3 id="启动与绑定"><a href="#启动与绑定" class="headerlink" title="启动与绑定"></a>启动与绑定</h3><ol>
 <li>startService()，标准开启模式。</li>
@@ -464,7 +456,7 @@ public void onDestroy() {
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

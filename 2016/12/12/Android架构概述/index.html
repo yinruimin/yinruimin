@@ -85,29 +85,23 @@
 
 
 <meta name="description" content="系统架构图及各层介绍
-
 Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。
-Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。
-Libraries系">
+Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android架构概述">
 <meta property="og:url" content="http://yoursite.com/2016/12/12/Android架构概述/index.html">
 <meta property="og:site_name" content="Gunther's Notes">
 <meta property="og:description" content="系统架构图及各层介绍
-
 Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。
-Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。
-Libraries系">
+Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。">
 <meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/%E6%9E%B6%E6%9E%84.jpg">
 <meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/dvm.png">
-<meta property="og:updated_time" content="2016-12-12T14:36:29.090Z">
+<meta property="og:updated_time" content="2017-01-09T07:29:05.933Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android架构概述">
 <meta name="twitter:description" content="系统架构图及各层介绍
-
 Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。
-Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。
-Libraries系">
+Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。">
 <meta name="twitter:image" content="http://ohiad05ib.bkt.clouddn.com/%E6%9E%B6%E6%9E%84.jpg">
 
 
@@ -286,13 +280,17 @@ Libraries系">
       
 
       
-        <h3 id="系统架构图及各层介绍"><a href="#系统架构图及各层介绍" class="headerlink" title="系统架构图及各层介绍"></a>系统架构图及各层介绍</h3><p><img src="http://ohiad05ib.bkt.clouddn.com/%E6%9E%B6%E6%9E%84.jpg" alt="Alt text"></p>
-<ol>
+        <h3 id="系统架构图及各层介绍"><a href="#系统架构图及各层介绍" class="headerlink" title="系统架构图及各层介绍"></a>系统架构图及各层介绍</h3><ol>
 <li>Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。</li>
-<li>Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。</li>
-<li>Libraries系统运行库（C/C++库以及Android运行库）层：当使用Android应用框架时，Android系统会通过一些C/C++库来支持我们使用的各个组件，使其更好的为我们服务，比如其中的SQLite（关系数据库），Webkit（Web浏览器引擎）。</li>
-<li>Linux Kernel内核层：Android的核心系统服务给予Linux2.6内核，如安全性、内存管理、进程管理、网络协议栈和驱动模型等都依赖于该内核，比如Binder IPC(Internet Process Connection进程间通信)驱动，android的一个特殊驱动程序，具有单独的设备节点，提供进程间通信的功能。<a id="more"></a>
-<h3 id="Dalvik-VM和JVM的区别"><a href="#Dalvik-VM和JVM的区别" class="headerlink" title="Dalvik VM和JVM的区别"></a>Dalvik VM和JVM的区别</h3></li>
+<li><p>Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。</p>
+<a id="more"></a>
+</li>
+<li><p>Libraries系统运行库（C/C++库以及Android运行库）层：当使用Android应用框架时，Android系统会通过一些C/C++库来支持我们使用的各个组件，使其更好的为我们服务，比如其中的SQLite（关系数据库），Webkit（Web浏览器引擎）。</p>
+</li>
+<li>Linux Kernel内核层：Android的核心系统服务给予Linux2.6内核，如安全性、内存管理、进程管理、网络协议栈和驱动模型等都依赖于该内核，比如Binder IPC(Internet Process Connection进程间通信)驱动，android的一个特殊驱动程序，具有单独的设备节点，提供进程间通信的功能。</li>
+</ol>
+<p><img src="http://ohiad05ib.bkt.clouddn.com/%E6%9E%B6%E6%9E%84.jpg" alt="Alt text"></p>
+<h3 id="Dalvik-VM和JVM的区别"><a href="#Dalvik-VM和JVM的区别" class="headerlink" title="Dalvik VM和JVM的区别"></a>Dalvik VM和JVM的区别</h3><ol>
 <li>传统JVM<br>编写.java文件—-编译为.class文件—-打包成.jar文件，将java源码编译为class文件，然后将一组class打包成jar。基于栈结构，栈存储于内存中，所以需要用到内存空间</li>
 <li>Dalvik VM<br>编写.java文件—-编译为.class文件—-打包成.dex文件—-打包成.apk文件。将一组class编译为一个dex文件，然后有的平台为了更高的效率会将一个dex转换成odex文件。将N多个class文件编译为一个dex，这样执行效率会比较快，更适合在移动平台运行。基于寄存器的结构，寄存器在cpu中，所以用到cpu的空间</li>
 <li>DVM与JVM的区别：<br><img src="http://ohiad05ib.bkt.clouddn.com/dvm.png" alt=""></li>
@@ -400,7 +398,7 @@ Libraries系">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

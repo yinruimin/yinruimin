@@ -84,16 +84,37 @@
 
 
 
-<meta name="description" content="SQLite数据库的特点SQLite，是一款轻量型的数据库，是遵守ACID(原子性、一致性、隔离性、持久性)的关联式数据库管理系统，多用于嵌入式开发中。Android平台中嵌入了一个关系型数据库SQLite，和其他数据库不同的是SQLite存储数据时不区分类型，例如一个字段声明为Integer类型，我们也可以将一个字符串存入，一个字段声明为布尔型，我们也可以存入浮点数。除非是主键被定义为Integ">
+<meta name="description" content="入口2017年1月9日，微信小程序开放体验。小程序的入口目前依赖
+
+全名搜索
+扫描二维码
+点击链接">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android数据存储(二)">
-<meta property="og:url" content="http://yoursite.com/2016/12/12/Android数据存储(二)/index.html">
+<meta property="og:title" content="对微信小程序的一些观察和思考">
+<meta property="og:url" content="http://yoursite.com/2017/01/09/对微信小程序的一些观察和思考/index.html">
 <meta property="og:site_name" content="Gunther's Notes">
-<meta property="og:description" content="SQLite数据库的特点SQLite，是一款轻量型的数据库，是遵守ACID(原子性、一致性、隔离性、持久性)的关联式数据库管理系统，多用于嵌入式开发中。Android平台中嵌入了一个关系型数据库SQLite，和其他数据库不同的是SQLite存储数据时不区分类型，例如一个字段声明为Integer类型，我们也可以将一个字符串存入，一个字段声明为布尔型，我们也可以存入浮点数。除非是主键被定义为Integ">
-<meta property="og:updated_time" content="2017-01-09T07:26:54.653Z">
+<meta property="og:description" content="入口2017年1月9日，微信小程序开放体验。小程序的入口目前依赖
+
+全名搜索
+扫描二维码
+点击链接">
+<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/xcx1.png">
+<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/xcx2.png">
+<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/xcx3.png">
+<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/xcx4.jpg">
+<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/xcx5.png">
+<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/xcx6.png">
+<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/xcx7.jpg">
+<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/xcx8.jpg">
+<meta property="og:updated_time" content="2017-01-09T07:24:19.979Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android数据存储(二)">
-<meta name="twitter:description" content="SQLite数据库的特点SQLite，是一款轻量型的数据库，是遵守ACID(原子性、一致性、隔离性、持久性)的关联式数据库管理系统，多用于嵌入式开发中。Android平台中嵌入了一个关系型数据库SQLite，和其他数据库不同的是SQLite存储数据时不区分类型，例如一个字段声明为Integer类型，我们也可以将一个字符串存入，一个字段声明为布尔型，我们也可以存入浮点数。除非是主键被定义为Integ">
+<meta name="twitter:title" content="对微信小程序的一些观察和思考">
+<meta name="twitter:description" content="入口2017年1月9日，微信小程序开放体验。小程序的入口目前依赖
+
+全名搜索
+扫描二维码
+点击链接">
+<meta name="twitter:image" content="http://ohiad05ib.bkt.clouddn.com/xcx1.png">
 
 
 
@@ -111,7 +132,7 @@
   };
 </script>
 
-  <title> Android数据存储(二) | Gunther's Notes </title>
+  <title> 对微信小程序的一些观察和思考 | Gunther's Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -231,7 +252,7 @@
             
             
               
-                Android数据存储(二)
+                对微信小程序的一些观察和思考
               
             
           </h1>
@@ -243,8 +264,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-12T18:35:08+08:00" content="2016-12-12">
-              2016-12-12
+            <time itemprop="dateCreated" datetime="2017-01-09T15:12:20+08:00" content="2017-01-09">
+              2017-01-09
             </time>
           </span>
 
@@ -271,68 +292,65 @@
       
 
       
-        <h3 id="SQLite数据库的特点"><a href="#SQLite数据库的特点" class="headerlink" title="SQLite数据库的特点"></a>SQLite数据库的特点</h3><p>SQLite，是一款轻量型的数据库，是遵守ACID(原子性、一致性、隔离性、持久性)的关联式数据库管理系统，多用于嵌入式开发中。<br>Android平台中嵌入了一个关系型数据库SQLite，和其他数据库不同的是SQLite存储数据时不区分类型，例如一个字段声明为Integer类型，我们也可以将一个字符串存入，一个字段声明为布尔型，我们也可以存入浮点数。<br>除非是主键被定义为Integer，这时只能存储64位整数，SQLite，无需安装，是Android平台自带的一个数据库。<br><a id="more"></a></p>
-<ul>
-<li><p>创建数据库的表时可以不指定数据类型，例如：</p>
-<pre><code>CREATE TABLE person(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20))
-</code></pre></li>
-</ul>
-<ul>
-<li><p>SQLite支持大部分标准SQL语句，增删改查语句都是通用的，分页查询语句和MySQL相同</p>
-<pre><code>SELECT * FROM person LIMIT 20 OFFSET 10
-SELECT * FROM person LIMIT 10,20
-</code></pre></li>
-<li><p>SQLite与MySql的不同之处<br>主键自增长：SQLite是autoincrement，MySql是auto_increment<br>主键：SQLite主键一般定义为_id，在做查询时要求主键列名必须是_id(本身不是_id，可以起别名)，不然拿不到主键值。</p>
-</li>
-<li><p>获取可读数据库、可写数据库的区别<br>可读的数据库也有可能可以写，可读的数据库在获取实例时有可能拿到上一次可写的数据库</p>
-</li>
-</ul>
-<h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><ol>
-<li>定义类继承SQLiteOpenHelper</li>
-<li>声明构造函数，4个参数</li>
-<li>重写onCreate()方法</li>
-<li><p>重写upGrade()方法</p>
-<pre><code>public class PersonOpenHelper extends SQLiteOpenHelper {
-    public PersonOpenHelper(Context context, String name, CursorFactory factory, int version) {
-        super(context, name, factory, version);
-              }
-            public void onCreate(SQLiteDatabase db) {
-            // 数据库第一次被创建的时候执行如下sql语句创建一个person表
-            db.execSQL(&quot;create table person(id integer primary key autoincrement, name varchar(20), phone varchar(20), money integer(20),age integer(10));&quot;);
-            }
-            public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            // 数据库的版本更新的时候执行
-            if (oldVersion == 1 &amp;&amp; newVersion == 2) {
-                db.execSQL(&quot;alter table person add column balance integer&quot;);
-            }
-            }
-
-  }
-</code></pre></li>
-</ol>
-<p>创建一个PersonOpenHelper类来测试上面的代码</p>
-<pre><code>public class PersonOpenHelperTest extends AndroidTestCase {
-public SQLiteDatabase getDataBase(){
-    PersonOpenHelper helper = new PersonOpenHelper(getContext(), &quot;person.db&quot;, null, 1);
-    SQLiteDatabase writableDatabase = helper.getWritableDatabase();
-    return writableDatabase;
-    }
-}
-</code></pre><p>执行完上面代码后，通过DDMS，查看/data/data/com.包名.sqlite/databases目录，发现产生了两个文件，person.db和person.db-journal。其中第一个文件就是我们的数据库文件。</p>
-<p>第一次操作数据库时，person.db-journal文件会被自动创建，该文件是sqlite的一个临时的日志文件，主要用于sqlite数据库的事务回滚操作了。 但是Android系统中将该文件永久的保存在磁盘中，不会被自动清除的，如果没有操作异常或者不需要事务回滚时，此文件的大小为0。这种机制避免了每次生成和删除person.db-journal文件的开销。</p>
-<p>在测试类中创建该类对象，调用getWritableDatabase()或者getReadableDatabase()：如果数据库不存在，创建数据库文件，执行onCreate()方法，并获取数据库对象。如果数据库存在，版本号没有发生改变，直接获取数据库对象。如果数据库存在，版本号提升，先执行onUpgrade()方法，再获取数据库对象。</p>
-<p>数据库并不是初始化MyHelper时创建。如果版本号降低，应用降级。并且不重写onDowngrade，就会调用父类的onDowngrade方法，抛出异常。一般不重写，没这个需求。</p>
-<h3 id="SQLiteDataBase自带的增删改查"><a href="#SQLiteDataBase自带的增删改查" class="headerlink" title="SQLiteDataBase自带的增删改查"></a>SQLiteDataBase自带的增删改查</h3><p>SQLiteDatabase专门提供了对应于添加（insert）、删除（delete）、更新（update）、查询（query）的操作方法。</p>
-<p>这些方法封装了部分SQL语句，通过参数进行拼接，这些方法实际上是给那些不太了解SQL语法的开发者使用的。对于熟悉SQL语法的程序员而言，直接使用execSQL()和rawQuery()方法执行SQL语句就能完成数据的添加、删除、更新、查询操作。</p>
-<p>这四个方法主要是在使用内容提供者时使用，因为ContentProvider中提供的增删改查方法，与这一套一样，方便调用传参。(等学完ContentProvider自然明白)<br>insert(“表名”,nullColumnHack,””,contentValue)</p>
+        <h3 id="入口"><a href="#入口" class="headerlink" title="入口"></a>入口</h3><p>2017年1月9日，微信小程序开放体验。<br>小程序的入口目前依赖</p>
 <ol>
-<li>nullColumnHack:如果写null，就无法插入一条空数据（2.3会出异常，4.0之后可以写null）</li>
-<li>如果想插入空数据，第二个参数必须写一个列名（任意列）</li>
-<li>这个列名是用来拼接sql语句的，如果contentValue为空，则后台不知道表的列名，无法构建sql语句</li>
-<li>ContentValue:键值对：键对应列明，值对应插入的值</li>
-<li>返回值 long id，插入的主键id</li>
+<li>全名搜索</li>
+<li>扫描二维码</li>
+<li>点击链接<a id="more"></a>
+三种方式开启，一般用户看不到小程序入口，只有触发了上述三种方式中的一种，才会在发现页面产生小程序的入口</li>
 </ol>
-<p>delete(“表名”,条件，条件值)，返回受影响的行数。<br>update(“表名”,contentValues(更新列、值),条件，条件值)，返回受影响的行数<br>query(“表名”, 查询的字段, 条件, 条件值);</p>
+<p><img src="http://ohiad05ib.bkt.clouddn.com/xcx1.png" alt="| center"><br>点开之后是这样的<br><img src="http://ohiad05ib.bkt.clouddn.com/xcx2.png" alt="| center"></p>
+<p>小程序支持分享链接，置顶在聊天界面<br><img src="http://ohiad05ib.bkt.clouddn.com/xcx3.png" alt="| center"><br>但是，置顶之后没有取消置顶的操作，会在一定时间内自动消失置顶<br><img src="http://ohiad05ib.bkt.clouddn.com/xcx4.jpg" alt="| center"></p>
+<p>添加到桌面和原生App无异<br><img src="http://ohiad05ib.bkt.clouddn.com/xcx5.png" alt="| center"></p>
+<h3 id="体验"><a href="#体验" class="headerlink" title="体验"></a>体验</h3><p>小程序依托于微信，所以在微信后台进程开启的情况下，和原生App相比，加载速度略胜一筹。</p>
+<p>但是，将微信进程杀掉，去点桌面小程序，出现两个非常不好的体验，一个是桌面显示加载中的菊花转了4秒，另一个是出现了两次小程序未发布的八阿哥，退出后重新进入正常。</p>
+<p>部分需要登录的小程序，在开启之后，直接触发微信登录，简化成Button的不断点击，这需要之前的账号是通过微信第三方授权登录的，不然还得走一遍注册流程<br><img src="http://ohiad05ib.bkt.clouddn.com/xcx6.png" alt="| center"></p>
+<h3 id="微信的野心"><a href="#微信的野心" class="headerlink" title="微信的野心"></a>微信的野心</h3><p>脑海浮现两个情景：</p>
+<ul>
+<li>2015年App开发圈对于原生App和Web App谁死谁活的讨论</li>
+<li>2016年Google Instant Apps API的发布</li>
+</ul>
+<p>或许是因为在中国这个自成一体的互联网环境中，微信才有机会这么一呼百应，可是小程序这个东西个人觉得有种Google给别人做了嫁衣的感觉。</p>
+<p>2014年11月，马化腾在世界互联网大会上提出腾讯要链接一切，要成为互联网连接器。</p>
+<ol>
+<li>连接人与人</li>
+<li>连接人与服务</li>
+<li>连接人与商业</li>
+<li>连接人与物品</li>
+</ol>
+<p>人与人的连接，微信已经实现，目前微信的DAU达到8亿，每个中国人必备的应用就是微信。</p>
+<p>人与服务的连接，通过服务号内置服务连接起来，通过微信订阅，阅读，娱乐等完成服务的转化。</p>
+<p>人与商业的连接，微信的支付环节打通了整个商业链条。</p>
+<p>人与物品的连接，理想的状态是钢铁侠那般混合现实<br><img src="http://ohiad05ib.bkt.clouddn.com/xcx7.jpg" alt="| center"><br>但是目前的技术环境成本实在是太高，或许有一种折中的办法<br><img src="http://ohiad05ib.bkt.clouddn.com/xcx8.jpg" alt="| center"></p>
+<h3 id="小程序的存在价值"><a href="#小程序的存在价值" class="headerlink" title="小程序的存在价值"></a>小程序的存在价值</h3><p>在微信公开课上，张小龙举了两个小程序的例子：</p>
+<blockquote>
+<ol>
+<li>在公交车上，你扫一下公交站牌的二维码就可以了解下一辆公交车到站的时间</li>
+<li>在汽车站，扫一下汽车站的二维码就可以购买车票，而不需要排长队</li>
+</ol>
+</blockquote>
+<p>在当前的技术条件下，二维码成了最可能实现人和物品连接的手段，二维码的背后，可以是信息，可以是服务，微信想让小程序做连接线上和线下的载体，<strong>让二维码做现实世界和数字世界的超链接，连接更多线下场景</strong>。</p>
+<h3 id="背后的产品理念"><a href="#背后的产品理念" class="headerlink" title="背后的产品理念"></a>背后的产品理念</h3><ol>
+<li>以用户为中心，其他一切水到渠成</li>
+<li>大胆假设，小心求证</li>
+</ol>
+<p>App的世界已经趋于饱和，马太效应越来越明显，所有的App都想尽一切办法，在用户所能看到的地方做营销，就像是在做垂死的挣扎，严重损害用户得了利益。</p>
+<p>小程序或许可以让这一切尘归尘，土归土，回归到原点，重新出发，重塑规则。</p>
+<p>一直以来，想做移动端统一入口的产品数不胜数，但是真正能操刀起山的也只有微信这样的产品王。</p>
+<ol>
+<li>开屏广告5秒钟</li>
+<li>加载界面2秒钟</li>
+<li>寻找服务2秒钟</li>
+<li>营销广告1秒钟</li>
+</ol>
+<p>使用一项服务时间被App强制分割，真正对用户产生价值也就几秒钟，用户的时间很宝贵，要让用户第一次使用产品就喜欢上，就要懂得放手，在最短的时间内感受产品的核心，而不是：</p>
+<ol>
+<li>应用商店下载App</li>
+<li>打开App，看5秒广告</li>
+<li>第一次花30秒注册</li>
+<li>功能层层包裹，花30秒寻找</li>
+</ol>
+<p>关注点应该放在”即用”，而不是”即走”上，也是一个积极和消极的对比，所以从用户的角度考虑产品的话，就是优化流程，建立最短路径。</p>
 
       
     </div>
@@ -357,17 +375,13 @@ public SQLiteDatabase getDataBase(){
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/12/Android数据储存(一)/" rel="next" title="Android数据储存(一)">
-                <i class="fa fa-chevron-left"></i> Android数据储存(一)
+              <a href="/2017/01/04/Keep产品发展概述/" rel="next" title="Keep产品发展概述">
+                <i class="fa fa-chevron-left"></i> Keep产品发展概述
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/12/Android架构概述/" rel="prev" title="Android架构概述">
-                Android架构概述 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -514,7 +528,7 @@ public SQLiteDatabase getDataBase(){
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQLite数据库的特点"><span class="nav-number">1.</span> <span class="nav-text">SQLite数据库的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建数据库"><span class="nav-number">2.</span> <span class="nav-text">创建数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQLiteDataBase自带的增删改查"><span class="nav-number">3.</span> <span class="nav-text">SQLiteDataBase自带的增删改查</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#入口"><span class="nav-number">1.</span> <span class="nav-text">入口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#体验"><span class="nav-number">2.</span> <span class="nav-text">体验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#微信的野心"><span class="nav-number">3.</span> <span class="nav-text">微信的野心</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小程序的存在价值"><span class="nav-number">4.</span> <span class="nav-text">小程序的存在价值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#背后的产品理念"><span class="nav-number">5.</span> <span class="nav-text">背后的产品理念</span></a></li></ol></div>
             
           </div>
         </section>
