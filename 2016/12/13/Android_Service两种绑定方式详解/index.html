@@ -84,25 +84,30 @@
 
 
 
-<meta name="description" content="系统架构图及各层介绍
-Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。
-Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。">
+<meta name="description" content="简介
+使用说明
+启动与绑定
+
+简介很多情况下，一些与用户很少需要产生交互的应用程序，我们一般让它们在后台运行就行了，而且在它们运行期间我们仍然能运行其他的应用。为了处理这种后台进程，Android引入了Service的概念。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android架构概述">
-<meta property="og:url" content="http://yoursite.com/2016/12/12/Android架构概述/index.html">
+<meta property="og:title" content="Android：Service两种绑定方式详解">
+<meta property="og:url" content="http://yoursite.com/2016/12/13/Android_Service两种绑定方式详解/index.html">
 <meta property="og:site_name" content="Gunther's Notes">
-<meta property="og:description" content="系统架构图及各层介绍
-Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。
-Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。">
-<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/%E6%9E%B6%E6%9E%84.jpg">
-<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/dvm.png">
-<meta property="og:updated_time" content="2017-01-09T07:29:05.933Z">
+<meta property="og:description" content="简介
+使用说明
+启动与绑定
+
+简介很多情况下，一些与用户很少需要产生交互的应用程序，我们一般让它们在后台运行就行了，而且在它们运行期间我们仍然能运行其他的应用。为了处理这种后台进程，Android引入了Service的概念。">
+<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/service_lifecycle.png">
+<meta property="og:updated_time" content="2017-01-15T05:30:29.633Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android架构概述">
-<meta name="twitter:description" content="系统架构图及各层介绍
-Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。
-Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。">
-<meta name="twitter:image" content="http://ohiad05ib.bkt.clouddn.com/%E6%9E%B6%E6%9E%84.jpg">
+<meta name="twitter:title" content="Android：Service两种绑定方式详解">
+<meta name="twitter:description" content="简介
+使用说明
+启动与绑定
+
+简介很多情况下，一些与用户很少需要产生交互的应用程序，我们一般让它们在后台运行就行了，而且在它们运行期间我们仍然能运行其他的应用。为了处理这种后台进程，Android引入了Service的概念。">
+<meta name="twitter:image" content="http://ohiad05ib.bkt.clouddn.com/service_lifecycle.png">
 
 
 
@@ -120,7 +125,7 @@ Application Framework应用框架层：这一层是编写Google发布的核心�
   };
 </script>
 
-  <title> Android架构概述 | Gunther's Notes </title>
+  <title> Android：Service两种绑定方式详解 | Gunther's Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -250,7 +255,7 @@ Application Framework应用框架层：这一层是编写Google发布的核心�
             
             
               
-                Android架构概述
+                Android：Service两种绑定方式详解
               
             
           </h1>
@@ -262,8 +267,8 @@ Application Framework应用框架层：这一层是编写Google发布的核心�
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-12T22:27:51+08:00" content="2016-12-12">
-              2016-12-12
+            <time itemprop="dateCreated" datetime="2016-12-13T14:32:04+08:00" content="2016-12-13">
+              2016-12-13
             </time>
           </span>
 
@@ -290,22 +295,75 @@ Application Framework应用框架层：这一层是编写Google发布的核心�
       
 
       
-        <h3 id="系统架构图及各层介绍"><a href="#系统架构图及各层介绍" class="headerlink" title="系统架构图及各层介绍"></a>系统架构图及各层介绍</h3><ol>
-<li>Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。</li>
-<li><p>Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。</p>
-<a id="more"></a>
-</li>
-<li><p>Libraries系统运行库（C/C++库以及Android运行库）层：当使用Android应用框架时，Android系统会通过一些C/C++库来支持我们使用的各个组件，使其更好的为我们服务，比如其中的SQLite（关系数据库），Webkit（Web浏览器引擎）。</p>
-</li>
-<li>Linux Kernel内核层：Android的核心系统服务给予Linux2.6内核，如安全性、内存管理、进程管理、网络协议栈和驱动模型等都依赖于该内核，比如Binder IPC(Internet Process Connection进程间通信)驱动，android的一个特殊驱动程序，具有单独的设备节点，提供进程间通信的功能。</li>
+        <ol>
+<li>简介</li>
+<li>使用说明</li>
+<li>启动与绑定</li>
 </ol>
-<p><img src="http://ohiad05ib.bkt.clouddn.com/%E6%9E%B6%E6%9E%84.jpg" alt="Alt text"></p>
-<h3 id="Dalvik-VM和JVM的区别"><a href="#Dalvik-VM和JVM的区别" class="headerlink" title="Dalvik VM和JVM的区别"></a>Dalvik VM和JVM的区别</h3><ol>
-<li>传统JVM<br>编写.java文件—-编译为.class文件—-打包成.jar文件，将java源码编译为class文件，然后将一组class打包成jar。基于栈结构，栈存储于内存中，所以需要用到内存空间</li>
-<li>Dalvik VM<br>编写.java文件—-编译为.class文件—-打包成.dex文件—-打包成.apk文件。将一组class编译为一个dex文件，然后有的平台为了更高的效率会将一个dex转换成odex文件。将N多个class文件编译为一个dex，这样执行效率会比较快，更适合在移动平台运行。基于寄存器的结构，寄存器在cpu中，所以用到cpu的空间</li>
-<li>DVM与JVM的区别：<br><img src="http://ohiad05ib.bkt.clouddn.com/dvm.png" alt=""></li>
-<li>ART模式概述<br>ART模式是Android Runtime的简称，从Android 4.2开始出现。在Android 4.2以前，安卓手机系统的应用程序均在Dalvik Java的虚拟机上运行，这种运行模式是还要依靠一个编译器来实现与应用程序的沟通。应程序每次运行时，都需要将程序内的代码及时转变为机器码才能运行，这无形中多附加了一道手续，这就造成了耗电相对较快、占用内存大、即使是旗舰机用久了也会卡顿严重的现象。<br>ART模式通过在安装应用程序时，自动对程序进行代码预读取编译，让程序直接编译成机器语言，免去了Dalvik模式要时时转换代码，实现高效率、省电、占用更低的系统内存、手机运行流畅。但凡事总有正反两面，ART在解决了该问题的同时，同时也有如：会占用略高一些的存储空间、安装程序时要相比普通Dalvik模式要长一些时间来实现预编译。</li>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>很多情况下，一些与用户很少需要产生交互的应用程序，我们一般让它们在后台运行就行了，而且在它们运行期间我们仍然能运行其他的应用。为了处理这种后台进程，Android引入了Service的概念。<br><a id="more"></a></p>
+<ol>
+<li>Service在Android中是一种长生命周期的组件，它不实现任何用户界面,是一个没有界面的组件，由其他组件开启。</li>
+<li>Service长期在后台运行, 执行不关乎界面的一些操作比如: 网易新闻服务,每隔1分钟去服务查看是否有最新新闻。</li>
+<li>Service和Thread有点相似,但是使用Thread不安全, 不严谨。</li>
+<li>Service和其他组件一样，都是运行在主线程中，因此不能用它来做耗时的操作。</li>
 </ol>
+<h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><ol>
+<li>创建Service，定义类继承Service，AndroidManifest.xml中定义<service></service></li>
+<li>开启Service，在其他组件中调用startService方法<br>startService(intent);（在activity中可以直接调用），会执行onstartCommand(生命周期方法)(onStart()以过期的方法)，如果发现service还没有，就会先创建执行oncreate。<br>onCreate只会执行一次，服务一旦被创建出来，就不会再执行onCreate方法，以后再去开启服务只会执行onStartCommand。<br>停止Service，调用stopService方法，会执行onDestory()（生命周期方法）。</li>
+<li>服务也是运行在主线程中，耗时操作需要放到子线程中，不然会出现anr</li>
+<li><p>setForegound(true)(直接在service里调用)，为了避免服务被杀死，我们可以指定这个服务为前台进程。</p>
+<p>服务在执行生命周期方法时，也是一个前台进程。广播接收者也一样，在执行生命周期方法onReceive时，也是一个前台进程。</p>
+</li>
+</ol>
+<h3 id="启动与绑定"><a href="#启动与绑定" class="headerlink" title="启动与绑定"></a>启动与绑定</h3><ol>
+<li>startService()，标准开启模式。</li>
+<li>bindService()，绑定模式。</li>
+</ol>
+<p><strong>标准开启模式：</strong><br>被开启的service通过其他组件调用 startService()被创建。这种service可以无限地运行下去，必须调用stopSelf()方法或者其他组件调用stopService()方法来停止它。当service被停止时，系统会销毁它。</p>
+<p><strong>绑定模式：</strong><br>被绑定的service是当其他组件（一个客户）调用bindService()来创建的。客户可以通过一个IBinder接口和service进行通信。客户可以通过 unbindService()方法来关闭这种连接。一个service可以同时和多个客户绑定，当多个客户都解除绑定之后，系统会销毁service。</p>
+<p>Service的这两种生命周期并不是完全分开的。也就是说，你可以和一个已经调用了 startService()而被开启的service进行绑定。</p>
+<p>比如，一个后台音乐service可能因调用 startService()方法而被开启了，稍后，可能用户想要控制播放器或者得到一些当前歌曲的信息，可以通过bindService()将一个activity和service绑定。这种情况下，stopService()或 stopSelf()实际上并不能停止这个service，除非所有的客户都解除绑定。</p>
+<p>绑定服务方法：bindService(intent,serviceConnection,int flag);在其他组件中调用此方法，调用后服务内部的生命周期方法onBind方法执行，一旦绑定成功，onBind只执行一次，再次绑定，onBind不会执行。</p>
+<p>serviceConnection：连接对象，连接上服务之后可以调用服务的方法传入一个自定义的ServiceConnection用来接收IBinder。实例化ServiceConnection对象，重写内部方法onServiceConnected(ComponentName name,IBinder Binder)：绑定成功获取连接时，执行的方法。</p>
+<p>unBindService()解除绑定服务，内部调用服务的生命周期方法onUnbind()，然后调用onDestory()销毁服务。服务只能被解除绑定一次，如果unBindService方法被调用多次，就会出错。</p>
+<pre><code>public class TestService extends Service {
+int mStartMode;
+IBinder mBinder; 
+boolean mAllowRebind; 
+
+@Override
+public void onCreate() {
+
+}
+
+@Override
+public int onStartCommand(Intent intent, int flags, int startId) {
+        return mStartMode;
+    }
+
+@Override
+public IBinder onBind(Intent intent) {
+    bindService()
+    return mBinder;
+}
+
+@Override
+public boolean onUnbind(Intent intent) {
+    return mAllowRebind;
+}
+
+@Override
+public void onRebind(Intent intent) {
+    bindService(),
+
+}
+
+@Override
+public void onDestroy() {
+    destroyed
+}
+}
+</code></pre><p><strong>Service生命周期</strong><br><img src="http://ohiad05ib.bkt.clouddn.com/service_lifecycle.png" alt="service lifecycle"></p>
 
       
     </div>
@@ -330,16 +388,16 @@ Application Framework应用框架层：这一层是编写Google发布的核心�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/12/Android_SQLite数据存储/" rel="next" title="Android：SQLite数据存储">
-                <i class="fa fa-chevron-left"></i> Android：SQLite数据存储
+              <a href="/2016/12/13/Android_BroadcastReceiver实例详解/" rel="next" title="Android：BroadcastReceiver实例详解">
+                <i class="fa fa-chevron-left"></i> Android：BroadcastReceiver实例详解
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/12/13/Android_Activity生命周期_详解/" rel="prev" title="Android：Activity生命周期&详解">
-                Android：Activity生命周期&详解 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/13/Android_ContentProvider实例详解/" rel="prev" title="Android：ContentProvider使用说明">
+                Android：ContentProvider使用说明 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -487,7 +545,7 @@ Application Framework应用框架层：这一层是编写Google发布的核心�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#系统架构图及各层介绍"><span class="nav-number">1.</span> <span class="nav-text">系统架构图及各层介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dalvik-VM和JVM的区别"><span class="nav-number">2.</span> <span class="nav-text">Dalvik VM和JVM的区别</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用说明"><span class="nav-number">2.</span> <span class="nav-text">使用说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动与绑定"><span class="nav-number">3.</span> <span class="nav-text">启动与绑定</span></a></li></ol></div>
             
           </div>
         </section>
