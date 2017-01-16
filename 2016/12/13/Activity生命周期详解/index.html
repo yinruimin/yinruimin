@@ -84,25 +84,31 @@
 
 
 
-<meta name="description" content="系统架构图及各层介绍
-Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。
-Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。">
+<meta name="description" content="简介
+使用流程
+跳转方式
+生命周期
+
+Activity的简介Activity是Android四大组件之一，它用于展示界面。Activity是一个应用程序组件，提供一个屏幕，用户可以用来交互为了完成某项任务。Activity中所有操作都与用户密切相关，是一个负责与用户交互的组件，可以通过setContentView(View)来显示指定控件。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android：架构概述">
-<meta property="og:url" content="http://gunther.top/2016/12/12/Android架构概述/index.html">
+<meta property="og:title" content="Android：Activity生命周期使用说明">
+<meta property="og:url" content="http://gunther.top/2016/12/13/Activity生命周期详解/index.html">
 <meta property="og:site_name" content="Gunther's Notes">
-<meta property="og:description" content="系统架构图及各层介绍
-Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。
-Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。">
-<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/%E6%9E%B6%E6%9E%84.jpg">
-<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/dvm.png">
-<meta property="og:updated_time" content="2017-01-15T05:45:38.164Z">
+<meta property="og:description" content="简介
+使用流程
+跳转方式
+生命周期
+
+Activity的简介Activity是Android四大组件之一，它用于展示界面。Activity是一个应用程序组件，提供一个屏幕，用户可以用来交互为了完成某项任务。Activity中所有操作都与用户密切相关，是一个负责与用户交互的组件，可以通过setContentView(View)来显示指定控件。">
+<meta property="og:updated_time" content="2017-01-16T07:37:32.926Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android：架构概述">
-<meta name="twitter:description" content="系统架构图及各层介绍
-Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。
-Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。">
-<meta name="twitter:image" content="http://ohiad05ib.bkt.clouddn.com/%E6%9E%B6%E6%9E%84.jpg">
+<meta name="twitter:title" content="Android：Activity生命周期使用说明">
+<meta name="twitter:description" content="简介
+使用流程
+跳转方式
+生命周期
+
+Activity的简介Activity是Android四大组件之一，它用于展示界面。Activity是一个应用程序组件，提供一个屏幕，用户可以用来交互为了完成某项任务。Activity中所有操作都与用户密切相关，是一个负责与用户交互的组件，可以通过setContentView(View)来显示指定控件。">
 
 
 
@@ -120,7 +126,7 @@ Application Framework应用框架层：这一层是编写Google发布的核心�
   };
 </script>
 
-  <title> Android：架构概述 | Gunther's Notes </title>
+  <title> Android：Activity生命周期使用说明 | Gunther's Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -250,7 +256,7 @@ Application Framework应用框架层：这一层是编写Google发布的核心�
             
             
               
-                Android：架构概述
+                Android：Activity生命周期使用说明
               
             
           </h1>
@@ -262,8 +268,8 @@ Application Framework应用框架层：这一层是编写Google发布的核心�
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-12T22:27:51+08:00" content="2016-12-12">
-              2016-12-12
+            <time itemprop="dateCreated" datetime="2016-12-13T13:46:12+08:00" content="2016-12-13">
+              2016-12-13
             </time>
           </span>
 
@@ -290,22 +296,79 @@ Application Framework应用框架层：这一层是编写Google发布的核心�
       
 
       
-        <h3 id="系统架构图及各层介绍"><a href="#系统架构图及各层介绍" class="headerlink" title="系统架构图及各层介绍"></a>系统架构图及各层介绍</h3><ol>
-<li>Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。</li>
-<li><p>Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。</p>
-<a id="more"></a>
-</li>
-<li><p>Libraries系统运行库（C/C++库以及Android运行库）层：当使用Android应用框架时，Android系统会通过一些C/C++库来支持我们使用的各个组件，使其更好的为我们服务，比如其中的SQLite（关系数据库），Webkit（Web浏览器引擎）。</p>
-</li>
-<li>Linux Kernel内核层：Android的核心系统服务给予Linux2.6内核，如安全性、内存管理、进程管理、网络协议栈和驱动模型等都依赖于该内核，比如Binder IPC(Internet Process Connection进程间通信)驱动，android的一个特殊驱动程序，具有单独的设备节点，提供进程间通信的功能。</li>
+        <ol>
+<li>简介</li>
+<li>使用流程</li>
+<li>跳转方式</li>
+<li>生命周期</li>
 </ol>
-<p><img src="http://ohiad05ib.bkt.clouddn.com/%E6%9E%B6%E6%9E%84.jpg" alt="Alt text"></p>
-<h3 id="Dalvik-VM和JVM的区别"><a href="#Dalvik-VM和JVM的区别" class="headerlink" title="Dalvik VM和JVM的区别"></a>Dalvik VM和JVM的区别</h3><ol>
-<li>传统JVM<br>编写.java文件—-编译为.class文件—-打包成.jar文件，将java源码编译为class文件，然后将一组class打包成jar。基于栈结构，栈存储于内存中，所以需要用到内存空间</li>
-<li>Dalvik VM<br>编写.java文件—-编译为.class文件—-打包成.dex文件—-打包成.apk文件。将一组class编译为一个dex文件，然后有的平台为了更高的效率会将一个dex转换成odex文件。将N多个class文件编译为一个dex，这样执行效率会比较快，更适合在移动平台运行。基于寄存器的结构，寄存器在cpu中，所以用到cpu的空间</li>
-<li>DVM与JVM的区别：<br><img src="http://ohiad05ib.bkt.clouddn.com/dvm.png" alt=""></li>
-<li>ART模式概述<br>ART模式是Android Runtime的简称，从Android 4.2开始出现。在Android 4.2以前，安卓手机系统的应用程序均在Dalvik Java的虚拟机上运行，这种运行模式是还要依靠一个编译器来实现与应用程序的沟通。应程序每次运行时，都需要将程序内的代码及时转变为机器码才能运行，这无形中多附加了一道手续，这就造成了耗电相对较快、占用内存大、即使是旗舰机用久了也会卡顿严重的现象。<br>ART模式通过在安装应用程序时，自动对程序进行代码预读取编译，让程序直接编译成机器语言，免去了Dalvik模式要时时转换代码，实现高效率、省电、占用更低的系统内存、手机运行流畅。但凡事总有正反两面，ART在解决了该问题的同时，同时也有如：会占用略高一些的存储空间、安装程序时要相比普通Dalvik模式要长一些时间来实现预编译。</li>
+<h3 id="Activity的简介"><a href="#Activity的简介" class="headerlink" title="Activity的简介"></a>Activity的简介</h3><p>Activity是Android四大组件之一，它用于展示界面。Activity是一个应用程序组件，提供一个屏幕，用户可以用来交互为了完成某项任务。Activity中所有操作都与用户密切相关，是一个负责与用户交互的组件，可以通过setContentView(View)来显示指定控件。<br><a id="more"></a><br>在一个android应用中，一个Activity通常就是一个单独的屏幕，它上面可以显示一些控件也可以监听并处理用户的事件做出响应。Activity之间通过Intent进行通信。</p>
+<h3 id="使用流程"><a href="#使用流程" class="headerlink" title="使用流程"></a>使用流程</h3><ol>
+<li>定义类继承Activity</li>
+<li>在AndroidManifest.xml的<application>节点中声明<activity></activity></application></li>
 </ol>
+<pre><code> &lt;intent-filter&gt;
+&lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;
+&lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;
+&lt;/intent-filter&gt;
+</code></pre><ol>
+<li>Intent-filter子节点：<br>添加意图过滤，可以通过隐式意图启动。可以在桌面生成快捷方式，应用程序的入口。</li>
+</ol>
+<h3 id="跳转方式"><a href="#跳转方式" class="headerlink" title="跳转方式"></a>跳转方式</h3><ol>
+<li>显式跳转：在可以引用到那个类, 并且可以引用到那个类的字节码时可以使用，一般用于自己程序的内部，显式跳转不可以跳转到其他程序的页面中。</li>
+<li>隐式跳转：可以在当前程序跳转到另一个程序的页面，隐式跳转不需要引用到那个类,但是必须得知道那个界面的action和category。</li>
+<li>Activity之间通过Intent进行通信。Intent，用于描述一个页面的信息,同时也是一个数据的载体。</li>
+<li>你可以用startActivity(),或startActivityForResult()(如果你想要Activity返回数据)传递一个Intent来开启一个Activity(或者让它做一些其他东西)。</li>
+<li>Intent除了可以激活组件，还可以通过封装的Bundle对象来携带数据。所以在启动一个Activity的时候，同时还可以传递数据，然后在新的Activity中可以获得意图对象以获取其中Bundle保存的数据。</li>
+<li>Intent可传递的数据类型有: 八大基本数据类型，String,数组,ArrayList<string>, Bundle数据捆, 实现序列化接口的 Javabean</string></li>
+</ol>
+<p>隐式跳转打开浏览器界面：1. 配置文件 2.程序代码</p>
+<pre><code>&lt;intent-filter&gt;
+&lt;action android:name=&quot;android.intent.action.VIEW&quot; /&gt;
+&lt;category android:name=&quot;android.intent.category.DEFAULT&quot; /&gt;
+&lt;category android:name=&quot;android.intent.category.BROWSABLE&quot; /&gt;
+            &lt;data android:scheme=&quot;http&quot; /&gt;
+            &lt;data android:scheme=&quot;https&quot; /&gt;
+            &lt;data android:scheme=&quot;about&quot; /&gt;
+            &lt;data android:scheme=&quot;javascript&quot; /&gt;
+&lt;/intent-filter&gt;
+</code></pre><hr>
+<pre><code>//跳转到浏览器界面代码
+public void skip2Browser(View view){
+    //创建一个Intent对象
+    Intent intent = new Intent();
+    //设置Action
+    intent.setAction(&quot;android.intent.action.VIEW&quot;);
+    //设置category
+    intent.addCategory(&quot;android.intent.category.BROWSABLE&quot;);
+    //设置参数
+    intent.setData(Uri.parse(&quot;http://www.itheima.com&quot;));
+    //启动Activity
+    startActivity(intent);
+}
+</code></pre><h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p>Activity有三种状态：</p>
+<ol>
+<li>当它在屏幕前台时,响应用户操作的Activity, 它是<strong>激活或运行状态</strong>。</li>
+<li>当它上面有另外一个Activity，使它失去了焦点但仍然对用户可见时, 它处于<strong>暂停状态</strong>。</li>
+<li>当它完全被另一个Activity覆盖时则处于<strong>停止状态</strong>。</li>
+<li>当Activity从一种状态转变到另一种状态时，会调用其生命周期方法。<pre><code>![Activity lifecycle](http://ohiad05ib.bkt.clouddn.com/basic-lifecycle.png)
+</code></pre></li>
+</ol>
+<ul>
+<li>startActivity开启一个Activity时, 生命周期的过程是: onCreate —onStart(可见不可交互) —onResume(可见可交互)</li>
+<li>点击back键关闭一个Activity时, 生命周期的过程是: onPause(部分可见不可交互) —onStop(完全不可见) —onDestroy(销毁)</li>
+<li>当开启一个新的Activity(以对话框形式)，新的activity把后面的activity给盖住一部分时，后面的activity的生命周期执行的方法是:onPause(部分可见, 不可交互)。<br>注意：指定Activity以对话框的形式显示, 需在activity节点追加以下主题android:theme=”@android:style/Theme.Dialog”</li>
+<li>当把新开启的Activity(以对话框形式)给关闭时, 后面的activity的生命周期执行的方法是: onResume(可见，可交互)</li>
+<li>当开启一个新的activity把后面的activity完全盖住时, 生命周期的方法执行顺序是: onPause —onStop(完全不可见)。</li>
+<li>当把新开启的activity(完全盖住)给关闭时, 生命周期的方法执行顺序是: onRestart—onStart —onResume(可见, 可交互)。</li>
+<li>实际应用场景：onResume 可见, 可交互，在该方法中可进行刷新数据操作；onPause 可见，但是不能响应用户操作，在该方法中可进行操作暂停；onCreate 初始化布局以及一些大量的数据；onDestroy 把数据给释放掉, 节省内存。</li>
+</ul>
+<p>保存Activity信息</p>
+<ul>
+<li>onSaveInstanceState：在Activity被动的摧毁或停止的时候调用，用于保存运行数据，可以将数据存在在Bundle中。onPause之后执行。被动消耗，指被系统回收，不是主动调用finish方法。</li>
+<li>onRestoreInstanceState：该方法在Activity被重新绘制的时候调用，例如改变屏幕方向，savedInstanceState为onSaveInstanceState保存的数据。</li>
+<li>Activity重新创建，恢复数据，onStart之后执行。如果activity停止之后，进程在后头很容易被杀死，然后重新启动，就会执行恢复数据方法</li>
+</ul>
 
       
     </div>
@@ -330,16 +393,16 @@ Application Framework应用框架层：这一层是编写Google发布的核心�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/12/SQLite数据存储/" rel="next" title="Android：SQLite数据存储">
-                <i class="fa fa-chevron-left"></i> Android：SQLite数据存储
+              <a href="/2016/12/12/Android架构概述/" rel="next" title="Android：架构概述">
+                <i class="fa fa-chevron-left"></i> Android：架构概述
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/12/13/Activity生命周期详解/" rel="prev" title="Android：Activity生命周期使用说明">
-                Android：Activity生命周期使用说明 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/13/BroadcastReceiver实例详解/" rel="prev" title="Android：BroadcastReceiver实例详解">
+                Android：BroadcastReceiver实例详解 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -487,7 +550,7 @@ Application Framework应用框架层：这一层是编写Google发布的核心�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#系统架构图及各层介绍"><span class="nav-number">1.</span> <span class="nav-text">系统架构图及各层介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dalvik-VM和JVM的区别"><span class="nav-number">2.</span> <span class="nav-text">Dalvik VM和JVM的区别</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Activity的简介"><span class="nav-number">1.</span> <span class="nav-text">Activity的简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用流程"><span class="nav-number">2.</span> <span class="nav-text">使用流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跳转方式"><span class="nav-number">3.</span> <span class="nav-text">跳转方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生命周期"><span class="nav-number">4.</span> <span class="nav-text">生命周期</span></a></li></ol></div>
             
           </div>
         </section>
