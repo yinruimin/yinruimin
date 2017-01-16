@@ -84,36 +84,28 @@
 
 
 
-<meta name="description" content="首先明确两个概念
+<meta name="description" content="简介
+使用说明
+ContentObserver
 
-产业地图
-产品画布
-
-什么是产业地图？产业地图是一种分析产业链的工具，通过将产业链中的角色标准化，引导思维，完成梳理过程。它包括四个角色：供应商、渠道商、营销媒介、用户。">
+简介ContentProvider即内容提供者，是Android的四大组件之一。内容提供者是应用程序之间共享数据的接口，Android系统将这种机制应用到方方面面。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用产品画布分析一款互联网产品">
-<meta property="og:url" content="http://gunther.top/2016/12/05/ProductMap/index.html">
+<meta property="og:title" content="Android：ContentProvider使用说明">
+<meta property="og:url" content="http://gunther.top/2016/12/13/ContentProviderDemoLearning/index.html">
 <meta property="og:site_name" content="Gunther's Notes">
-<meta property="og:description" content="首先明确两个概念
+<meta property="og:description" content="简介
+使用说明
+ContentObserver
 
-产业地图
-产品画布
-
-什么是产业地图？产业地图是一种分析产业链的工具，通过将产业链中的角色标准化，引导思维，完成梳理过程。它包括四个角色：供应商、渠道商、营销媒介、用户。">
-<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/map.jpg">
-<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/product.jpg">
-<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/didi.jpg">
-<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/xiami.jpg">
-<meta property="og:updated_time" content="2017-01-09T07:25:09.870Z">
+简介ContentProvider即内容提供者，是Android的四大组件之一。内容提供者是应用程序之间共享数据的接口，Android系统将这种机制应用到方方面面。">
+<meta property="og:updated_time" content="2017-01-15T05:29:45.906Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用产品画布分析一款互联网产品">
-<meta name="twitter:description" content="首先明确两个概念
+<meta name="twitter:title" content="Android：ContentProvider使用说明">
+<meta name="twitter:description" content="简介
+使用说明
+ContentObserver
 
-产业地图
-产品画布
-
-什么是产业地图？产业地图是一种分析产业链的工具，通过将产业链中的角色标准化，引导思维，完成梳理过程。它包括四个角色：供应商、渠道商、营销媒介、用户。">
-<meta name="twitter:image" content="http://ohiad05ib.bkt.clouddn.com/map.jpg">
+简介ContentProvider即内容提供者，是Android的四大组件之一。内容提供者是应用程序之间共享数据的接口，Android系统将这种机制应用到方方面面。">
 
 
 
@@ -131,7 +123,7 @@
   };
 </script>
 
-  <title> 利用产品画布分析一款互联网产品 | Gunther's Notes </title>
+  <title> Android：ContentProvider使用说明 | Gunther's Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -261,7 +253,7 @@
             
             
               
-                利用产品画布分析一款互联网产品
+                Android：ContentProvider使用说明
               
             
           </h1>
@@ -273,8 +265,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-05T23:52:17+08:00" content="2016-12-05">
-              2016-12-05
+            <time itemprop="dateCreated" datetime="2016-12-13T14:53:54+08:00" content="2016-12-13">
+              2016-12-13
             </time>
           </span>
 
@@ -301,59 +293,154 @@
       
 
       
-        <p>首先明确两个概念</p>
-<ol>
-<li>产业地图</li>
-<li>产品画布</li>
+        <ol>
+<li>简介</li>
+<li>使用说明</li>
+<li>ContentObserver</li>
 </ol>
-<h2 id="什么是产业地图？"><a href="#什么是产业地图？" class="headerlink" title="什么是产业地图？"></a>什么是产业地图？</h2><p>产业地图是一种分析产业链的工具，通过将产业链中的角色标准化，引导思维，完成梳理过程。它包括四个角色：供应商、渠道商、营销媒介、用户。<br><a id="more"></a><br>下面是一幅健身领域的产业地图：<br><img src="http://ohiad05ib.bkt.clouddn.com/map.jpg" alt="enter image description here"></p>
-<h2 id="产品画布"><a href="#产品画布" class="headerlink" title="产品画布"></a>产品画布</h2><p>分析一款典型产品的商业模式，有两种主导逻辑。</p>
-<ol>
-<li>营销逻辑<br>关心产品的业务关系。用户的痛点是什么？解决方案是什么？关键核心指标是什么？</li>
-<li>财务逻辑<br>关心成本和收益。产品的发展情况？盈利能力如何？运营是不是有效率？</li>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>ContentProvider即内容提供者，是Android的四大组件之一。内容提供者是应用程序之间共享数据的接口，Android系统将这种机制应用到方方面面。<br><a id="more"></a><br>比如：联系人Provider专为不同应用程序提供联系人数据；设置Provider专为不同应用程序提供系统配置信息，包括内置的设置应用程序等。当应用继承ContentProvider类，并重写该类用于提供数据和存储数据的方法，就可以向其他应用共享其数据。</p>
+<p>虽然使用其他方法也可以对外共享数据，但数据访问方式会因数据存储的方式而不同，如：采用文件方式对外共享数据，需要进行文件操作读写数据；采用SharedPreferences共享数据，需要使用SharedPreferences API读写数据。</p>
+<p>而使用ContentProvider共享数据的好处是统一了数据访问方式。内容提供者将数据封装，只暴露出我们希望提供给其他程序的数据。内容提供者中数据更改可被监听。</p>
+<h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><ol>
+<li>定义类继承ContentProvider，根据需要重写内部方法(增删改查)</li>
+<li>在清单文件的<application>节点下进行配置，<provider>标签中需要指定name和authorities属性<br>name：类名，包名从程序Package开始，以“.”开始<br>authorities：是访问Provider时的路径，要唯一 </provider></application></li>
+<li><p>URI代表要操作的数据，由scheme、authorites、path三部分组成<br>content：//cn.gunther.sqlite.provider/person<br>scheme：固定为content，代表访问内容提供者<br>authorites：<provider>节点中的authorites属性<br>path：程序定义的路径，可根据业务逻辑定义</provider></p>
+<p>示例代码：</p>
+</li>
+<li>新创建一个Android工程，工程名《MyContentProvider》，包名：com.gunther.provider。</li>
+<li>在com.gunther.provider.dao包下新建一个PersonOpenHelper类继承SQLiteOpenHelper类，该类用于创建数据库。</li>
 </ol>
-<p>那么产品画布的框架可以有效地将两者结合起来：<br><img src="http://ohiad05ib.bkt.clouddn.com/product.jpg" alt="enter image description here"></p>
-<h3 id="一-用户痛点"><a href="#一-用户痛点" class="headerlink" title="一.用户痛点"></a>一.用户痛点</h3><p>用户迫切的需求。</p>
-<h3 id="二-解决方案"><a href="#二-解决方案" class="headerlink" title="二.解决方案"></a>二.解决方案</h3><p>罗列产品的特性，筛选后留下核心的竞争力的功能。</p>
-<h3 id="三-关键指标"><a href="#三-关键指标" class="headerlink" title="三.关键指标"></a>三.关键指标</h3><p>围绕核心业务，得到关键指标。<br>比如滴滴打车，共享经济方式，解决乘客端便捷打车、司机端提升座位利用率的需求。这是个基于效率最大化的业务模式，所以提升运营效率是关键。<br>滴滴打车的核心关键指标是乘客上车时间，是乘客从发起打车需求到开始乘车的时间间隔。<br>围绕滴滴打车的核心业务，关键指标不是打车的人越多越好，不是在线的车越多越好，是乘客的乘车需求与附近车辆的座位空置率的匹配度。</p>
-<p>明确围绕核心业务的关键指标，可以方便了对应产品的业务发展状态。<br><img src="http://ohiad05ib.bkt.clouddn.com/didi.jpg" alt="enter image description here"></p>
-<h3 id="四-独特卖点"><a href="#四-独特卖点" class="headerlink" title="四.独特卖点"></a>四.独特卖点</h3><p>目标用户为什么选择这款产品，而不是其他？<br>针对用户的痛点，同时对比其他产品，这款产品，能够提供什么特别的价值？ 解决方案的优势是什么？<br>可以拆分两个层面去思考：</p>
-<ol>
-<li>基本属性</li>
-<li>尖叫属性</li>
-</ol>
-<p>我们可以思考一下自己常用的产品，我们为什么选择了它？<br>电商我喜欢用京东。<br>自营可信赖、品类丰富、评价真实，属于基本属性。<br>物流闪电速度、配送员专业，属于尖叫属性。</p>
-<h3 id="五-核心资源"><a href="#五-核心资源" class="headerlink" title="五.核心资源"></a>五.核心资源</h3><p>借助核心资源是帮助产品突出重围。<br>关键资源一般包括：</p>
-<ol>
-<li>资本，拥有雄厚的资金实力，方便开展市场活动，例如，外卖红包大战。</li>
-<li>专利，拥有IP，例如，网红Papi酱的视频。</li>
-<li>人力，拥有某行业人力，例如，医生专家资源。</li>
-<li>背景，拥有强大的合作伙伴，例如，开发小程序，腾讯系公司可以拿到微信社交API，而其他公司不可以。</li>
-</ol>
-<h3 id="六-渠道"><a href="#六-渠道" class="headerlink" title="六.渠道"></a>六.渠道</h3><p>渠道可以划分为线下渠道和线上渠道。</p>
-<ol>
-<li>线下渠道<br>聘请地推团队推广、做平面广告、线下用户活动等。<br>互联网虽然强大，但很多冷启动时的互联网产品，也会选择建设地推团队在做线下推广。地推常见的方式是，扫码送礼物、发传单优惠券等。</li>
-<li>线上渠道<br>KOL合作、Campaign、Native Ads（原生广告：在网站、APP中正常内容一样的广告）、Coop Branding等。</li>
-</ol>
-<h3 id="七-用户细分"><a href="#七-用户细分" class="headerlink" title="七.用户细分"></a>七.用户细分</h3><p>用户细分，是营销中的STP理论，包含三个部分：市场细分（Segmentation）、目标市场选择（Targeting）和定位（Position）。<br>这对于早期产品尤为重要，针对细分市场，提供细分用户的定向服务，精细化培育种子用户，为产品发展打下基础，例如知乎早期的注册邀请机制。<br>用户细分有两个大的维度，基本属性和行为属性。</p>
-<ol>
-<li>基本属性：年龄、性别、职业、地区等。</li>
-<li>行为属性：兴趣爱好、使用场合、忠诚度等。</li>
-</ol>
-<h3 id="八-成本结构"><a href="#八-成本结构" class="headerlink" title="八.成本结构"></a>八.成本结构</h3><p>互联网行业，成本包括：</p>
-<ol>
-<li>固定成本：人力、服务器、办公场地等。</li>
-<li>可变成本：根绝产品阶段不同对应的运营推广费用等。</li>
-</ol>
-<h3 id="九-收入来源"><a href="#九-收入来源" class="headerlink" title="九.收入来源"></a>九.收入来源</h3><p>互联网产品的商业变现模式，具体问题具体分析，此处只简单罗列 。<br>对于一款APP来说，可以包含：</p>
-<ol>
-<li>一次性付费下载（MindNode）</li>
-<li>付费试用内部高级功能（印象笔记）</li>
-<li>内部广告（游戏广告）</li>
-<li>付费会员（视频产品）<br>……</li>
-</ol>
-<p>下面是虾米音乐App的简单产品画布分析：<br><img src="http://ohiad05ib.bkt.clouddn.com/xiami.jpg" alt="enter image description here"></p>
+<pre><code>public class PersonOpenHelper extends SQLiteOpenHelper {
 
+public PersonOpenHelper(Context context, String name, CursorFactory factory, int version) {
+    super(context, name, factory, version);
+}
+
+public PersonOpenHelper(Context context){
+    super(context, &quot;person.db&quot;, null, 1);
+}
+
+@Override
+public void onCreate(SQLiteDatabase db) {
+    String sql = &quot;create table person (id integer primary key autoincrement,name varchar(20),phone varchar(20),age integer,address varchar(50));&quot;;
+    db.execSQL(sql);
+
+}
+
+@Override
+public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+}
+
+}
+</code></pre><ol>
+<li><p>在com.gunther.contenProvider.provider包中创建，PersonContentProvider类继承ContentProvider类。同时将该Provider在AndroidManifest.xml中注册。</p>
+<pre><code>&lt;provider    android:exported=&quot;true&quot;     
+android:name=&quot;com.gunther.contenProvider.provider.PersonContentProvider&quot;
+android:authorities=&quot;com.gunther.person&quot; /&gt;
+</code></pre></li>
+</ol>
+<pre><code>public class PersonContentProvider extends ContentProvider {
+//用于存放并匹配个Uri标识信息，一般在静态代码块中对其信息进行初始化操作
+private static UriMatcher matcher;
+//声明一个用于操作数据库对象
+private PersonOpenHelper openHelper;
+//主机名信息：对应清单文件的authorities属性
+private static final String AUTHORITY = &quot;com.itheima.person&quot;;
+//数据库 表名
+private static final String TABLE_PERSON_NAME = &quot;person&quot;;
+//Uri匹配成功的返回码
+private static final int PERSON_INSERT_CODE = 1000;
+private static final int PERSON_DELETE_CODE = 10001;
+private static final int PERSON_UPDATE_CODE = 10002;
+private static final int PERSON_QUERYALL_CODE = 10003;
+private static final int PERSON_QUERYONE_CODE = 10004;
+//静态代码块，用于初始化UriMatcher
+static{
+    //NO_MATCH:没有Uri匹配的时候返回的状态码（-1）
+    matcher = new UriMatcher(UriMatcher.NO_MATCH);
+    //添加一个分机号：
+    //对person表进行添加操作，如果Uri=content://com.itheima.person/person/insert,则返回PERSON_INSERT_CODE
+    matcher.addURI(AUTHORITY, &quot;person/insert&quot;, PERSON_INSERT_CODE);
+    //对person表进行删除操作,如果Uri= content://com.itheima.person/person/delete,则返回PERSON_DELETE_CODE
+    matcher.addURI(AUTHORITY, &quot;person/delete&quot;, PERSON_DELETE_CODE);
+    //对person表进行修改操作,如果Uri= content://com.itheima.person/person/update,则返回PERSON_UPDATE_CODE
+    matcher.addURI(AUTHORITY, &quot;person/update&quot;, PERSON_UPDATE_CODE);
+    //对person表进行查询所有操作,如果Uri= content://com.itheima.person/person,则返回PERSON_QUERYALL_CODE
+    matcher.addURI(AUTHORITY, &quot;person&quot;, PERSON_QUERYALL_CODE);
+    //对person表进行查询单个操作,如果Uri= content://com.itheima.person/person/#,(#：代表数字)则返回PERSON_QUERYONE_CODE
+    matcher.addURI(AUTHORITY, &quot;person/#&quot;, PERSON_QUERYONE_CODE);
+}
+@Override
+public boolean onCreate() {
+//内容提供者中，获取contenxt，是通过getContext，与测试类一样，不能再成员变量，构造函数中调用，但是可以再onCreate方法中获取。
+    openHelper = new PersonOpenHelper(getContext());
+    return false;
+}
+@Override
+public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
+    //用匹配器去匹配uri，如果匹配成功则返回匹配器中对应的状态码
+    int matchCode = matcher.match(uri);
+    SQLiteDatabase db = openHelper.getReadableDatabase();
+    switch (matchCode) {
+    case PERSON_QUERYALL_CODE:
+        return db.query(TABLE_PERSON_NAME, projection, selection, selectionArgs, null, null, sortOrder);
+    case PERSON_QUERYONE_CODE:
+//使用ContentUris工具类解析出uri中的id
+        long parseId = ContentUris.parseId(uri);
+        return db.query(TABLE_PERSON_NAME, projection,&quot;id=?&quot;, new String[]{parseId+&quot;&quot;}, null, null, sortOrder);
+    default:
+        throw new IllegalArgumentException(&quot;Uri匹配失败：&quot;+uri);
+    }}
+@Override
+public Uri insert(Uri uri, ContentValues values) {
+    SQLiteDatabase db = openHelper.getWritableDatabase();
+    //新插入对象的id
+    long id = db.insert(TABLE_PERSON_NAME, null, values);
+    db.close();
+    //使用ContentUris工具类将id追加到uri中，返回给客户
+    return ContentUris.withAppendedId(uri, id);
+}
+
+@Override
+public int delete(Uri uri, String selection, String[] selectionArgs) {
+    SQLiteDatabase db = openHelper.getWritableDatabase();
+    //返回删除的个数
+    int count = db.delete(TABLE_PERSON_NAME, selection, selectionArgs);
+    //关闭数据库
+    db.close();
+    return count;
+}
+
+@Override
+public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
+    SQLiteDatabase db = openHelper.getWritableDatabase();
+    //返回更新的个数
+    int count = db.update(TABLE_PERSON_NAME, values, selection, selectionArgs);
+    //更新数据库
+    db.close();
+    return count;
+}
+
+@Override
+public String getType(Uri uri) {
+    return null;
+}
+
+}
+</code></pre><p>​    </p>
+<h3 id="ContentObserver"><a href="#ContentObserver" class="headerlink" title="ContentObserver"></a>ContentObserver</h3><p>ContentObserver——内容观察者，目的是观察(捕捉)特定Uri引起的数据库的变化，继而做一些相应的处理，它类似于数据库技术中的触发器(Trigger)，当ContentObserver所观察的Uri发生变化时，便会触发它。触发器分为表触发器、行触发器，相应地ContentObserver也分为“表“ContentObserver、“行”ContentObserver，当然这是与它所监听的Uri MIME Type有关的。</p>
+<pre><code>private class AppLockObserver extends ContentObserver{
+    public AppLockObserver(){
+        super(new Handler());
+    }
+    @Override
+    public void onChange(boolean selfChange) {
+        super.onChange(selfChange);
+        //观察到注册的uri数据发送变化，根据业务需求处理
+    }
+}
+</code></pre>
       
     </div>
 
@@ -377,16 +464,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/03/LogicThinking/" rel="next" title="如何进行零秒思考？">
-                <i class="fa fa-chevron-left"></i> 如何进行零秒思考？
+              <a href="/2016/12/13/ServiceLearningForTwoBind/" rel="next" title="Android：Service两种绑定方式详解">
+                <i class="fa fa-chevron-left"></i> Android：Service两种绑定方式详解
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/12/10/UserCharacterAnalysis/" rel="prev" title="从一个小事例来谈用户特征分析方法论">
-                从一个小事例来谈用户特征分析方法论 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/14/FragmentLifecycle/" rel="prev" title="Android：Fragment生命周期概述">
+                Android：Fragment生命周期概述 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -534,7 +621,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是产业地图？"><span class="nav-number">1.</span> <span class="nav-text">什么是产业地图？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#产品画布"><span class="nav-number">2.</span> <span class="nav-text">产品画布</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-用户痛点"><span class="nav-number">2.1.</span> <span class="nav-text">一.用户痛点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-解决方案"><span class="nav-number">2.2.</span> <span class="nav-text">二.解决方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-关键指标"><span class="nav-number">2.3.</span> <span class="nav-text">三.关键指标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-独特卖点"><span class="nav-number">2.4.</span> <span class="nav-text">四.独特卖点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五-核心资源"><span class="nav-number">2.5.</span> <span class="nav-text">五.核心资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六-渠道"><span class="nav-number">2.6.</span> <span class="nav-text">六.渠道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七-用户细分"><span class="nav-number">2.7.</span> <span class="nav-text">七.用户细分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八-成本结构"><span class="nav-number">2.8.</span> <span class="nav-text">八.成本结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#九-收入来源"><span class="nav-number">2.9.</span> <span class="nav-text">九.收入来源</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用说明"><span class="nav-number">2.</span> <span class="nav-text">使用说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ContentObserver"><span class="nav-number">3.</span> <span class="nav-text">ContentObserver</span></a></li></ol></div>
             
           </div>
         </section>

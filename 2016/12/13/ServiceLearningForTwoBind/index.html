@@ -84,36 +84,30 @@
 
 
 
-<meta name="description" content="首先明确两个概念
+<meta name="description" content="简介
+使用说明
+启动与绑定
 
-产业地图
-产品画布
-
-什么是产业地图？产业地图是一种分析产业链的工具，通过将产业链中的角色标准化，引导思维，完成梳理过程。它包括四个角色：供应商、渠道商、营销媒介、用户。">
+简介很多情况下，一些与用户很少需要产生交互的应用程序，我们一般让它们在后台运行就行了，而且在它们运行期间我们仍然能运行其他的应用。为了处理这种后台进程，Android引入了Service的概念。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用产品画布分析一款互联网产品">
-<meta property="og:url" content="http://gunther.top/2016/12/05/ProductMap/index.html">
+<meta property="og:title" content="Android：Service两种绑定方式详解">
+<meta property="og:url" content="http://gunther.top/2016/12/13/ServiceLearningForTwoBind/index.html">
 <meta property="og:site_name" content="Gunther's Notes">
-<meta property="og:description" content="首先明确两个概念
+<meta property="og:description" content="简介
+使用说明
+启动与绑定
 
-产业地图
-产品画布
-
-什么是产业地图？产业地图是一种分析产业链的工具，通过将产业链中的角色标准化，引导思维，完成梳理过程。它包括四个角色：供应商、渠道商、营销媒介、用户。">
-<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/map.jpg">
-<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/product.jpg">
-<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/didi.jpg">
-<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/xiami.jpg">
-<meta property="og:updated_time" content="2017-01-09T07:25:09.870Z">
+简介很多情况下，一些与用户很少需要产生交互的应用程序，我们一般让它们在后台运行就行了，而且在它们运行期间我们仍然能运行其他的应用。为了处理这种后台进程，Android引入了Service的概念。">
+<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/service_lifecycle.png">
+<meta property="og:updated_time" content="2017-01-15T05:30:29.633Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用产品画布分析一款互联网产品">
-<meta name="twitter:description" content="首先明确两个概念
+<meta name="twitter:title" content="Android：Service两种绑定方式详解">
+<meta name="twitter:description" content="简介
+使用说明
+启动与绑定
 
-产业地图
-产品画布
-
-什么是产业地图？产业地图是一种分析产业链的工具，通过将产业链中的角色标准化，引导思维，完成梳理过程。它包括四个角色：供应商、渠道商、营销媒介、用户。">
-<meta name="twitter:image" content="http://ohiad05ib.bkt.clouddn.com/map.jpg">
+简介很多情况下，一些与用户很少需要产生交互的应用程序，我们一般让它们在后台运行就行了，而且在它们运行期间我们仍然能运行其他的应用。为了处理这种后台进程，Android引入了Service的概念。">
+<meta name="twitter:image" content="http://ohiad05ib.bkt.clouddn.com/service_lifecycle.png">
 
 
 
@@ -131,7 +125,7 @@
   };
 </script>
 
-  <title> 利用产品画布分析一款互联网产品 | Gunther's Notes </title>
+  <title> Android：Service两种绑定方式详解 | Gunther's Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -261,7 +255,7 @@
             
             
               
-                利用产品画布分析一款互联网产品
+                Android：Service两种绑定方式详解
               
             
           </h1>
@@ -273,8 +267,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-05T23:52:17+08:00" content="2016-12-05">
-              2016-12-05
+            <time itemprop="dateCreated" datetime="2016-12-13T14:32:04+08:00" content="2016-12-13">
+              2016-12-13
             </time>
           </span>
 
@@ -301,58 +295,75 @@
       
 
       
-        <p>首先明确两个概念</p>
-<ol>
-<li>产业地图</li>
-<li>产品画布</li>
+        <ol>
+<li>简介</li>
+<li>使用说明</li>
+<li>启动与绑定</li>
 </ol>
-<h2 id="什么是产业地图？"><a href="#什么是产业地图？" class="headerlink" title="什么是产业地图？"></a>什么是产业地图？</h2><p>产业地图是一种分析产业链的工具，通过将产业链中的角色标准化，引导思维，完成梳理过程。它包括四个角色：供应商、渠道商、营销媒介、用户。<br><a id="more"></a><br>下面是一幅健身领域的产业地图：<br><img src="http://ohiad05ib.bkt.clouddn.com/map.jpg" alt="enter image description here"></p>
-<h2 id="产品画布"><a href="#产品画布" class="headerlink" title="产品画布"></a>产品画布</h2><p>分析一款典型产品的商业模式，有两种主导逻辑。</p>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>很多情况下，一些与用户很少需要产生交互的应用程序，我们一般让它们在后台运行就行了，而且在它们运行期间我们仍然能运行其他的应用。为了处理这种后台进程，Android引入了Service的概念。<br><a id="more"></a></p>
 <ol>
-<li>营销逻辑<br>关心产品的业务关系。用户的痛点是什么？解决方案是什么？关键核心指标是什么？</li>
-<li>财务逻辑<br>关心成本和收益。产品的发展情况？盈利能力如何？运营是不是有效率？</li>
+<li>Service在Android中是一种长生命周期的组件，它不实现任何用户界面,是一个没有界面的组件，由其他组件开启。</li>
+<li>Service长期在后台运行, 执行不关乎界面的一些操作比如: 网易新闻服务,每隔1分钟去服务查看是否有最新新闻。</li>
+<li>Service和Thread有点相似,但是使用Thread不安全, 不严谨。</li>
+<li>Service和其他组件一样，都是运行在主线程中，因此不能用它来做耗时的操作。</li>
 </ol>
-<p>那么产品画布的框架可以有效地将两者结合起来：<br><img src="http://ohiad05ib.bkt.clouddn.com/product.jpg" alt="enter image description here"></p>
-<h3 id="一-用户痛点"><a href="#一-用户痛点" class="headerlink" title="一.用户痛点"></a>一.用户痛点</h3><p>用户迫切的需求。</p>
-<h3 id="二-解决方案"><a href="#二-解决方案" class="headerlink" title="二.解决方案"></a>二.解决方案</h3><p>罗列产品的特性，筛选后留下核心的竞争力的功能。</p>
-<h3 id="三-关键指标"><a href="#三-关键指标" class="headerlink" title="三.关键指标"></a>三.关键指标</h3><p>围绕核心业务，得到关键指标。<br>比如滴滴打车，共享经济方式，解决乘客端便捷打车、司机端提升座位利用率的需求。这是个基于效率最大化的业务模式，所以提升运营效率是关键。<br>滴滴打车的核心关键指标是乘客上车时间，是乘客从发起打车需求到开始乘车的时间间隔。<br>围绕滴滴打车的核心业务，关键指标不是打车的人越多越好，不是在线的车越多越好，是乘客的乘车需求与附近车辆的座位空置率的匹配度。</p>
-<p>明确围绕核心业务的关键指标，可以方便了对应产品的业务发展状态。<br><img src="http://ohiad05ib.bkt.clouddn.com/didi.jpg" alt="enter image description here"></p>
-<h3 id="四-独特卖点"><a href="#四-独特卖点" class="headerlink" title="四.独特卖点"></a>四.独特卖点</h3><p>目标用户为什么选择这款产品，而不是其他？<br>针对用户的痛点，同时对比其他产品，这款产品，能够提供什么特别的价值？ 解决方案的优势是什么？<br>可以拆分两个层面去思考：</p>
-<ol>
-<li>基本属性</li>
-<li>尖叫属性</li>
+<h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><ol>
+<li>创建Service，定义类继承Service，AndroidManifest.xml中定义<service></service></li>
+<li>开启Service，在其他组件中调用startService方法<br>startService(intent);（在activity中可以直接调用），会执行onstartCommand(生命周期方法)(onStart()以过期的方法)，如果发现service还没有，就会先创建执行oncreate。<br>onCreate只会执行一次，服务一旦被创建出来，就不会再执行onCreate方法，以后再去开启服务只会执行onStartCommand。<br>停止Service，调用stopService方法，会执行onDestory()（生命周期方法）。</li>
+<li>服务也是运行在主线程中，耗时操作需要放到子线程中，不然会出现anr</li>
+<li><p>setForegound(true)(直接在service里调用)，为了避免服务被杀死，我们可以指定这个服务为前台进程。</p>
+<p>服务在执行生命周期方法时，也是一个前台进程。广播接收者也一样，在执行生命周期方法onReceive时，也是一个前台进程。</p>
+</li>
 </ol>
-<p>我们可以思考一下自己常用的产品，我们为什么选择了它？<br>电商我喜欢用京东。<br>自营可信赖、品类丰富、评价真实，属于基本属性。<br>物流闪电速度、配送员专业，属于尖叫属性。</p>
-<h3 id="五-核心资源"><a href="#五-核心资源" class="headerlink" title="五.核心资源"></a>五.核心资源</h3><p>借助核心资源是帮助产品突出重围。<br>关键资源一般包括：</p>
-<ol>
-<li>资本，拥有雄厚的资金实力，方便开展市场活动，例如，外卖红包大战。</li>
-<li>专利，拥有IP，例如，网红Papi酱的视频。</li>
-<li>人力，拥有某行业人力，例如，医生专家资源。</li>
-<li>背景，拥有强大的合作伙伴，例如，开发小程序，腾讯系公司可以拿到微信社交API，而其他公司不可以。</li>
+<h3 id="启动与绑定"><a href="#启动与绑定" class="headerlink" title="启动与绑定"></a>启动与绑定</h3><ol>
+<li>startService()，标准开启模式。</li>
+<li>bindService()，绑定模式。</li>
 </ol>
-<h3 id="六-渠道"><a href="#六-渠道" class="headerlink" title="六.渠道"></a>六.渠道</h3><p>渠道可以划分为线下渠道和线上渠道。</p>
-<ol>
-<li>线下渠道<br>聘请地推团队推广、做平面广告、线下用户活动等。<br>互联网虽然强大，但很多冷启动时的互联网产品，也会选择建设地推团队在做线下推广。地推常见的方式是，扫码送礼物、发传单优惠券等。</li>
-<li>线上渠道<br>KOL合作、Campaign、Native Ads（原生广告：在网站、APP中正常内容一样的广告）、Coop Branding等。</li>
-</ol>
-<h3 id="七-用户细分"><a href="#七-用户细分" class="headerlink" title="七.用户细分"></a>七.用户细分</h3><p>用户细分，是营销中的STP理论，包含三个部分：市场细分（Segmentation）、目标市场选择（Targeting）和定位（Position）。<br>这对于早期产品尤为重要，针对细分市场，提供细分用户的定向服务，精细化培育种子用户，为产品发展打下基础，例如知乎早期的注册邀请机制。<br>用户细分有两个大的维度，基本属性和行为属性。</p>
-<ol>
-<li>基本属性：年龄、性别、职业、地区等。</li>
-<li>行为属性：兴趣爱好、使用场合、忠诚度等。</li>
-</ol>
-<h3 id="八-成本结构"><a href="#八-成本结构" class="headerlink" title="八.成本结构"></a>八.成本结构</h3><p>互联网行业，成本包括：</p>
-<ol>
-<li>固定成本：人力、服务器、办公场地等。</li>
-<li>可变成本：根绝产品阶段不同对应的运营推广费用等。</li>
-</ol>
-<h3 id="九-收入来源"><a href="#九-收入来源" class="headerlink" title="九.收入来源"></a>九.收入来源</h3><p>互联网产品的商业变现模式，具体问题具体分析，此处只简单罗列 。<br>对于一款APP来说，可以包含：</p>
-<ol>
-<li>一次性付费下载（MindNode）</li>
-<li>付费试用内部高级功能（印象笔记）</li>
-<li>内部广告（游戏广告）</li>
-<li>付费会员（视频产品）<br>……</li>
-</ol>
-<p>下面是虾米音乐App的简单产品画布分析：<br><img src="http://ohiad05ib.bkt.clouddn.com/xiami.jpg" alt="enter image description here"></p>
+<p><strong>标准开启模式：</strong><br>被开启的service通过其他组件调用 startService()被创建。这种service可以无限地运行下去，必须调用stopSelf()方法或者其他组件调用stopService()方法来停止它。当service被停止时，系统会销毁它。</p>
+<p><strong>绑定模式：</strong><br>被绑定的service是当其他组件（一个客户）调用bindService()来创建的。客户可以通过一个IBinder接口和service进行通信。客户可以通过 unbindService()方法来关闭这种连接。一个service可以同时和多个客户绑定，当多个客户都解除绑定之后，系统会销毁service。</p>
+<p>Service的这两种生命周期并不是完全分开的。也就是说，你可以和一个已经调用了 startService()而被开启的service进行绑定。</p>
+<p>比如，一个后台音乐service可能因调用 startService()方法而被开启了，稍后，可能用户想要控制播放器或者得到一些当前歌曲的信息，可以通过bindService()将一个activity和service绑定。这种情况下，stopService()或 stopSelf()实际上并不能停止这个service，除非所有的客户都解除绑定。</p>
+<p>绑定服务方法：bindService(intent,serviceConnection,int flag);在其他组件中调用此方法，调用后服务内部的生命周期方法onBind方法执行，一旦绑定成功，onBind只执行一次，再次绑定，onBind不会执行。</p>
+<p>serviceConnection：连接对象，连接上服务之后可以调用服务的方法传入一个自定义的ServiceConnection用来接收IBinder。实例化ServiceConnection对象，重写内部方法onServiceConnected(ComponentName name,IBinder Binder)：绑定成功获取连接时，执行的方法。</p>
+<p>unBindService()解除绑定服务，内部调用服务的生命周期方法onUnbind()，然后调用onDestory()销毁服务。服务只能被解除绑定一次，如果unBindService方法被调用多次，就会出错。</p>
+<pre><code>public class TestService extends Service {
+int mStartMode;
+IBinder mBinder; 
+boolean mAllowRebind; 
+
+@Override
+public void onCreate() {
+
+}
+
+@Override
+public int onStartCommand(Intent intent, int flags, int startId) {
+        return mStartMode;
+    }
+
+@Override
+public IBinder onBind(Intent intent) {
+    bindService()
+    return mBinder;
+}
+
+@Override
+public boolean onUnbind(Intent intent) {
+    return mAllowRebind;
+}
+
+@Override
+public void onRebind(Intent intent) {
+    bindService(),
+
+}
+
+@Override
+public void onDestroy() {
+    destroyed
+}
+}
+</code></pre><p><strong>Service生命周期</strong><br><img src="http://ohiad05ib.bkt.clouddn.com/service_lifecycle.png" alt="service lifecycle"></p>
 
       
     </div>
@@ -377,16 +388,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/03/LogicThinking/" rel="next" title="如何进行零秒思考？">
-                <i class="fa fa-chevron-left"></i> 如何进行零秒思考？
+              <a href="/2016/12/13/BroadcastReceiverDemoLearning/" rel="next" title="Android：BroadcastReceiver实例详解">
+                <i class="fa fa-chevron-left"></i> Android：BroadcastReceiver实例详解
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/12/10/UserCharacterAnalysis/" rel="prev" title="从一个小事例来谈用户特征分析方法论">
-                从一个小事例来谈用户特征分析方法论 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/13/ContentProviderDemoLearning/" rel="prev" title="Android：ContentProvider使用说明">
+                Android：ContentProvider使用说明 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -534,7 +545,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是产业地图？"><span class="nav-number">1.</span> <span class="nav-text">什么是产业地图？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#产品画布"><span class="nav-number">2.</span> <span class="nav-text">产品画布</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-用户痛点"><span class="nav-number">2.1.</span> <span class="nav-text">一.用户痛点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-解决方案"><span class="nav-number">2.2.</span> <span class="nav-text">二.解决方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-关键指标"><span class="nav-number">2.3.</span> <span class="nav-text">三.关键指标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-独特卖点"><span class="nav-number">2.4.</span> <span class="nav-text">四.独特卖点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五-核心资源"><span class="nav-number">2.5.</span> <span class="nav-text">五.核心资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六-渠道"><span class="nav-number">2.6.</span> <span class="nav-text">六.渠道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七-用户细分"><span class="nav-number">2.7.</span> <span class="nav-text">七.用户细分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八-成本结构"><span class="nav-number">2.8.</span> <span class="nav-text">八.成本结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#九-收入来源"><span class="nav-number">2.9.</span> <span class="nav-text">九.收入来源</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用说明"><span class="nav-number">2.</span> <span class="nav-text">使用说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动与绑定"><span class="nav-number">3.</span> <span class="nav-text">启动与绑定</span></a></li></ol></div>
             
           </div>
         </section>

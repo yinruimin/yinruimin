@@ -84,36 +84,16 @@
 
 
 
-<meta name="description" content="首先明确两个概念
-
-产业地图
-产品画布
-
-什么是产业地图？产业地图是一种分析产业链的工具，通过将产业链中的角色标准化，引导思维，完成梳理过程。它包括四个角色：供应商、渠道商、营销媒介、用户。">
+<meta name="description" content="SQLite数据库的特点SQLite，是一款轻量型的数据库，是遵守ACID(原子性、一致性、隔离性、持久性)的关联式数据库管理系统，多用于嵌入式开发中。Android平台中嵌入了一个关系型数据库SQLite，和其他数据库不同的是SQLite存储数据时不区分类型，例如一个字段声明为Integer类型，我们也可以将一个字符串存入，一个字段声明为布尔型，我们也可以存入浮点数。除非是主键被定义为Integ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用产品画布分析一款互联网产品">
-<meta property="og:url" content="http://gunther.top/2016/12/05/ProductMap/index.html">
+<meta property="og:title" content="Android：SQLite数据存储">
+<meta property="og:url" content="http://gunther.top/2016/12/12/SQLiteIO/index.html">
 <meta property="og:site_name" content="Gunther's Notes">
-<meta property="og:description" content="首先明确两个概念
-
-产业地图
-产品画布
-
-什么是产业地图？产业地图是一种分析产业链的工具，通过将产业链中的角色标准化，引导思维，完成梳理过程。它包括四个角色：供应商、渠道商、营销媒介、用户。">
-<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/map.jpg">
-<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/product.jpg">
-<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/didi.jpg">
-<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/xiami.jpg">
-<meta property="og:updated_time" content="2017-01-09T07:25:09.870Z">
+<meta property="og:description" content="SQLite数据库的特点SQLite，是一款轻量型的数据库，是遵守ACID(原子性、一致性、隔离性、持久性)的关联式数据库管理系统，多用于嵌入式开发中。Android平台中嵌入了一个关系型数据库SQLite，和其他数据库不同的是SQLite存储数据时不区分类型，例如一个字段声明为Integer类型，我们也可以将一个字符串存入，一个字段声明为布尔型，我们也可以存入浮点数。除非是主键被定义为Integ">
+<meta property="og:updated_time" content="2017-01-15T05:25:59.708Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用产品画布分析一款互联网产品">
-<meta name="twitter:description" content="首先明确两个概念
-
-产业地图
-产品画布
-
-什么是产业地图？产业地图是一种分析产业链的工具，通过将产业链中的角色标准化，引导思维，完成梳理过程。它包括四个角色：供应商、渠道商、营销媒介、用户。">
-<meta name="twitter:image" content="http://ohiad05ib.bkt.clouddn.com/map.jpg">
+<meta name="twitter:title" content="Android：SQLite数据存储">
+<meta name="twitter:description" content="SQLite数据库的特点SQLite，是一款轻量型的数据库，是遵守ACID(原子性、一致性、隔离性、持久性)的关联式数据库管理系统，多用于嵌入式开发中。Android平台中嵌入了一个关系型数据库SQLite，和其他数据库不同的是SQLite存储数据时不区分类型，例如一个字段声明为Integer类型，我们也可以将一个字符串存入，一个字段声明为布尔型，我们也可以存入浮点数。除非是主键被定义为Integ">
 
 
 
@@ -131,7 +111,7 @@
   };
 </script>
 
-  <title> 利用产品画布分析一款互联网产品 | Gunther's Notes </title>
+  <title> Android：SQLite数据存储 | Gunther's Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -261,7 +241,7 @@
             
             
               
-                利用产品画布分析一款互联网产品
+                Android：SQLite数据存储
               
             
           </h1>
@@ -273,8 +253,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-05T23:52:17+08:00" content="2016-12-05">
-              2016-12-05
+            <time itemprop="dateCreated" datetime="2016-12-12T18:35:08+08:00" content="2016-12-12">
+              2016-12-12
             </time>
           </span>
 
@@ -301,58 +281,68 @@
       
 
       
-        <p>首先明确两个概念</p>
-<ol>
-<li>产业地图</li>
-<li>产品画布</li>
+        <h3 id="SQLite数据库的特点"><a href="#SQLite数据库的特点" class="headerlink" title="SQLite数据库的特点"></a>SQLite数据库的特点</h3><p>SQLite，是一款轻量型的数据库，是遵守ACID(原子性、一致性、隔离性、持久性)的关联式数据库管理系统，多用于嵌入式开发中。<br>Android平台中嵌入了一个关系型数据库SQLite，和其他数据库不同的是SQLite存储数据时不区分类型，例如一个字段声明为Integer类型，我们也可以将一个字符串存入，一个字段声明为布尔型，我们也可以存入浮点数。<br>除非是主键被定义为Integer，这时只能存储64位整数，SQLite，无需安装，是Android平台自带的一个数据库。<br><a id="more"></a></p>
+<ul>
+<li><p>创建数据库的表时可以不指定数据类型，例如：</p>
+<pre><code>CREATE TABLE person(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(20))
+</code></pre></li>
+</ul>
+<ul>
+<li><p>SQLite支持大部分标准SQL语句，增删改查语句都是通用的，分页查询语句和MySQL相同</p>
+<pre><code>SELECT * FROM person LIMIT 20 OFFSET 10
+SELECT * FROM person LIMIT 10,20
+</code></pre></li>
+<li><p>SQLite与MySql的不同之处<br>主键自增长：SQLite是autoincrement，MySql是auto_increment<br>主键：SQLite主键一般定义为_id，在做查询时要求主键列名必须是_id(本身不是_id，可以起别名)，不然拿不到主键值。</p>
+</li>
+<li><p>获取可读数据库、可写数据库的区别<br>可读的数据库也有可能可以写，可读的数据库在获取实例时有可能拿到上一次可写的数据库</p>
+</li>
+</ul>
+<h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><ol>
+<li>定义类继承SQLiteOpenHelper</li>
+<li>声明构造函数，4个参数</li>
+<li>重写onCreate()方法</li>
+<li><p>重写upGrade()方法</p>
+<pre><code>public class PersonOpenHelper extends SQLiteOpenHelper {
+    public PersonOpenHelper(Context context, String name, CursorFactory factory, int version) {
+        super(context, name, factory, version);
+              }
+            public void onCreate(SQLiteDatabase db) {
+            // 数据库第一次被创建的时候执行如下sql语句创建一个person表
+            db.execSQL(&quot;create table person(id integer primary key autoincrement, name varchar(20), phone varchar(20), money integer(20),age integer(10));&quot;);
+            }
+            public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+            // 数据库的版本更新的时候执行
+            if (oldVersion == 1 &amp;&amp; newVersion == 2) {
+                db.execSQL(&quot;alter table person add column balance integer&quot;);
+            }
+            }
+
+  }
+</code></pre></li>
 </ol>
-<h2 id="什么是产业地图？"><a href="#什么是产业地图？" class="headerlink" title="什么是产业地图？"></a>什么是产业地图？</h2><p>产业地图是一种分析产业链的工具，通过将产业链中的角色标准化，引导思维，完成梳理过程。它包括四个角色：供应商、渠道商、营销媒介、用户。<br><a id="more"></a><br>下面是一幅健身领域的产业地图：<br><img src="http://ohiad05ib.bkt.clouddn.com/map.jpg" alt="enter image description here"></p>
-<h2 id="产品画布"><a href="#产品画布" class="headerlink" title="产品画布"></a>产品画布</h2><p>分析一款典型产品的商业模式，有两种主导逻辑。</p>
+<p>创建一个PersonOpenHelper类来测试上面的代码</p>
+<pre><code>public class PersonOpenHelperTest extends AndroidTestCase {
+public SQLiteDatabase getDataBase(){
+    PersonOpenHelper helper = new PersonOpenHelper(getContext(), &quot;person.db&quot;, null, 1);
+    SQLiteDatabase writableDatabase = helper.getWritableDatabase();
+    return writableDatabase;
+    }
+}
+</code></pre><p>执行完上面代码后，通过DDMS，查看/data/data/com.包名.sqlite/databases目录，发现产生了两个文件，person.db和person.db-journal。其中第一个文件就是我们的数据库文件。</p>
+<p>第一次操作数据库时，person.db-journal文件会被自动创建，该文件是sqlite的一个临时的日志文件，主要用于sqlite数据库的事务回滚操作了。 但是Android系统中将该文件永久的保存在磁盘中，不会被自动清除的，如果没有操作异常或者不需要事务回滚时，此文件的大小为0。这种机制避免了每次生成和删除person.db-journal文件的开销。</p>
+<p>在测试类中创建该类对象，调用getWritableDatabase()或者getReadableDatabase()：如果数据库不存在，创建数据库文件，执行onCreate()方法，并获取数据库对象。如果数据库存在，版本号没有发生改变，直接获取数据库对象。如果数据库存在，版本号提升，先执行onUpgrade()方法，再获取数据库对象。</p>
+<p>数据库并不是初始化MyHelper时创建。如果版本号降低，应用降级。并且不重写onDowngrade，就会调用父类的onDowngrade方法，抛出异常。一般不重写，没这个需求。</p>
+<h3 id="SQLiteDataBase自带的增删改查"><a href="#SQLiteDataBase自带的增删改查" class="headerlink" title="SQLiteDataBase自带的增删改查"></a>SQLiteDataBase自带的增删改查</h3><p>SQLiteDatabase专门提供了对应于添加（insert）、删除（delete）、更新（update）、查询（query）的操作方法。</p>
+<p>这些方法封装了部分SQL语句，通过参数进行拼接，这些方法实际上是给那些不太了解SQL语法的开发者使用的。对于熟悉SQL语法的程序员而言，直接使用execSQL()和rawQuery()方法执行SQL语句就能完成数据的添加、删除、更新、查询操作。</p>
+<p>这四个方法主要是在使用内容提供者时使用，因为ContentProvider中提供的增删改查方法，与这一套一样，方便调用传参。(等学完ContentProvider自然明白)<br>insert(“表名”,nullColumnHack,””,contentValue)</p>
 <ol>
-<li>营销逻辑<br>关心产品的业务关系。用户的痛点是什么？解决方案是什么？关键核心指标是什么？</li>
-<li>财务逻辑<br>关心成本和收益。产品的发展情况？盈利能力如何？运营是不是有效率？</li>
+<li>nullColumnHack:如果写null，就无法插入一条空数据（2.3会出异常，4.0之后可以写null）</li>
+<li>如果想插入空数据，第二个参数必须写一个列名（任意列）</li>
+<li>这个列名是用来拼接sql语句的，如果contentValue为空，则后台不知道表的列名，无法构建sql语句</li>
+<li>ContentValue:键值对：键对应列明，值对应插入的值</li>
+<li>返回值 long id，插入的主键id</li>
 </ol>
-<p>那么产品画布的框架可以有效地将两者结合起来：<br><img src="http://ohiad05ib.bkt.clouddn.com/product.jpg" alt="enter image description here"></p>
-<h3 id="一-用户痛点"><a href="#一-用户痛点" class="headerlink" title="一.用户痛点"></a>一.用户痛点</h3><p>用户迫切的需求。</p>
-<h3 id="二-解决方案"><a href="#二-解决方案" class="headerlink" title="二.解决方案"></a>二.解决方案</h3><p>罗列产品的特性，筛选后留下核心的竞争力的功能。</p>
-<h3 id="三-关键指标"><a href="#三-关键指标" class="headerlink" title="三.关键指标"></a>三.关键指标</h3><p>围绕核心业务，得到关键指标。<br>比如滴滴打车，共享经济方式，解决乘客端便捷打车、司机端提升座位利用率的需求。这是个基于效率最大化的业务模式，所以提升运营效率是关键。<br>滴滴打车的核心关键指标是乘客上车时间，是乘客从发起打车需求到开始乘车的时间间隔。<br>围绕滴滴打车的核心业务，关键指标不是打车的人越多越好，不是在线的车越多越好，是乘客的乘车需求与附近车辆的座位空置率的匹配度。</p>
-<p>明确围绕核心业务的关键指标，可以方便了对应产品的业务发展状态。<br><img src="http://ohiad05ib.bkt.clouddn.com/didi.jpg" alt="enter image description here"></p>
-<h3 id="四-独特卖点"><a href="#四-独特卖点" class="headerlink" title="四.独特卖点"></a>四.独特卖点</h3><p>目标用户为什么选择这款产品，而不是其他？<br>针对用户的痛点，同时对比其他产品，这款产品，能够提供什么特别的价值？ 解决方案的优势是什么？<br>可以拆分两个层面去思考：</p>
-<ol>
-<li>基本属性</li>
-<li>尖叫属性</li>
-</ol>
-<p>我们可以思考一下自己常用的产品，我们为什么选择了它？<br>电商我喜欢用京东。<br>自营可信赖、品类丰富、评价真实，属于基本属性。<br>物流闪电速度、配送员专业，属于尖叫属性。</p>
-<h3 id="五-核心资源"><a href="#五-核心资源" class="headerlink" title="五.核心资源"></a>五.核心资源</h3><p>借助核心资源是帮助产品突出重围。<br>关键资源一般包括：</p>
-<ol>
-<li>资本，拥有雄厚的资金实力，方便开展市场活动，例如，外卖红包大战。</li>
-<li>专利，拥有IP，例如，网红Papi酱的视频。</li>
-<li>人力，拥有某行业人力，例如，医生专家资源。</li>
-<li>背景，拥有强大的合作伙伴，例如，开发小程序，腾讯系公司可以拿到微信社交API，而其他公司不可以。</li>
-</ol>
-<h3 id="六-渠道"><a href="#六-渠道" class="headerlink" title="六.渠道"></a>六.渠道</h3><p>渠道可以划分为线下渠道和线上渠道。</p>
-<ol>
-<li>线下渠道<br>聘请地推团队推广、做平面广告、线下用户活动等。<br>互联网虽然强大，但很多冷启动时的互联网产品，也会选择建设地推团队在做线下推广。地推常见的方式是，扫码送礼物、发传单优惠券等。</li>
-<li>线上渠道<br>KOL合作、Campaign、Native Ads（原生广告：在网站、APP中正常内容一样的广告）、Coop Branding等。</li>
-</ol>
-<h3 id="七-用户细分"><a href="#七-用户细分" class="headerlink" title="七.用户细分"></a>七.用户细分</h3><p>用户细分，是营销中的STP理论，包含三个部分：市场细分（Segmentation）、目标市场选择（Targeting）和定位（Position）。<br>这对于早期产品尤为重要，针对细分市场，提供细分用户的定向服务，精细化培育种子用户，为产品发展打下基础，例如知乎早期的注册邀请机制。<br>用户细分有两个大的维度，基本属性和行为属性。</p>
-<ol>
-<li>基本属性：年龄、性别、职业、地区等。</li>
-<li>行为属性：兴趣爱好、使用场合、忠诚度等。</li>
-</ol>
-<h3 id="八-成本结构"><a href="#八-成本结构" class="headerlink" title="八.成本结构"></a>八.成本结构</h3><p>互联网行业，成本包括：</p>
-<ol>
-<li>固定成本：人力、服务器、办公场地等。</li>
-<li>可变成本：根绝产品阶段不同对应的运营推广费用等。</li>
-</ol>
-<h3 id="九-收入来源"><a href="#九-收入来源" class="headerlink" title="九.收入来源"></a>九.收入来源</h3><p>互联网产品的商业变现模式，具体问题具体分析，此处只简单罗列 。<br>对于一款APP来说，可以包含：</p>
-<ol>
-<li>一次性付费下载（MindNode）</li>
-<li>付费试用内部高级功能（印象笔记）</li>
-<li>内部广告（游戏广告）</li>
-<li>付费会员（视频产品）<br>……</li>
-</ol>
-<p>下面是虾米音乐App的简单产品画布分析：<br><img src="http://ohiad05ib.bkt.clouddn.com/xiami.jpg" alt="enter image description here"></p>
+<p>delete(“表名”,条件，条件值)，返回受影响的行数。<br>update(“表名”,contentValues(更新列、值),条件，条件值)，返回受影响的行数<br>query(“表名”, 查询的字段, 条件, 条件值);</p>
 
       
     </div>
@@ -377,16 +367,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/03/LogicThinking/" rel="next" title="如何进行零秒思考？">
-                <i class="fa fa-chevron-left"></i> 如何进行零秒思考？
+              <a href="/2016/12/12/SharedPreferenceDemoLearning/" rel="next" title="Android：SharedPreference实例详解">
+                <i class="fa fa-chevron-left"></i> Android：SharedPreference实例详解
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/12/10/UserCharacterAnalysis/" rel="prev" title="从一个小事例来谈用户特征分析方法论">
-                从一个小事例来谈用户特征分析方法论 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/12/AndroidInfrastructure/" rel="prev" title="Android：架构概述">
+                Android：架构概述 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -534,7 +524,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是产业地图？"><span class="nav-number">1.</span> <span class="nav-text">什么是产业地图？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#产品画布"><span class="nav-number">2.</span> <span class="nav-text">产品画布</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-用户痛点"><span class="nav-number">2.1.</span> <span class="nav-text">一.用户痛点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-解决方案"><span class="nav-number">2.2.</span> <span class="nav-text">二.解决方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-关键指标"><span class="nav-number">2.3.</span> <span class="nav-text">三.关键指标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-独特卖点"><span class="nav-number">2.4.</span> <span class="nav-text">四.独特卖点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五-核心资源"><span class="nav-number">2.5.</span> <span class="nav-text">五.核心资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六-渠道"><span class="nav-number">2.6.</span> <span class="nav-text">六.渠道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七-用户细分"><span class="nav-number">2.7.</span> <span class="nav-text">七.用户细分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#八-成本结构"><span class="nav-number">2.8.</span> <span class="nav-text">八.成本结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#九-收入来源"><span class="nav-number">2.9.</span> <span class="nav-text">九.收入来源</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQLite数据库的特点"><span class="nav-number">1.</span> <span class="nav-text">SQLite数据库的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建数据库"><span class="nav-number">2.</span> <span class="nav-text">创建数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQLiteDataBase自带的增删改查"><span class="nav-number">3.</span> <span class="nav-text">SQLiteDataBase自带的增删改查</span></a></li></ol></div>
             
           </div>
         </section>

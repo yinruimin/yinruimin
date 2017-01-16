@@ -84,15 +84,25 @@
 
 
 
-<meta name="description" content="把生命浪费在美好的事物上">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Gunther's Notes">
-<meta property="og:url" content="http://gunther.top/archives/index.html">
+<meta name="description" content="系统架构图及各层介绍
+Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。
+Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android：架构概述">
+<meta property="og:url" content="http://gunther.top/2016/12/12/AndroidInfrastructure/index.html">
 <meta property="og:site_name" content="Gunther's Notes">
-<meta property="og:description" content="把生命浪费在美好的事物上">
+<meta property="og:description" content="系统架构图及各层介绍
+Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。
+Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。">
+<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/%E6%9E%B6%E6%9E%84.jpg">
+<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/dvm.png">
+<meta property="og:updated_time" content="2017-01-15T05:45:38.164Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gunther's Notes">
-<meta name="twitter:description" content="把生命浪费在美好的事物上">
+<meta name="twitter:title" content="Android：架构概述">
+<meta name="twitter:description" content="系统架构图及各层介绍
+Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。
+Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。">
+<meta name="twitter:image" content="http://ohiad05ib.bkt.clouddn.com/%E6%9E%B6%E6%9E%84.jpg">
 
 
 
@@ -110,7 +120,7 @@
   };
 </script>
 
-  <title> 归档 | Gunther's Notes </title>
+  <title> Android：架构概述 | Gunther's Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -141,7 +151,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -219,408 +229,134 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 17 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/01/09/WeChatSmallProgramAnalysis/" itemprop="url">
-              
-                <span itemprop="name">对微信小程序的一些观察和思考</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-01-09T15:12:20+08:00"
-              content="2017-01-09" >
-          01-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/01/04/KeepProductGrowing/" itemprop="url">
-              
-                <span itemprop="name">Keep产品发展概述</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-01-04T20:27:48+08:00"
-              content="2017-01-04" >
-          01-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/12/18/NetEaseYanXuan/" itemprop="url">
-              
-                <span itemprop="name">网易严选：实用消费主义的探路者</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-12-18T15:29:52+08:00"
-              content="2016-12-18" >
-          12-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/12/14/FragmentLifecycle/" itemprop="url">
-              
-                <span itemprop="name">Android：Fragment生命周期概述</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-12-14T12:04:15+08:00"
-              content="2016-12-14" >
-          12-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/12/13/ContentProviderDemoLearning/" itemprop="url">
-              
-                <span itemprop="name">Android：ContentProvider使用说明</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-12-13T14:53:54+08:00"
-              content="2016-12-13" >
-          12-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/12/13/ServiceLearningForTwoBind/" itemprop="url">
-              
-                <span itemprop="name">Android：Service两种绑定方式详解</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-12-13T14:32:04+08:00"
-              content="2016-12-13" >
-          12-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/12/13/BroadcastReceiverDemoLearning/" itemprop="url">
-              
-                <span itemprop="name">Android：BroadcastReceiver实例详解</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-12-13T14:08:20+08:00"
-              content="2016-12-13" >
-          12-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/12/13/ActivityLifecycle/" itemprop="url">
-              
-                <span itemprop="name">Android：Activity生命周期使用说明</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-12-13T13:46:12+08:00"
-              content="2016-12-13" >
-          12-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/12/12/AndroidInfrastructure/" itemprop="url">
-              
-                <span itemprop="name">Android：架构概述</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-12-12T22:27:51+08:00"
-              content="2016-12-12" >
-          12-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/12/12/SQLiteIO/" itemprop="url">
-              
-                <span itemprop="name">Android：SQLite数据存储</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-12-12T18:35:08+08:00"
-              content="2016-12-12" >
-          12-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
 
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android：架构概述
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-12T22:27:51+08:00" content="2016-12-12">
+              2016-12-12
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
 
 
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="系统架构图及各层介绍"><a href="#系统架构图及各层介绍" class="headerlink" title="系统架构图及各层介绍"></a>系统架构图及各层介绍</h3><ol>
+<li>Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。</li>
+<li><p>Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。</p>
+<a id="more"></a>
+</li>
+<li><p>Libraries系统运行库（C/C++库以及Android运行库）层：当使用Android应用框架时，Android系统会通过一些C/C++库来支持我们使用的各个组件，使其更好的为我们服务，比如其中的SQLite（关系数据库），Webkit（Web浏览器引擎）。</p>
+</li>
+<li>Linux Kernel内核层：Android的核心系统服务给予Linux2.6内核，如安全性、内存管理、进程管理、网络协议栈和驱动模型等都依赖于该内核，比如Binder IPC(Internet Process Connection进程间通信)驱动，android的一个特殊驱动程序，具有单独的设备节点，提供进程间通信的功能。</li>
+</ol>
+<p><img src="http://ohiad05ib.bkt.clouddn.com/%E6%9E%B6%E6%9E%84.jpg" alt="Alt text"></p>
+<h3 id="Dalvik-VM和JVM的区别"><a href="#Dalvik-VM和JVM的区别" class="headerlink" title="Dalvik VM和JVM的区别"></a>Dalvik VM和JVM的区别</h3><ol>
+<li>传统JVM<br>编写.java文件—-编译为.class文件—-打包成.jar文件，将java源码编译为class文件，然后将一组class打包成jar。基于栈结构，栈存储于内存中，所以需要用到内存空间</li>
+<li>Dalvik VM<br>编写.java文件—-编译为.class文件—-打包成.dex文件—-打包成.apk文件。将一组class编译为一个dex文件，然后有的平台为了更高的效率会将一个dex转换成odex文件。将N多个class文件编译为一个dex，这样执行效率会比较快，更适合在移动平台运行。基于寄存器的结构，寄存器在cpu中，所以用到cpu的空间</li>
+<li>DVM与JVM的区别：<br><img src="http://ohiad05ib.bkt.clouddn.com/dvm.png" alt=""></li>
+<li>ART模式概述<br>ART模式是Android Runtime的简称，从Android 4.2开始出现。在Android 4.2以前，安卓手机系统的应用程序均在Dalvik Java的虚拟机上运行，这种运行模式是还要依靠一个编译器来实现与应用程序的沟通。应程序每次运行时，都需要将程序内的代码及时转变为机器码才能运行，这无形中多附加了一道手续，这就造成了耗电相对较快、占用内存大、即使是旗舰机用久了也会卡顿严重的现象。<br>ART模式通过在安装应用程序时，自动对程序进行代码预读取编译，让程序直接编译成机器语言，免去了Dalvik模式要时时转换代码，实现高效率、省电、占用更低的系统内存、手机运行流畅。但凡事总有正反两面，ART在解决了该问题的同时，同时也有如：会占用略高一些的存储空间、安装程序时要相比普通Dalvik模式要长一些时间来实现预编译。</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/12/SQLiteIO/" rel="next" title="Android：SQLite数据存储">
+                <i class="fa fa-chevron-left"></i> Android：SQLite数据存储
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/13/ActivityLifecycle/" rel="prev" title="Android：Activity生命周期使用说明">
+                Android：Activity生命周期使用说明 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -628,6 +364,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -647,8 +387,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://ohiad05ib.bkt.clouddn.com/438084239885581295.jpg"
@@ -731,6 +480,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#系统架构图及各层介绍"><span class="nav-number">1.</span> <span class="nav-text">系统架构图及各层介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dalvik-VM和JVM的区别"><span class="nav-number">2.</span> <span class="nav-text">Dalvik VM和JVM的区别</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -827,11 +587,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
 
 
   
