@@ -84,25 +84,16 @@
 
 
 
-<meta name="description" content="系统架构图及各层介绍
-Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。
-Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。">
+<meta name="description" content="零秒思考阅读，写作是培养逻辑思维能力的正道，但是要想短时间有一定的收获，需要一些相当有技巧的办法，最近看了一本叫《零秒思考》的书，介绍了一种锻炼思维的方法，每天花费10分钟到20分钟，坚持一段时间， 思维能力会提升不少，能够很有效的帮助你快住抓住问题的核心，清晰的表达">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android：架构概述">
-<meta property="og:url" content="http://yoursite.com/2016/12/12/Android架构概述/index.html">
+<meta property="og:title" content="如何进行零秒思考？">
+<meta property="og:url" content="http://yoursite.com/2016/12/03/logicthinking/index.html">
 <meta property="og:site_name" content="Gunther's Notes">
-<meta property="og:description" content="系统架构图及各层介绍
-Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。
-Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。">
-<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/%E6%9E%B6%E6%9E%84.jpg">
-<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/dvm.png">
-<meta property="og:updated_time" content="2017-01-15T05:45:38.164Z">
+<meta property="og:description" content="零秒思考阅读，写作是培养逻辑思维能力的正道，但是要想短时间有一定的收获，需要一些相当有技巧的办法，最近看了一本叫《零秒思考》的书，介绍了一种锻炼思维的方法，每天花费10分钟到20分钟，坚持一段时间， 思维能力会提升不少，能够很有效的帮助你快住抓住问题的核心，清晰的表达">
+<meta property="og:updated_time" content="2017-01-09T07:25:40.845Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android：架构概述">
-<meta name="twitter:description" content="系统架构图及各层介绍
-Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。
-Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。">
-<meta name="twitter:image" content="http://ohiad05ib.bkt.clouddn.com/%E6%9E%B6%E6%9E%84.jpg">
+<meta name="twitter:title" content="如何进行零秒思考？">
+<meta name="twitter:description" content="零秒思考阅读，写作是培养逻辑思维能力的正道，但是要想短时间有一定的收获，需要一些相当有技巧的办法，最近看了一本叫《零秒思考》的书，介绍了一种锻炼思维的方法，每天花费10分钟到20分钟，坚持一段时间， 思维能力会提升不少，能够很有效的帮助你快住抓住问题的核心，清晰的表达">
 
 
 
@@ -120,7 +111,7 @@ Application Framework应用框架层：这一层是编写Google发布的核心�
   };
 </script>
 
-  <title> Android：架构概述 | Gunther's Notes </title>
+  <title> 如何进行零秒思考？ | Gunther's Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -250,7 +241,7 @@ Application Framework应用框架层：这一层是编写Google发布的核心�
             
             
               
-                Android：架构概述
+                如何进行零秒思考？
               
             
           </h1>
@@ -262,8 +253,8 @@ Application Framework应用框架层：这一层是编写Google发布的核心�
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-12T22:27:51+08:00" content="2016-12-12">
-              2016-12-12
+            <time itemprop="dateCreated" datetime="2016-12-03T22:00:33+08:00" content="2016-12-03">
+              2016-12-03
             </time>
           </span>
 
@@ -290,22 +281,13 @@ Application Framework应用框架层：这一层是编写Google发布的核心�
       
 
       
-        <h3 id="系统架构图及各层介绍"><a href="#系统架构图及各层介绍" class="headerlink" title="系统架构图及各层介绍"></a>系统架构图及各层介绍</h3><ol>
-<li>Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。</li>
-<li><p>Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。</p>
-<a id="more"></a>
-</li>
-<li><p>Libraries系统运行库（C/C++库以及Android运行库）层：当使用Android应用框架时，Android系统会通过一些C/C++库来支持我们使用的各个组件，使其更好的为我们服务，比如其中的SQLite（关系数据库），Webkit（Web浏览器引擎）。</p>
-</li>
-<li>Linux Kernel内核层：Android的核心系统服务给予Linux2.6内核，如安全性、内存管理、进程管理、网络协议栈和驱动模型等都依赖于该内核，比如Binder IPC(Internet Process Connection进程间通信)驱动，android的一个特殊驱动程序，具有单独的设备节点，提供进程间通信的功能。</li>
-</ol>
-<p><img src="http://ohiad05ib.bkt.clouddn.com/%E6%9E%B6%E6%9E%84.jpg" alt="Alt text"></p>
-<h3 id="Dalvik-VM和JVM的区别"><a href="#Dalvik-VM和JVM的区别" class="headerlink" title="Dalvik VM和JVM的区别"></a>Dalvik VM和JVM的区别</h3><ol>
-<li>传统JVM<br>编写.java文件—-编译为.class文件—-打包成.jar文件，将java源码编译为class文件，然后将一组class打包成jar。基于栈结构，栈存储于内存中，所以需要用到内存空间</li>
-<li>Dalvik VM<br>编写.java文件—-编译为.class文件—-打包成.dex文件—-打包成.apk文件。将一组class编译为一个dex文件，然后有的平台为了更高的效率会将一个dex转换成odex文件。将N多个class文件编译为一个dex，这样执行效率会比较快，更适合在移动平台运行。基于寄存器的结构，寄存器在cpu中，所以用到cpu的空间</li>
-<li>DVM与JVM的区别：<br><img src="http://ohiad05ib.bkt.clouddn.com/dvm.png" alt=""></li>
-<li>ART模式概述<br>ART模式是Android Runtime的简称，从Android 4.2开始出现。在Android 4.2以前，安卓手机系统的应用程序均在Dalvik Java的虚拟机上运行，这种运行模式是还要依靠一个编译器来实现与应用程序的沟通。应程序每次运行时，都需要将程序内的代码及时转变为机器码才能运行，这无形中多附加了一道手续，这就造成了耗电相对较快、占用内存大、即使是旗舰机用久了也会卡顿严重的现象。<br>ART模式通过在安装应用程序时，自动对程序进行代码预读取编译，让程序直接编译成机器语言，免去了Dalvik模式要时时转换代码，实现高效率、省电、占用更低的系统内存、手机运行流畅。但凡事总有正反两面，ART在解决了该问题的同时，同时也有如：会占用略高一些的存储空间、安装程序时要相比普通Dalvik模式要长一些时间来实现预编译。</li>
-</ol>
+        <h3 id="零秒思考"><a href="#零秒思考" class="headerlink" title="零秒思考"></a>零秒思考</h3><p>阅读，写作是培养逻辑思维能力的正道，但是要想短时间有一定的收获，需要一些相当有技巧的办法，最近看了一本叫《零秒思考》的书，介绍了一种锻炼思维的方法，每天花费10分钟到20分钟，坚持一段时间， 思维能力会提升不少，能够很有效的帮助你快住抓住问题的核心，清晰的表达<br><a id="more"></a></p>
+<h3 id="一个想法的产生到终结的过程："><a href="#一个想法的产生到终结的过程：" class="headerlink" title="一个想法的产生到终结的过程："></a>一个想法的产生到终结的过程：</h3><p>1.情感涌现<br>2.想法浮现<br>3.整理思考<br>4.某种程度浮现的语言<br>5.做笔记<br>6.着手解决问题</p>
+<h3 id="怎样进行零秒思考？"><a href="#怎样进行零秒思考？" class="headerlink" title="怎样进行零秒思考？"></a>怎样进行零秒思考？</h3><p>工具：A4纸，中性笔<br>写作方式：每一页左上角标题，标题下方正文，日期<br>时间控制：每天10页，每页1分到2分</p>
+<h3 id="这种思考方式的本质是什么？"><a href="#这种思考方式的本质是什么？" class="headerlink" title="这种思考方式的本质是什么？"></a>这种思考方式的本质是什么？</h3><p>本质是逻辑树的深入挖掘，大多数人在出现想法的时候，总是犹豫不决，原地转圈，而照这样的情况发展下去，同样的问题还是会在相同的情境之下跳出来困扰你，将思考的这些事情，记录下来，这些事情就大致得到了解决，烦恼，问题也会锐减，对自我的认知也会更加深刻，不要想10个是不是有一点少，每天想10个完全不一样的问题也不是一件你容易的事情</p>
+<h3 id="为什么不建议使用软件或者笔记本？"><a href="#为什么不建议使用软件或者笔记本？" class="headerlink" title="为什么不建议使用软件或者笔记本？"></a>为什么不建议使用软件或者笔记本？</h3><p>从行为路径上来说，使用软件的操作流程和笔记本的流程是这样的，打开手机或者电脑–打开软件–建立空白文档–打字–保存，属于同步行为，拿出纸和笔–记录，属于异步路径，行为路径太长会是让自己的想法流失，从思路整理的角度来说，笔记本有着刻意的顺序，而想法是无序的，对于思路的整理有一定的约束性，使用A4纸是为了 后期进行一些主题整理，而且使用成本低，像意识流写作一样，随想随写</p>
+<h3 id="笔记如何整理？"><a href="#笔记如何整理？" class="headerlink" title="笔记如何整理？"></a>笔记如何整理？</h3><p>建议使用一个文件夹来存放A4纸单页，一个月一整</p>
+<h3 id="有什么注意的？"><a href="#有什么注意的？" class="headerlink" title="有什么注意的？"></a>有什么注意的？</h3><p>标题可以是问句，陈述句，切记是在整理思路，不要刻意的去强调格式，如果在这基础上发展出了自己的一种整理方式，那再好不过了，坚持100天，你会发现大不同</p>
 
       
     </div>
@@ -330,16 +312,16 @@ Application Framework应用框架层：这一层是编写Google发布的核心�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/12/SQLite数据存储/" rel="next" title="Android：SQLite数据存储">
-                <i class="fa fa-chevron-left"></i> Android：SQLite数据存储
+              <a href="/2016/12/01/mdgrammer/" rel="next" title="Markdown 语法">
+                <i class="fa fa-chevron-left"></i> Markdown 语法
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/12/13/Activity生命周期_详解/" rel="prev" title="Android：Activity生命周期&详解">
-                Android：Activity生命周期&详解 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/05/productmap/" rel="prev" title="利用产品画布分析一款互联网产品">
+                利用产品画布分析一款互联网产品 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -487,7 +469,7 @@ Application Framework应用框架层：这一层是编写Google发布的核心�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#系统架构图及各层介绍"><span class="nav-number">1.</span> <span class="nav-text">系统架构图及各层介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dalvik-VM和JVM的区别"><span class="nav-number">2.</span> <span class="nav-text">Dalvik VM和JVM的区别</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#零秒思考"><span class="nav-number">1.</span> <span class="nav-text">零秒思考</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一个想法的产生到终结的过程："><span class="nav-number">2.</span> <span class="nav-text">一个想法的产生到终结的过程：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎样进行零秒思考？"><span class="nav-number">3.</span> <span class="nav-text">怎样进行零秒思考？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#这种思考方式的本质是什么？"><span class="nav-number">4.</span> <span class="nav-text">这种思考方式的本质是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么不建议使用软件或者笔记本？"><span class="nav-number">5.</span> <span class="nav-text">为什么不建议使用软件或者笔记本？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#笔记如何整理？"><span class="nav-number">6.</span> <span class="nav-text">笔记如何整理？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有什么注意的？"><span class="nav-number">7.</span> <span class="nav-text">有什么注意的？</span></a></li></ol></div>
             
           </div>
         </section>

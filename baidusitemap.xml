@@ -3,8 +3,9 @@
 
 
     
+    
   <url>
-    <loc>http://yoursite.com/2016/12/18/%E7%BD%91%E6%98%93%E4%B8%A5%E9%80%89_%E5%AE%9E%E7%94%A8%E6%B6%88%E8%B4%B9%E4%B8%BB%E4%B9%89%E7%9A%84%E6%8E%A2%E8%B7%AF%E8%80%85/</loc>
+    <loc>http://yoursite.com/2016/12/18/%E7%BD%91%E6%98%93%E4%B8%A5%E9%80%89%E5%AE%9E%E7%94%A8%E6%B6%88%E8%B4%B9%E4%B8%BB%E4%B9%89%E7%9A%84%E6%8E%A2%E8%B7%AF%E8%80%85/</loc>
     <lastmod>2017-01-15T05:45:57.374Z</lastmod>
     <data>
         <display>
@@ -34,7 +35,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/12/14/Android_Fragment%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A6%82%E8%BF%B0/</loc>
+    <loc>http://yoursite.com/2016/12/14/Fragment%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A6%82%E8%BF%B0/</loc>
     <lastmod>2017-01-15T05:40:15.826Z</lastmod>
     <data>
         <display>
@@ -49,7 +50,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/12/13/Android_Service%E4%B8%A4%E7%A7%8D%E7%BB%91%E5%AE%9A%E6%96%B9%E5%BC%8F%E8%AF%A6%E8%A7%A3/</loc>
+    <loc>http://yoursite.com/2016/12/13/Service%E4%B8%A4%E7%A7%8D%E7%BB%91%E5%AE%9A%E6%96%B9%E5%BC%8F%E8%AF%A6%E8%A7%A3/</loc>
     <lastmod>2017-01-15T05:30:29.633Z</lastmod>
     <data>
         <display>
@@ -64,7 +65,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/12/13/Android_ContentProvider%E5%AE%9E%E4%BE%8B%E8%AF%A6%E8%A7%A3/</loc>
+    <loc>http://yoursite.com/2016/12/13/ContentProvider%E5%AE%9E%E4%BE%8B%E8%AF%A6%E8%A7%A3/</loc>
     <lastmod>2017-01-15T05:29:45.906Z</lastmod>
     <data>
         <display>
@@ -79,7 +80,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/12/13/Android_BroadcastReceiver%E5%AE%9E%E4%BE%8B%E8%AF%A6%E8%A7%A3/</loc>
+    <loc>http://yoursite.com/2016/12/13/BroadcastReceiver%E5%AE%9E%E4%BE%8B%E8%AF%A6%E8%A7%A3/</loc>
     <lastmod>2017-01-15T05:29:20.745Z</lastmod>
     <data>
         <display>
@@ -94,7 +95,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/12/13/Android_Activity%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F_%E8%AF%A6%E8%A7%A3/</loc>
+    <loc>http://yoursite.com/2016/12/13/Activity%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F_%E8%AF%A6%E8%A7%A3/</loc>
     <lastmod>2017-01-15T05:29:03.575Z</lastmod>
     <data>
         <display>
@@ -109,7 +110,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/12/12/Android_SQLite%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/</loc>
+    <loc>http://yoursite.com/2016/12/12/SQLite%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8/</loc>
     <lastmod>2017-01-15T05:25:59.708Z</lastmod>
     <data>
         <display>
@@ -124,7 +125,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/12/12/Android_SharedPreference%E5%AE%9E%E4%BE%8B%E8%AF%A6%E8%A7%A3/</loc>
+    <loc>http://yoursite.com/2016/12/12/SharedPreference%E5%AE%9E%E4%BE%8B%E8%AF%A6%E8%A7%A3/</loc>
     <lastmod>2017-01-15T05:25:09.060Z</lastmod>
     <data>
         <display>
@@ -154,7 +155,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/12/10/axure-movie/</loc>
+    <loc>http://yoursite.com/2016/12/10/axuremovie/</loc>
     <lastmod>2017-01-09T07:26:39.377Z</lastmod>
     <data>
         <display>
@@ -169,7 +170,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/11/14/hello-world/</loc>
+    <loc>http://yoursite.com/2016/11/14/helloworld/</loc>
     <lastmod>2017-01-09T07:26:27.323Z</lastmod>
     <data>
         <display>
@@ -199,7 +200,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/12/03/logic_thinking/</loc>
+    <loc>http://yoursite.com/2016/12/03/logicthinking/</loc>
     <lastmod>2017-01-09T07:25:40.845Z</lastmod>
     <data>
         <display>
@@ -229,7 +230,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/12/05/product-map/</loc>
+    <loc>http://yoursite.com/2016/12/05/productmap/</loc>
     <lastmod>2017-01-09T07:25:09.870Z</lastmod>
     <data>
         <display>
@@ -244,7 +245,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/12/10/user-character-analysis/</loc>
+    <loc>http://yoursite.com/2016/12/10/usercharacteranalysis/</loc>
     <lastmod>2017-01-09T07:24:56.288Z</lastmod>
     <data>
         <display>

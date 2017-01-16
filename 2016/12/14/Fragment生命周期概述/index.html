@@ -84,25 +84,30 @@
 
 
 
-<meta name="description" content="系统架构图及各层介绍
-Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。
-Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。">
+<meta name="description" content="简介
+使用说明
+生命周期
+
+简介Fragment就是小型的Activity，它是在Android3.0时出现的。Fragment是表现Activity中UI的一个行为或者一部分。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android：架构概述">
-<meta property="og:url" content="http://yoursite.com/2016/12/12/Android架构概述/index.html">
+<meta property="og:title" content="Android：Fragment生命周期概述">
+<meta property="og:url" content="http://yoursite.com/2016/12/14/Fragment生命周期概述/index.html">
 <meta property="og:site_name" content="Gunther's Notes">
-<meta property="og:description" content="系统架构图及各层介绍
-Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。
-Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。">
-<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/%E6%9E%B6%E6%9E%84.jpg">
-<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/dvm.png">
-<meta property="og:updated_time" content="2017-01-15T05:45:38.164Z">
+<meta property="og:description" content="简介
+使用说明
+生命周期
+
+简介Fragment就是小型的Activity，它是在Android3.0时出现的。Fragment是表现Activity中UI的一个行为或者一部分。">
+<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/fragment_lifecycle.png">
+<meta property="og:updated_time" content="2017-01-15T05:40:15.826Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android：架构概述">
-<meta name="twitter:description" content="系统架构图及各层介绍
-Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。
-Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。">
-<meta name="twitter:image" content="http://ohiad05ib.bkt.clouddn.com/%E6%9E%B6%E6%9E%84.jpg">
+<meta name="twitter:title" content="Android：Fragment生命周期概述">
+<meta name="twitter:description" content="简介
+使用说明
+生命周期
+
+简介Fragment就是小型的Activity，它是在Android3.0时出现的。Fragment是表现Activity中UI的一个行为或者一部分。">
+<meta name="twitter:image" content="http://ohiad05ib.bkt.clouddn.com/fragment_lifecycle.png">
 
 
 
@@ -120,7 +125,7 @@ Application Framework应用框架层：这一层是编写Google发布的核心�
   };
 </script>
 
-  <title> Android：架构概述 | Gunther's Notes </title>
+  <title> Android：Fragment生命周期概述 | Gunther's Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -250,7 +255,7 @@ Application Framework应用框架层：这一层是编写Google发布的核心�
             
             
               
-                Android：架构概述
+                Android：Fragment生命周期概述
               
             
           </h1>
@@ -262,8 +267,8 @@ Application Framework应用框架层：这一层是编写Google发布的核心�
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-12T22:27:51+08:00" content="2016-12-12">
-              2016-12-12
+            <time itemprop="dateCreated" datetime="2016-12-14T12:04:15+08:00" content="2016-12-14">
+              2016-12-14
             </time>
           </span>
 
@@ -290,22 +295,85 @@ Application Framework应用框架层：这一层是编写Google发布的核心�
       
 
       
-        <h3 id="系统架构图及各层介绍"><a href="#系统架构图及各层介绍" class="headerlink" title="系统架构图及各层介绍"></a>系统架构图及各层介绍</h3><ol>
-<li>Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。</li>
-<li><p>Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。</p>
-<a id="more"></a>
-</li>
-<li><p>Libraries系统运行库（C/C++库以及Android运行库）层：当使用Android应用框架时，Android系统会通过一些C/C++库来支持我们使用的各个组件，使其更好的为我们服务，比如其中的SQLite（关系数据库），Webkit（Web浏览器引擎）。</p>
-</li>
-<li>Linux Kernel内核层：Android的核心系统服务给予Linux2.6内核，如安全性、内存管理、进程管理、网络协议栈和驱动模型等都依赖于该内核，比如Binder IPC(Internet Process Connection进程间通信)驱动，android的一个特殊驱动程序，具有单独的设备节点，提供进程间通信的功能。</li>
+        <ol>
+<li>简介</li>
+<li>使用说明</li>
+<li>生命周期</li>
 </ol>
-<p><img src="http://ohiad05ib.bkt.clouddn.com/%E6%9E%B6%E6%9E%84.jpg" alt="Alt text"></p>
-<h3 id="Dalvik-VM和JVM的区别"><a href="#Dalvik-VM和JVM的区别" class="headerlink" title="Dalvik VM和JVM的区别"></a>Dalvik VM和JVM的区别</h3><ol>
-<li>传统JVM<br>编写.java文件—-编译为.class文件—-打包成.jar文件，将java源码编译为class文件，然后将一组class打包成jar。基于栈结构，栈存储于内存中，所以需要用到内存空间</li>
-<li>Dalvik VM<br>编写.java文件—-编译为.class文件—-打包成.dex文件—-打包成.apk文件。将一组class编译为一个dex文件，然后有的平台为了更高的效率会将一个dex转换成odex文件。将N多个class文件编译为一个dex，这样执行效率会比较快，更适合在移动平台运行。基于寄存器的结构，寄存器在cpu中，所以用到cpu的空间</li>
-<li>DVM与JVM的区别：<br><img src="http://ohiad05ib.bkt.clouddn.com/dvm.png" alt=""></li>
-<li>ART模式概述<br>ART模式是Android Runtime的简称，从Android 4.2开始出现。在Android 4.2以前，安卓手机系统的应用程序均在Dalvik Java的虚拟机上运行，这种运行模式是还要依靠一个编译器来实现与应用程序的沟通。应程序每次运行时，都需要将程序内的代码及时转变为机器码才能运行，这无形中多附加了一道手续，这就造成了耗电相对较快、占用内存大、即使是旗舰机用久了也会卡顿严重的现象。<br>ART模式通过在安装应用程序时，自动对程序进行代码预读取编译，让程序直接编译成机器语言，免去了Dalvik模式要时时转换代码，实现高效率、省电、占用更低的系统内存、手机运行流畅。但凡事总有正反两面，ART在解决了该问题的同时，同时也有如：会占用略高一些的存储空间、安装程序时要相比普通Dalvik模式要长一些时间来实现预编译。</li>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Fragment就是小型的Activity，它是在Android3.0时出现的。Fragment是表现Activity中UI的一个行为或者一部分。<br><a id="more"></a><br>可以把fragment想象成activity的一个模块化区域，有它自己的生命周期，接收属于它自己的输入事件，并且可以在activity运行期间添加和删除<strong>（有点像一个可以在不同的activity中重用的子Activity）</strong>。</p>
+<p>Fragment必须被嵌入到一个activity中。它们的生命周期直接受其宿主activity的生命周期影响。当一个activity正在运行时，就可以独立地操作每一个Fragment，比如添加或删除它们。</p>
+<p>Fragment可以定义自己的布局、生命周期回调方法，因此可以将fragment重用到多个activity中，因此可以根据不同的屏幕尺寸或者使用场合改变fragment组合。</p>
+<h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><p><strong>如何创建Fragment</strong></p>
+<ol>
+<li>为Fragment定义一个布局</li>
+<li>定义类继承Fragment</li>
+<li>重写类中的onCreateView方法，返回一个View对象作为当前Fragment的布局。</li>
 </ol>
+<p>fragment第一次绘制它的用户界面的时候，系统会调用onCreateView()方法。为了绘制fragment的UI，此方法必须返回一个作为fragment布局的根的view。如果fragment不提供UI，可以返回null。</p>
+<pre><code>public class ExampleFragment extends Fragment {
+@Override
+public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    View view = inflater.inflate(R.layout.fragment_example, null);
+    return view;
+}
+}
+</code></pre><p><strong>如何将Fragment添加到Activity</strong><br>Activity必须在清单文件中进行声明，但是Fragment不需要，Fragment只需要在Activity的布局文件中声明就可以了。</p>
+<pre><code>&lt;fragment 
+    android:id=&quot;@+id/fmt_title&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:name=&quot;com.gunther.fragment.exampleFragment&quot;
+    /&gt;
+</code></pre><p>当系统创建这个activity layout时，它实例化每一个在layout中指定的Fragment，并调用它们的onCreateView()方法，来获取每一个Fragment的layout，系统将从Fragment返回的View 直接插入到<fragment>元素所在的地方。</fragment></p>
+<p>每一个fragment都需要一个唯一的标识，如果activity重启，系统可以用来恢复Fragment，并且可以用id来捕获Fragment来处理事务，例如移除它。<br>有3种方法来为一个fragment提供一个ID，具体如下所示：</p>
+<ol>
+<li>为android:id属性提供一个唯一ID;</li>
+<li>为android:tag属性提供一个唯一字符串;</li>
+<li>如果以上2个你都没有提供，系统将使用容器view的ID;</li>
+</ol>
+<p><strong>如何切换Fragment</strong><br>要在activity中管理Fragment，需要使用FragmentManager可以通过调用activity的getFragmentManager()取得它的实例。<br>案例：点击不同的按钮切换到不同的Fragment进行显示。具体实现步骤：</p>
+<ol>
+<li>设置布局文件：添加三个按钮用于切换Fragment，并在按钮下方添加一个FrameLayout用来替换成响应的Fragment。</li>
+<li>创建三个Fragment，SportsFragment、NewsFragment、GameFragment。</li>
+</ol>
+<pre><code>public class SportsFragment extends Fragment {
+@Override
+public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    View view = inflater.inflate(R.layout.fragment_sports, null);
+    return view;
+}
+}
+</code></pre><p>其余两个Fragment跟SportsFragment代码一致，只是布局文件不同。</p>
+<ol>
+<li><p>添加切换Fragment的逻辑，这个是新闻频道按钮的点击事件</p>
+<pre><code>public void news(View view){
+    //获取Fragment管理器对象
+    FragmentManager manager = getFragmentManager();
+    //开启事务
+    FragmentTransaction transaction = manager.beginTransaction();
+    //将FrameLayout控件替换成Fragment对象
+    transaction.replace(R.id.frame, new NewsFragment());
+    //提交事务
+    transaction.commit();
+}
+</code></pre><p>sports()法，games()法同上</p>
+</li>
+</ol>
+<h3 id="Fragment的生命周期"><a href="#Fragment的生命周期" class="headerlink" title="Fragment的生命周期"></a>Fragment的生命周期</h3><p>Fragment的生命周期和activity生命周期很像，其生命周期方法如下所示。</p>
+<ol>
+<li>onAttach：绑定到activity</li>
+<li>onCreate：创建fragment</li>
+<li>onCreateView： 创建fragment的布局</li>
+<li>onActivityCreated： activity创建完成后</li>
+<li>onStart： 可见, 不可交互</li>
+<li>onResume： 可见, 可交互</li>
+<li>onPause： 部分可见, 不可交互</li>
+<li>onStop：不可见</li>
+<li>onDestroyView： 销毁fragment的view对象</li>
+<li>onDestroy： fragment销毁了</li>
+<li>onDetach： 从activity解绑了</li>
+</ol>
+<p><img src="http://ohiad05ib.bkt.clouddn.com/fragment_lifecycle.png" alt="fragment lifecycle|center"></p>
 
       
     </div>
@@ -330,16 +398,16 @@ Application Framework应用框架层：这一层是编写Google发布的核心�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/12/SQLite数据存储/" rel="next" title="Android：SQLite数据存储">
-                <i class="fa fa-chevron-left"></i> Android：SQLite数据存储
+              <a href="/2016/12/13/ContentProvider实例详解/" rel="next" title="Android：ContentProvider使用说明">
+                <i class="fa fa-chevron-left"></i> Android：ContentProvider使用说明
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/12/13/Activity生命周期_详解/" rel="prev" title="Android：Activity生命周期&详解">
-                Android：Activity生命周期&详解 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/18/网易严选实用消费主义的探路者/" rel="prev" title="网易严选：实用消费主义的探路者">
+                网易严选：实用消费主义的探路者 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -487,7 +555,7 @@ Application Framework应用框架层：这一层是编写Google发布的核心�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#系统架构图及各层介绍"><span class="nav-number">1.</span> <span class="nav-text">系统架构图及各层介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dalvik-VM和JVM的区别"><span class="nav-number">2.</span> <span class="nav-text">Dalvik VM和JVM的区别</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用说明"><span class="nav-number">2.</span> <span class="nav-text">使用说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fragment的生命周期"><span class="nav-number">3.</span> <span class="nav-text">Fragment的生命周期</span></a></li></ol></div>
             
           </div>
         </section>

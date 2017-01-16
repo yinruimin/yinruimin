@@ -84,25 +84,31 @@
 
 
 
-<meta name="description" content="系统架构图及各层介绍
-Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。
-Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。">
+<meta name="description" content="在Android系统中，常用的数据储存方式有四种：
+
+存储在手机内存中ROM
+存储在SD卡中
+存储在SharedPreferences中
+存储在SQLite数据库中">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android：架构概述">
-<meta property="og:url" content="http://yoursite.com/2016/12/12/Android架构概述/index.html">
+<meta property="og:title" content="Android：SharedPreference实例详解">
+<meta property="og:url" content="http://yoursite.com/2016/12/12/SharedPreference实例详解/index.html">
 <meta property="og:site_name" content="Gunther's Notes">
-<meta property="og:description" content="系统架构图及各层介绍
-Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。
-Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。">
-<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/%E6%9E%B6%E6%9E%84.jpg">
-<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/dvm.png">
-<meta property="og:updated_time" content="2017-01-15T05:45:38.164Z">
+<meta property="og:description" content="在Android系统中，常用的数据储存方式有四种：
+
+存储在手机内存中ROM
+存储在SD卡中
+存储在SharedPreferences中
+存储在SQLite数据库中">
+<meta property="og:updated_time" content="2017-01-15T05:25:09.060Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android：架构概述">
-<meta name="twitter:description" content="系统架构图及各层介绍
-Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。
-Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。">
-<meta name="twitter:image" content="http://ohiad05ib.bkt.clouddn.com/%E6%9E%B6%E6%9E%84.jpg">
+<meta name="twitter:title" content="Android：SharedPreference实例详解">
+<meta name="twitter:description" content="在Android系统中，常用的数据储存方式有四种：
+
+存储在手机内存中ROM
+存储在SD卡中
+存储在SharedPreferences中
+存储在SQLite数据库中">
 
 
 
@@ -120,7 +126,7 @@ Application Framework应用框架层：这一层是编写Google发布的核心�
   };
 </script>
 
-  <title> Android：架构概述 | Gunther's Notes </title>
+  <title> Android：SharedPreference实例详解 | Gunther's Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -250,7 +256,7 @@ Application Framework应用框架层：这一层是编写Google发布的核心�
             
             
               
-                Android：架构概述
+                Android：SharedPreference实例详解
               
             
           </h1>
@@ -262,7 +268,7 @@ Application Framework应用框架层：这一层是编写Google发布的核心�
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-12T22:27:51+08:00" content="2016-12-12">
+            <time itemprop="dateCreated" datetime="2016-12-12T18:10:46+08:00" content="2016-12-12">
               2016-12-12
             </time>
           </span>
@@ -290,23 +296,148 @@ Application Framework应用框架层：这一层是编写Google发布的核心�
       
 
       
-        <h3 id="系统架构图及各层介绍"><a href="#系统架构图及各层介绍" class="headerlink" title="系统架构图及各层介绍"></a>系统架构图及各层介绍</h3><ol>
-<li>Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。</li>
-<li><p>Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。</p>
+        <p>在Android系统中，常用的数据储存方式有四种：</p>
+<ol>
+<li>存储在手机内存中ROM</li>
+<li>存储在SD卡中</li>
+<li>存储在SharedPreferences中</li>
+<li><p>存储在SQLite数据库中</p>
 <a id="more"></a>
+<p>在这里只介绍Android特有的SP和SQLite</p>
+<h3 id="SharedPreferences"><a href="#SharedPreferences" class="headerlink" title="SharedPreferences"></a>SharedPreferences</h3><p>SharedPreferences是Android平台上一个轻量级的存储类，主要是保存一些常用的配置，它提供了Android平台常规的Long、Int、String字符串型的保存。</p>
+<p>SharedPreferences类似过去Windows系统上的ini配置文件，但是它分为多种权限，可以全局共享访问，整体效率来看不是特别的高，对于常规的轻量级而言比SQLite要好不少，如果真的存储量不大可以考虑自己定义文件格式。</p>
 </li>
-<li><p>Libraries系统运行库（C/C++库以及Android运行库）层：当使用Android应用框架时，Android系统会通过一些C/C++库来支持我们使用的各个组件，使其更好的为我们服务，比如其中的SQLite（关系数据库），Webkit（Web浏览器引擎）。</p>
-</li>
-<li>Linux Kernel内核层：Android的核心系统服务给予Linux2.6内核，如安全性、内存管理、进程管理、网络协议栈和驱动模型等都依赖于该内核，比如Binder IPC(Internet Process Connection进程间通信)驱动，android的一个特殊驱动程序，具有单独的设备节点，提供进程间通信的功能。</li>
 </ol>
-<p><img src="http://ohiad05ib.bkt.clouddn.com/%E6%9E%B6%E6%9E%84.jpg" alt="Alt text"></p>
-<h3 id="Dalvik-VM和JVM的区别"><a href="#Dalvik-VM和JVM的区别" class="headerlink" title="Dalvik VM和JVM的区别"></a>Dalvik VM和JVM的区别</h3><ol>
-<li>传统JVM<br>编写.java文件—-编译为.class文件—-打包成.jar文件，将java源码编译为class文件，然后将一组class打包成jar。基于栈结构，栈存储于内存中，所以需要用到内存空间</li>
-<li>Dalvik VM<br>编写.java文件—-编译为.class文件—-打包成.dex文件—-打包成.apk文件。将一组class编译为一个dex文件，然后有的平台为了更高的效率会将一个dex转换成odex文件。将N多个class文件编译为一个dex，这样执行效率会比较快，更适合在移动平台运行。基于寄存器的结构，寄存器在cpu中，所以用到cpu的空间</li>
-<li>DVM与JVM的区别：<br><img src="http://ohiad05ib.bkt.clouddn.com/dvm.png" alt=""></li>
-<li>ART模式概述<br>ART模式是Android Runtime的简称，从Android 4.2开始出现。在Android 4.2以前，安卓手机系统的应用程序均在Dalvik Java的虚拟机上运行，这种运行模式是还要依靠一个编译器来实现与应用程序的沟通。应程序每次运行时，都需要将程序内的代码及时转变为机器码才能运行，这无形中多附加了一道手续，这就造成了耗电相对较快、占用内存大、即使是旗舰机用久了也会卡顿严重的现象。<br>ART模式通过在安装应用程序时，自动对程序进行代码预读取编译，让程序直接编译成机器语言，免去了Dalvik模式要时时转换代码，实现高效率、省电、占用更低的系统内存、手机运行流畅。但凡事总有正反两面，ART在解决了该问题的同时，同时也有如：会占用略高一些的存储空间、安装程序时要相比普通Dalvik模式要长一些时间来实现预编译。</li>
-</ol>
+<p>xml 处理时Dalvik会通过自带底层的本地XML Parser解析，比如XMLpull方式，这样对于内存资源占用比较好。</p>
+<p>这种方式应该是用起来最简单的Android读写外部数据的方法了。他以一种简单、 透明的方式来保存一些用户个性化设置的字体、颜色、位置等参数信息。一般的应用程序都会提供“设置”或者“首选项”的这样的界面，那么这些设置最后就可以通过Preferences来保存，而程序员不需要知道它到底以什么形式保存的，保存在了什么地方。当然，如果你愿意保存其他的东西，也没有什么限制。只是在性能上不知道会有什么问题。<br>在Android系统中该文件保存在：/data/data/PACKAGE_NAME /shared_prefs 目录下。<br>下面是一个使用SP做数据存储模拟用户登录的案例：<br>布局文件：</p>
+<pre><code>&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+android:layout_width=&quot;match_parent&quot;
+android:layout_height=&quot;match_parent&quot;
+android:orientation=&quot;vertical&quot;
+tools:context=&quot;.MainActivity&quot; &gt;
+&lt;EditText 
+    android:layout_marginTop=&quot;10dp&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:hint=&quot;请输入用户名&quot;
+    android:id=&quot;@+id/et_username&quot;
+    /&gt;
+&lt;EditText 
+    android:layout_marginTop=&quot;10dp&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:hint=&quot;请输入密码&quot;
+    android:inputType=&quot;textPassword&quot;
+    android:id=&quot;@+id/et_pwd&quot;
+    /&gt;
+    &lt;LinearLayout 
+    android:layout_marginTop=&quot;10dp&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:orientation=&quot;horizontal&quot;
+    android:gravity=&quot;right&quot;
+    &gt;
+    &lt;Button 
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;登陆&quot;
+        android:onClick=&quot;login&quot;
+        /&gt;
+    &lt;CheckBox 
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;保存密码&quot;
+         android:layout_marginRight=&quot;10dp&quot;
+         android:id=&quot;@+id/cb&quot;
+        /&gt;
+&lt;/LinearLayout&gt;
+&lt;/LinearLayout&gt;
+</code></pre><p>案例代码：</p>
+<pre><code>public class MainActivity extends Activity {
+private EditText et_username;
+private EditText et_pwd;
+private CheckBox cb;
+//声明一个SharedPreferences对象
+private SharedPreferences sp;
+/*
+ * 为了方便，因此将用户名和密码设置为常量
+ */
+private static final String PWD = &quot;123456&quot;;
+private static final String USERNAME = &quot;wzy&quot;;
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    /*
+     * 第二个参数代表的是创建该文件的访问范围（权限），通常并建议选择MODE_PRIVATE，该值为0，
+     * 意思是只有当前应用可以访问该文件。而还有2个可选项MODE_WORLD_READABLE 和MODE_WORLD_WRITEABLE
+     * 值分别为1和2已经废除，因为这两种方式可以允许其他应用来访问此文件，这是很不安全的。
+     */
+    sp = getSharedPreferences(&quot;info&quot;, MODE_PRIVATE);
+    et_username = (EditText) findViewById(R.id.et_username);
+    et_pwd = (EditText) findViewById(R.id.et_pwd);
+    cb = (CheckBox) findViewById(R.id.cb);
+    /*
 
+
+ * 从sp中获取用户信息，用户数据的回显
+     * 第二个参数为默认返回值，也就是当要查找的key-value不存在时，返回的数据
+     */
+    String username = sp.getString(&quot;username&quot;, &quot;&quot;);
+    String pwd = sp.getString(&quot;pwd&quot;, &quot;&quot;);
+    et_username.setText(username);
+    et_pwd.setText(pwd);
+}
+
+public void login(View view){
+    String userName = et_username.getText().toString();
+    String pwd = et_pwd.getText().toString();
+    boolean checked = cb.isChecked();
+    /*
+     * 用户名和密码如果为空，则提示用户。
+     */
+    if (TextUtils.isEmpty(userName)) {
+        Toast.makeText(this, &quot;用户名不能为空！&quot;, Toast.LENGTH_SHORT).show();
+        return ;
+    }
+    if (TextUtils.isEmpty(pwd)) {
+        Toast.makeText(this, &quot;密码不能为空！&quot;, Toast.LENGTH_SHORT).show();
+        return ;
+    }
+    /*
+     * 如果用户选择了保存密码,则将用户名和密码保存在手机内存中
+     * 如果没有选择就将文件删除
+     */
+if (USERNAME.equals(userName)&amp;&amp;PWD.equals(pwd)) {
+        if (checked) {
+            /*
+             * 在对sp进行写、修改需要获取Editor对象
+             */
+            Editor editor = sp.edit();
+            editor.putString(&quot;username&quot;, userName);
+            editor.putString(&quot;pwd&quot;, pwd);
+            /*
+             * 此处非常重要，执行完修改或者写操作后只有调用sp的commit方法，数据才会被保存下来。
+             */
+            editor.commit();
+
+
+}else {//删除用户文件
+            Editor editor = sp.edit();
+            /*
+             * 删除该sp中的所有数据
+             */
+            editor.clear();
+            editor.commit();
+        }
+        Toast.makeText(this, &quot;恭喜您，登陆成功！&quot;, Toast.LENGTH_SHORT).show();
+    }else {
+        Toast.makeText(this, &quot;对不起，登陆失败！&quot;, Toast.LENGTH_SHORT).show();
+    }
+}
+}
+</code></pre>
       
     </div>
 
@@ -330,16 +461,16 @@ Application Framework应用框架层：这一层是编写Google发布的核心�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/12/SQLite数据存储/" rel="next" title="Android：SQLite数据存储">
-                <i class="fa fa-chevron-left"></i> Android：SQLite数据存储
+              <a href="/2016/12/10/axuremovie/" rel="next" title="Axure7.0绘制电影App交互原型图例">
+                <i class="fa fa-chevron-left"></i> Axure7.0绘制电影App交互原型图例
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/12/13/Activity生命周期_详解/" rel="prev" title="Android：Activity生命周期&详解">
-                Android：Activity生命周期&详解 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/12/SQLite数据存储/" rel="prev" title="Android：SQLite数据存储">
+                Android：SQLite数据存储 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -487,7 +618,7 @@ Application Framework应用框架层：这一层是编写Google发布的核心�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#系统架构图及各层介绍"><span class="nav-number">1.</span> <span class="nav-text">系统架构图及各层介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dalvik-VM和JVM的区别"><span class="nav-number">2.</span> <span class="nav-text">Dalvik VM和JVM的区别</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#SharedPreferences"><span class="nav-number">1.</span> <span class="nav-text">SharedPreferences</span></a></li></ol></div>
             
           </div>
         </section>
