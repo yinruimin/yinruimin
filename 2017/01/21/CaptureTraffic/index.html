@@ -84,28 +84,30 @@
 
 
 
-<meta name="description" content="场景：在某陌生人社交平台上，每次上线之后，都会有很多陌生女性主动发起对话，以一些诱导的方式进行索取微信或者QQ账号，使得平台的聊天环境变得比较恶劣，如果我是该平台产品经理，针对这个案例会如何做用户分析，并且制定相应的解决方案？
-
-个体分析从后台调取数据进行用户行为分析
-抽离用户信息：">
+<meta name="description" content="下载Fiddler客户端
+配置Fiddler Options
+将手机与电脑置于同一网络，配置手机端证书
+Fiddler客户端开始Capture Traffic">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从一个小事例来谈用户特征分析方法论">
-<meta property="og:url" content="http://gunther.top/2016/12/10/UserCharacterAnalysis/index.html">
+<meta property="og:title" content="利用Fiddler抓取Android客户端HTTPS链接">
+<meta property="og:url" content="http://gunther.top/2017/01/21/CaptureTraffic/index.html">
 <meta property="og:site_name" content="Gunther's Notes">
-<meta property="og:description" content="场景：在某陌生人社交平台上，每次上线之后，都会有很多陌生女性主动发起对话，以一些诱导的方式进行索取微信或者QQ账号，使得平台的聊天环境变得比较恶劣，如果我是该平台产品经理，针对这个案例会如何做用户分析，并且制定相应的解决方案？
-
-个体分析从后台调取数据进行用户行为分析
-抽离用户信息：">
-<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/feature_analysis.png">
-<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/critical_path.png">
-<meta property="og:updated_time" content="2017-01-09T07:24:56.288Z">
+<meta property="og:description" content="下载Fiddler客户端
+配置Fiddler Options
+将手机与电脑置于同一网络，配置手机端证书
+Fiddler客户端开始Capture Traffic">
+<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/fiddler_1.png">
+<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/fiddler_2.png">
+<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/app_option.png">
+<meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/capture.png">
+<meta property="og:updated_time" content="2017-01-21T13:48:18.381Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从一个小事例来谈用户特征分析方法论">
-<meta name="twitter:description" content="场景：在某陌生人社交平台上，每次上线之后，都会有很多陌生女性主动发起对话，以一些诱导的方式进行索取微信或者QQ账号，使得平台的聊天环境变得比较恶劣，如果我是该平台产品经理，针对这个案例会如何做用户分析，并且制定相应的解决方案？
-
-个体分析从后台调取数据进行用户行为分析
-抽离用户信息：">
-<meta name="twitter:image" content="http://ohiad05ib.bkt.clouddn.com/feature_analysis.png">
+<meta name="twitter:title" content="利用Fiddler抓取Android客户端HTTPS链接">
+<meta name="twitter:description" content="下载Fiddler客户端
+配置Fiddler Options
+将手机与电脑置于同一网络，配置手机端证书
+Fiddler客户端开始Capture Traffic">
+<meta name="twitter:image" content="http://ohiad05ib.bkt.clouddn.com/fiddler_1.png">
 
 
 
@@ -123,7 +125,7 @@
   };
 </script>
 
-  <title> 从一个小事例来谈用户特征分析方法论 | Gunther's Notes </title>
+  <title> 利用Fiddler抓取Android客户端HTTPS链接 | Gunther's Notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -253,7 +255,7 @@
             
             
               
-                从一个小事例来谈用户特征分析方法论
+                利用Fiddler抓取Android客户端HTTPS链接
               
             
           </h1>
@@ -265,8 +267,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-10T10:43:46+08:00" content="2016-12-10">
-              2016-12-10
+            <time itemprop="dateCreated" datetime="2017-01-21T21:42:12+08:00" content="2017-01-21">
+              2017-01-21
             </time>
           </span>
 
@@ -293,43 +295,21 @@
       
 
       
-        <blockquote>
-<p>场景：在某陌生人社交平台上，每次上线之后，都会有很多陌生女性主动发起对话，以一些诱导的方式进行索取微信或者QQ账号，使得平台的聊天环境变得比较恶劣，如果我是该平台产品经理，针对这个案例会如何做用户分析，并且制定相应的解决方案？</p>
-</blockquote>
-<h2 id="个体分析"><a href="#个体分析" class="headerlink" title="个体分析"></a>个体分析</h2><p>从后台调取数据进行用户行为分析</p>
-<p>抽离用户信息：<br><a id="more"></a><br><img src="http://ohiad05ib.bkt.clouddn.com/feature_analysis.png" alt="用户画像分析"></p>
-<p>用户行为分析：</p>
-<ul>
-<li>在短时间内加很多人</li>
-<li>在线时间极长</li>
-<li>ID用一段时间就作废了</li>
-<li>回复非常快</li>
-<li>主动发起对话</li>
-<li>前20个聊天记录中，包含QQ号码</li>
-<li>注册完就马上加一堆好友</li>
-</ul>
-<h2 id="关键路径"><a href="#关键路径" class="headerlink" title="关键路径"></a>关键路径</h2><ul>
-<li>猜测关键关键的行为有哪些？</li>
-<li>明确特征的算法</li>
-<li>命中行为的路径是什么？</li>
-</ul>
-<p><img src="http://ohiad05ib.bkt.clouddn.com/critical_path.png" alt="命中行为量化指标"></p>
-<p>抽象出的关键路径：</p>
-<p>注册——&gt;疯狂加人——&gt;诱导式聊天——&gt;跳出平台</p>
-<h2 id="验证分析"><a href="#验证分析" class="headerlink" title="验证分析"></a>验证分析</h2><ul>
-<li>把关键行为特征交叉后调出数据，然后验证</li>
-<li>命中率：有多少命中策略的数据被调取出来了</li>
-<li>准确率：调出的数据中，准确率是多少</li>
-<li>优化数据，调整粒度</li>
-</ul>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><ul>
-<li>用户特征分析越详实，解决方案越准确 </li>
-<li>假设上述算法筛选的数据是准确无误的，则可以指定相关方案给这种用户警告或者封号，能够减少这种损害平台的行为</li>
-</ul>
-<h2 id="用户特征分析的逻辑顺序"><a href="#用户特征分析的逻辑顺序" class="headerlink" title="用户特征分析的逻辑顺序"></a>用户特征分析的逻辑顺序</h2><ul>
-<li>个体分析——&gt;关键路径——&gt;验证分析——&gt;解决方案</li>
-<li>行为分析是重中之重</li>
-</ul>
+        <ol>
+<li>下载Fiddler客户端</li>
+<li>配置Fiddler Options</li>
+<li>将手机与电脑置于同一网络，配置手机端证书</li>
+<li>Fiddler客户端开始Capture Traffic</li>
+</ol>
+<a id="more"></a>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p><a href="https://www.telerik.com/download/fiddler" target="_blank" rel="external">Fiddler Free Download</a></p>
+<h3 id="配置Fiddler-Options"><a href="#配置Fiddler-Options" class="headerlink" title="配置Fiddler Options"></a>配置Fiddler Options</h3><p><img src="http://ohiad05ib.bkt.clouddn.com/fiddler_1.png" alt=""><br><img src="http://ohiad05ib.bkt.clouddn.com/fiddler_2.png" alt=""></p>
+<h3 id="配置手机端证书"><a href="#配置手机端证书" class="headerlink" title="配置手机端证书"></a>配置手机端证书</h3><p>查看PC的IP地址，端口Fiddler默认为8888，在手机浏览器输入ip和端口，下载证书<br><img src="http://ohiad05ib.bkt.clouddn.com/app_option.png" alt=""></p>
+<h3 id="Capture-Traffic"><a href="#Capture-Traffic" class="headerlink" title="Capture Traffic"></a>Capture Traffic</h3><p><img src="http://ohiad05ib.bkt.clouddn.com/capture.png" alt=""></p>
+<h3 id="TIPS"><a href="#TIPS" class="headerlink" title="TIPS:"></a>TIPS:</h3><ol>
+<li>只能抓常规APP的https包，某些金融类APP对https证书进行了校验，还需要将Fiddler代理服务器的证书导到Android设备上才能抓这些APP的包</li>
+<li><a href="http://www.guokr.com/post/114121/" target="_blank" rel="external">HTTPS知识拓展</a></li>
+</ol>
 
       
     </div>
@@ -354,17 +334,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/05/ProductMap/" rel="next" title="利用产品画布分析一款互联网产品">
-                <i class="fa fa-chevron-left"></i> 利用产品画布分析一款互联网产品
+              <a href="/2017/01/09/WeChatSmallProgramAnalysis/" rel="next" title="对微信小程序的一些观察和思考">
+                <i class="fa fa-chevron-left"></i> 对微信小程序的一些观察和思考
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/10/axuremovie/" rel="prev" title="Axure7.0绘制电影App交互原型图例">
-                Axure7.0绘制电影App交互原型图例 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -511,7 +487,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#个体分析"><span class="nav-number">1.</span> <span class="nav-text">个体分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关键路径"><span class="nav-number">2.</span> <span class="nav-text">关键路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#验证分析"><span class="nav-number">3.</span> <span class="nav-text">验证分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方案"><span class="nav-number">4.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户特征分析的逻辑顺序"><span class="nav-number">5.</span> <span class="nav-text">用户特征分析的逻辑顺序</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载"><span class="nav-number">1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置Fiddler-Options"><span class="nav-number">2.</span> <span class="nav-text">配置Fiddler Options</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置手机端证书"><span class="nav-number">3.</span> <span class="nav-text">配置手机端证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Capture-Traffic"><span class="nav-number">4.</span> <span class="nav-text">Capture Traffic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TIPS"><span class="nav-number">5.</span> <span class="nav-text">TIPS:</span></a></li></ol></div>
             
           </div>
         </section>
