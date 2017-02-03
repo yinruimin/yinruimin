@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://gunther.top/2016/12/12/AndroidInfrastructure/</loc>
+    
+    <lastmod>2017-02-03T02:57:38.016Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://gunther.top/2016/12/12/SharedPreferenceDemoLearning/</loc>
+    
+    <lastmod>2017-02-03T02:57:20.890Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://gunther.top/2017/01/22/AndroidSupportAnnotations/</loc>
     
     <lastmod>2017-01-22T07:08:37.295Z</lastmod>
@@ -37,13 +51,6 @@
   </url>
   
   <url>
-    <loc>http://gunther.top/2016/12/12/AndroidInfrastructure/</loc>
-    
-    <lastmod>2017-01-15T05:45:38.164Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://gunther.top/2016/12/14/FragmentLifecycle/</loc>
     
     <lastmod>2017-01-15T05:40:15.826Z</lastmod>
@@ -75,13 +82,6 @@
     <loc>http://gunther.top/2016/12/12/SQLiteIO/</loc>
     
     <lastmod>2017-01-15T05:25:59.708Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://gunther.top/2016/12/12/SharedPreferenceDemoLearning/</loc>
-    
-    <lastmod>2017-01-15T05:25:09.060Z</lastmod>
     
   </url>
   

@@ -96,7 +96,7 @@ Applications应用层：应用是用Java语言编写的运行在虚拟机上的�
 Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。">
 <meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/%E6%9E%B6%E6%9E%84.jpg">
 <meta property="og:image" content="http://ohiad05ib.bkt.clouddn.com/dvm.png">
-<meta property="og:updated_time" content="2017-01-15T05:45:38.164Z">
+<meta property="og:updated_time" content="2017-02-03T02:57:38.016Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android：架构概述">
 <meta name="twitter:description" content="系统架构图及各层介绍
@@ -315,11 +315,11 @@ Application Framework应用框架层：这一层是编写Google发布的核心�
       
         <h3 id="系统架构图及各层介绍"><a href="#系统架构图及各层介绍" class="headerlink" title="系统架构图及各层介绍"></a>系统架构图及各层介绍</h3><ol>
 <li>Applications应用层：应用是用Java语言编写的运行在虚拟机上的程序，比如Email客户端，SMS短消息程序，日历等。</li>
-<li><p>Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。</p>
+<li>Application Framework应用框架层：这一层是编写Google发布的核心应用时所使用的API框架，开发人员同样可以使用这些框架来开发自己的应用，这样便简化了程序开发的结构设计，但是必须要遵守其框架的开发原则。</li>
+</ol>
 <a id="more"></a>
-</li>
-<li><p>Libraries系统运行库（C/C++库以及Android运行库）层：当使用Android应用框架时，Android系统会通过一些C/C++库来支持我们使用的各个组件，使其更好的为我们服务，比如其中的SQLite（关系数据库），Webkit（Web浏览器引擎）。</p>
-</li>
+<ol>
+<li>Libraries系统运行库（C/C++库以及Android运行库）层：当使用Android应用框架时，Android系统会通过一些C/C++库来支持我们使用的各个组件，使其更好的为我们服务，比如其中的SQLite（关系数据库），Webkit（Web浏览器引擎）。</li>
 <li>Linux Kernel内核层：Android的核心系统服务给予Linux2.6内核，如安全性、内存管理、进程管理、网络协议栈和驱动模型等都依赖于该内核，比如Binder IPC(Internet Process Connection进程间通信)驱动，android的一个特殊驱动程序，具有单独的设备节点，提供进程间通信的功能。</li>
 </ol>
 <p><img src="http://ohiad05ib.bkt.clouddn.com/%E6%9E%B6%E6%9E%84.jpg" alt="Alt text"></p>

@@ -4,6 +4,36 @@
 
     
   <url>
+    <loc>http://gunther.top/2016/12/12/AndroidInfrastructure/</loc>
+    <lastmod>2017-02-03T02:57:38.016Z</lastmod>
+    <data>
+        <display>
+        <title>Android：架构概述</title>
+        <pubTime>2016-12-12T14:27:51.505Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://gunther.top/2016/12/12/SharedPreferenceDemoLearning/</loc>
+    <lastmod>2017-02-03T02:57:20.890Z</lastmod>
+    <data>
+        <display>
+        <title>Android：SharedPreference实例详解</title>
+        <pubTime>2016-12-12T10:10:46.569Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://gunther.top/2017/01/22/AndroidSupportAnnotations/</loc>
     <lastmod>2017-01-22T07:08:37.295Z</lastmod>
     <data>
@@ -56,21 +86,6 @@
         <display>
         <title>网易严选：实用消费主义的探路者</title>
         <pubTime>2016-12-18T07:29:52.905Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://gunther.top/2016/12/12/AndroidInfrastructure/</loc>
-    <lastmod>2017-01-15T05:45:38.164Z</lastmod>
-    <data>
-        <display>
-        <title>Android：架构概述</title>
-        <pubTime>2016-12-12T14:27:51.505Z</pubTime>
         
          
            
@@ -146,21 +161,6 @@
         <display>
         <title>Android：SQLite数据存储</title>
         <pubTime>2016-12-12T10:35:08.106Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://gunther.top/2016/12/12/SharedPreferenceDemoLearning/</loc>
-    <lastmod>2017-01-15T05:25:09.060Z</lastmod>
-    <data>
-        <display>
-        <title>Android：SharedPreference实例详解</title>
-        <pubTime>2016-12-12T10:10:46.569Z</pubTime>
         
          
            
