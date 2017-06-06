@@ -108,7 +108,7 @@ Class对象的机制与实现
 Field对象的机制与实现
 
 Method对象的机制与实现">
-<meta property="og:updated_time" content="2017-06-06T15:09:51.584Z">
+<meta property="og:updated_time" content="2017-06-06T15:17:42.403Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java反射机制Review">
 <meta name="twitter:description" content="最近想对Retrofit做一次源码分析，里面涉及到很多诸如反射和动态代理等一些Java特性，先回顾一下
@@ -345,7 +345,7 @@ Method对象的机制与实现">
 </li>
 </ol>
 <a id="more"></a>
-<p>###反射机制背景概述<br>Reflection是java被视为动态或准动态语言的一个关键性质，反射机制指的是程序在运行时能够获取人和类的内部所有信息</p>
+<h3 id="反射机制背景概述"><a href="#反射机制背景概述" class="headerlink" title="反射机制背景概述"></a>反射机制背景概述</h3><p>Reflection是java被视为动态或准动态语言的一个关键性质，反射机制指的是程序在运行时能够获取人和类的内部所有信息</p>
 <ul>
 <li>反射机制实现功能概述</li>
 </ul>
@@ -356,7 +356,7 @@ Method对象的机制与实现">
 <li>在运行时可以获取到类中，弗雷中所有方法，并调用</li>
 <li>目前主流的应用框架如Struts2，Hibernate，Spring，SpringMVC等框架的核心都是利用java的反射机制来实现的</li>
 </ol>
-<p>###Class对象的机制与实现<br>class其实就是类的类型,字符串类型是String，整形类型就是Integer，String和Integer类型就是Class</p>
+<h3 id="Class对象的机制与实现"><a href="#Class对象的机制与实现" class="headerlink" title="Class对象的机制与实现"></a>Class对象的机制与实现</h3><p>class其实就是类的类型,字符串类型是String，整形类型就是Integer，String和Integer类型就是Class</p>
 <p>getName() 获取类中完整名称<br>getDeclaredFields()取类中所有属性<br>getDeclaredmethods() 获取类中所有的方法<br>getConstructor() 获取类构造方法<br>getInstance()实例化对象</p>
 <p>class对象操作</p>
 <pre><code>public class ClazzTest {
@@ -687,7 +687,7 @@ public void showUse(Object ob) {
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Field对象的机制与实现"><span class="nav-number">1.</span> <span class="nav-text">Field对象的机制与实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Method对象的机制与实现"><span class="nav-number">2.</span> <span class="nav-text">Method对象的机制与实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#反射机制背景概述"><span class="nav-number">1.</span> <span class="nav-text">反射机制背景概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Class对象的机制与实现"><span class="nav-number">2.</span> <span class="nav-text">Class对象的机制与实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Field对象的机制与实现"><span class="nav-number">3.</span> <span class="nav-text">Field对象的机制与实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Method对象的机制与实现"><span class="nav-number">4.</span> <span class="nav-text">Method对象的机制与实现</span></a></li></ol></div>
             
           </div>
         </section>
